@@ -31,6 +31,10 @@ public:
         return e;
     }
 
+    string get_context() {
+        return context;
+    }
+
 
 private:
     string context;

@@ -7,14 +7,15 @@ using namespace std;
 
 vector<string> parse(const string &context);
 
-vector<Node> create_nodes(vector<string> words);
+vector<Node *> create_nodes(const vector<string> &words);
 
 int open_file(const char *filename, string &context);
 
 int main(int argc, char *argv[]) {
     string context;
     open_file("/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/Testfile.txt", context);
-    parse(context);
+    vector<string> words = parse(context);
+    create_nodes(words);
     return 0;
 }
 
@@ -54,12 +55,23 @@ vector<string> parse(const string &context) {   /* 解析单词的函数 */
             words.push_back(word);
         }
     }
-    for (const auto& word: words) {
-        cout << word << endl;
-    }
+//    for (const auto &word: words) {
+//        cout << word << endl;
+//    }
     return words;
 }
 
-vector<Node> create_nodes(vector<string> words) {
+vector<Node *> create_nodes(const vector<string> &words) {
+    vector<Node *> nodes;
+    for (const auto &word: words) {
+        Node *n = new Node(word);
+        nodes.push_back(n);
+    }
+    int nodes_size = int(nodes.size());
+    for (int i = 0; i < nodes_size; i++) {
+        for (int j = i + 1; j < nodes_size; j++) {
 
+        }
+    }
+    return nodes;
 }
