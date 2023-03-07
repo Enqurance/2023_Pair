@@ -9,22 +9,24 @@ using namespace std;
 
 vector<string> parse(const string &context);
 
-int open_file(const char *filename);
+int open_file(const char *filename, string &context);
 
 int main(int argc, char *argv[]) {
-    open_file("/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/Testfile.txt");
-    parse("I have reached the top of the moun8tain and reached the bottom, both of which have benefited me a lot..");
+    string context;
+    open_file("/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/Testfile.txt", context);
+    parse(context);
     return 0;
 }
 
-int open_file(const char *filename) {   /* 读文件，目前只能读绝对路径 */
+int open_file(const char *filename, string &context) {   /* 读文件，目前只能读绝对路径 */
     ifstream file(filename, ios::in);
     if (!file.is_open()) {
         cerr << "文件打开失败！" << endl;
         return -1;
     }
-    string context, temp;
+    string temp;
     while (getline(file, temp)) {
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
         context += temp;
     }
     cout << context + "\n";
