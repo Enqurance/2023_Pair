@@ -72,11 +72,11 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_InitProject: phony || CMakeFiles/InitProject.dir
 
-build CMakeFiles/InitProject.dir/main.cpp.o: CXX_COMPILER__InitProject_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/main.cpp || cmake_object_order_depends_target_InitProject
-  DEP_FILE = CMakeFiles/InitProject.dir/main.cpp.o.d
+build CMakeFiles/InitProject.dir/src/main.cpp.o: CXX_COMPILER__InitProject_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/src/main.cpp || cmake_object_order_depends_target_InitProject
+  DEP_FILE = CMakeFiles/InitProject.dir/src/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++14
   OBJECT_DIR = CMakeFiles/InitProject.dir
-  OBJECT_FILE_DIR = CMakeFiles/InitProject.dir
+  OBJECT_FILE_DIR = CMakeFiles/InitProject.dir/src
   TARGET_COMPILE_PDB = CMakeFiles/InitProject.dir/
   TARGET_PDB = InitProject.pdb
 
@@ -88,7 +88,7 @@ build CMakeFiles/InitProject.dir/main.cpp.o: CXX_COMPILER__InitProject_Debug /Us
 #############################################
 # Link the executable InitProject
 
-build InitProject: CXX_EXECUTABLE_LINKER__InitProject_Debug CMakeFiles/InitProject.dir/main.cpp.o
+build InitProject: CXX_EXECUTABLE_LINKER__InitProject_Debug CMakeFiles/InitProject.dir/src/main.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
   OBJECT_DIR = CMakeFiles/InitProject.dir
   POST_BUILD = :
