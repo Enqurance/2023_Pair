@@ -13,11 +13,11 @@ using namespace std;
 
 class Node {
 public:
-    // 将记录出边的形式改为了vector<int>，表示在nodes中的编号
-    vector<int> toNodes;
+    vector<Node *> toNodes;
 
-    explicit Node(string str) {
+    explicit Node(string str, int index) {
         context.append(str);
+        id = index;
         if (!str.empty()) {
             s = str[0];
             e = str[str.size() - 1];
@@ -36,13 +36,18 @@ public:
         return context;
     }
 
-    void addToNodes(int node_id) {
-        toNodes.push_back(node_id);
+    int get_id() const {
+        return id;
+    }
+
+    void addToNodes(Node *node) {
+        toNodes.push_back(node);
     }
 
 private:
     string context;
     char s, e;
+    int id;
 };
 
 
