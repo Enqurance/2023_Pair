@@ -1,13 +1,13 @@
-#include "cstdio"
-#include "cstring"
 #include "iostream"
 #include "fstream"
 #include "vector"
-#include "cstdlib"
+#include "Node.h"
 
 using namespace std;
 
 vector<string> parse(const string &context);
+
+vector<Node> create_nodes(vector<string> words);
 
 int open_file(const char *filename, string &context);
 
@@ -17,6 +17,10 @@ int main(int argc, char *argv[]) {
     parse(context);
     return 0;
 }
+
+//vector<Node> create_nodes(vector<string> words) {
+//
+//}
 
 int open_file(const char *filename, string &context) {   /* 读文件，目前只能读绝对路径 */
     ifstream file(filename, ios::in);
@@ -36,9 +40,9 @@ int open_file(const char *filename, string &context) {   /* 读文件，目前�
 
 vector<string> parse(const string &context) {   /* 解析单词的函数 */
     vector<string> words;
-    int size = context.length();
+    int size = int(context.length());
     for (int i = 0; i < size; i++) {
-        string word("");
+        string word;
         for (; i < size; i++) {
             if (isalpha(context[i])) {
                 word.append(1, context[i]);
@@ -46,12 +50,16 @@ vector<string> parse(const string &context) {   /* 解析单词的函数 */
                 break;
             }
         }
-        if (word.size() > 0) {
+        if (!word.empty()) {
             words.push_back(word);
         }
     }
-    for (auto word: words) {
+    for (const auto& word: words) {
         cout << word << endl;
     }
     return words;
+}
+
+vector<Node> create_nodes(vector<string> words) {
+
 }
