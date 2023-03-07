@@ -15,9 +15,10 @@ class Node {
 public:
     vector<Node *> toNodes;
 
-    explicit Node(string str, int index) {
+    explicit Node(string str, int index, int v) {
         context.append(str);
         id = index;
+        value = v;
         if (!str.empty()) {
             s = str[0];
             e = str[str.size() - 1];
@@ -47,7 +48,7 @@ public:
 private:
     string context;
     char s, e;
-    int id;
+    int id, value = 1;
 };
 
 

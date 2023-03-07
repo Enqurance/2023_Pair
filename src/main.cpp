@@ -20,11 +20,12 @@ void solve();
 // 读入时，单词储存相关
 vector<string> words;
 unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
+vector<Node *> nodes_with_diff_head[26];    // 不同开头的单词
 
 // 建图相关
 vector<Node *> nodes;
 int nodes_size = -1;
-int indegree[MAXN] = {0};
+int inDegree[MAXN] = {0};
 
 // 程序参数相关
 string input_file;
@@ -48,6 +49,11 @@ enum args_fault {
     additional_not_match        // 字母格式不正确
 };
 bool fault[10];         // 储存异常信息
+
+// 程序算法相关
+int dp[MAXN] = {0};
+bool vis[MAXN] = {false};
+stack<string> chain_stack;
 
 int main(int argc, char *argv[]) {
     /* 读取命令行，获取参数信息，检查冲突 */
@@ -120,8 +126,11 @@ void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size)
     }
 }
 
+
+// 读文件，输出文件
 int read_file(const std::string &filename) {   /* 读文件，目前只能读绝对路径 */
-    ifstream file(filename, ios::in);
+    ifstream file;
+    file.open(filename, ios::in);
     if (!file.is_open()) {
         fault[file_not_exists] = true;
         cerr << "cannot open file!" << endl;
@@ -172,15 +181,16 @@ void store_word(string &word) {     /* 储存单词的函数 */
 void create_nodes() {       /* 创建节点，生成图 */
     int cnt = 0;
     for (const auto &word: words) {
-        Node *n = new Node(word, cnt++);
+        Node *n = new Node(word, cnt++, (longest_word_chain) ? (int )word.length() : 1);
         nodes.push_back(n);
+        nodes_with_diff_head[n->get_s() - 'a'].push_back(n);
     }
     nodes_size = int(nodes.size());
     for (int i = 0; i < nodes_size; i++) {
         for (int j = 0; (j < nodes_size) & (i != j); j++) {
             if (nodes[i]->get_e() == nodes[j]->get_s()) {
                 nodes[i]->addToNodes(nodes[j]);
-                indegree[j]++;
+                inDegree[j]++;
             }
         }
     }
@@ -189,8 +199,10 @@ void create_nodes() {       /* 创建节点，生成图 */
 bool has_circle() {
     queue<Node *> q;
     int count = 0;
+    int tmp_inDegree[MAXN];
+    memcpy(tmp_inDegree, inDegree, sizeof (inDegree));
     for (int i = 0; i < nodes_size; i++) {
-        if (indegree[i] == 0) {
+        if (tmp_inDegree[i] == 0) {
             count++;
             q.push(nodes[i]);
         }
@@ -201,8 +213,8 @@ bool has_circle() {
         int toNode_size = (int )(tmp->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = tmp->toNodes[i]->get_id();
-            indegree[toNode_id]--;
-            if (indegree[toNode_id] == 0) {
+            tmp_inDegree[toNode_id]--;
+            if (tmp_inDegree[toNode_id] == 0) {
                 count++;
                 q.push(nodes[toNode_id]);
             }
@@ -212,5 +224,13 @@ bool has_circle() {
 }
 
 void solve() {
+
+}
+
+void genAllWordChain() {
+
+}
+
+void genMaxWordCountChain() {
 
 }
