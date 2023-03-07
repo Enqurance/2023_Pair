@@ -4,14 +4,16 @@
 #define MAXN 10000
 
 void parse_words(const string &context);
+void store_word(string &word);
 void parse_args(int argc, char *argv[]);
 
 void create_nodes();
-bool check_circle();
+bool has_circle();
 
-int read_file(const char *filename);
+int read_file(const std::string &filename);
+void output_screen();
 
-int output_screen();
+void solve();
 
 // 读入时，单词储存相关
 vector<string> words;
@@ -23,7 +25,7 @@ int nodes_size = -1;
 int indegree[MAXN] = {0};
 
 // 程序参数相关
-char* input_file;
+string input_file;
 bool all_chain = false;             // -n
 bool longest_count_chain = false;   // -w
 bool longest_word_chain = false;    // -c
@@ -33,13 +35,21 @@ bool set_not_head = false;  char req_not_head;  // -j
 bool allow_circle = false;          // -r
 
 int main(int argc, char *argv[]) {
+    /* 读取命令行，获取参数信息，检查冲突 */
     parse_args(argc, argv);
-    string context;
+//    for (int i = 0; i < argc; i++) {
+//        cout << argv[i] << endl;
+//    }
+
+    /* 读取文件，建图 */
     read_file(input_file);
     create_nodes();
-    if (!check_circle()) {
-        // 判断参数
+    if (has_circle() && !allow_circle) {
+        cout << "has Circle !" << endl;
     }
+    /* 求解 */
+    solve();
+    cout << endl;
     output_screen();        //待写
     return 0;
 }
@@ -56,21 +66,21 @@ void parse_args(int argc, char *argv[]) {
         } else if (strcmp(argv[i], "-h") == 0) {
             set_head = true;
             if ((i + 1 < argc) && (strlen(argv[i+1])) && isalpha(argv[i+1][0])) {
-                set_head = argv[++i][0];
+                req_head = argv[++i][0];
             } else {
                 // 错误处理，-h后参数不匹配
             }
         } else if (strcmp(argv[i], "-t") == 0) {
             set_tail = true;
             if ((i + 1 < argc) && (strlen(argv[i+1])) && isalpha(argv[i+1][0])) {
-                set_tail = argv[++i][0];
+                req_tail= argv[++i][0];
             } else {
                 // 错误处理，-t后参数不匹配
             }
         } else if (strcmp(argv[i], "-j") == 0) {
             set_not_head = true;
             if ((i + 1 < argc) && (strlen(argv[i+1])) && isalpha(argv[i+1][0])) {
-                set_not_head = argv[++i][0];
+                req_not_head = argv[++i][0];
             } else {
                 // 错误处理，-j后参数不匹配
             }
@@ -83,10 +93,11 @@ void parse_args(int argc, char *argv[]) {
     }
 }
 
-int read_file(const char *filename) {   /* 读文件，目前只能读绝对路径 */
+int read_file(const std::string &filename) {   /* 读文件，目前只能读绝对路径 */
+//    cout << filename << endl;
     ifstream file(filename, ios::in);
     if (!file.is_open()) {
-        cerr << "文件打开失败！" << endl;
+        cerr << "cannot open file!" << endl;
         return -1;
     }
     string temp;
@@ -96,13 +107,11 @@ int read_file(const char *filename) {   /* 读文件，目前只能读绝对路�
     return 1;
 }
 
-int output_file(const char *filename) {
-    ofstream file(filename, ios::out);
-    if (!file.is_open()) {
-        cerr << "文件打开失败！" << endl;
-        return -1;
+void output_screen() {
+    cout << nodes_size << endl;
+    for (int i = 0; i < nodes_size; i++) {
+        cout << nodes[i]->get_context() << endl;
     }
-
 }
 
 
@@ -114,14 +123,21 @@ void parse_words(const string &context) {   /* 解析单词的函数 */
         if (isalpha(context[i])) {
             word.append(1, context[i]);
         } else if (!word.empty()) {
-            transform(word.begin(), word.end(), word.begin(), ::tolower);
-            if (word_map.find(word) == word_map.end()) {    //添加单词操作
-                words.push_back(word);
-                word_map[word] = (int )word.length();
-            }
+            store_word(word);
             word.clear();
         }
         i++;
+    }
+    if (!word.empty()) {
+        store_word(word);
+    }
+}
+
+void store_word(string &word) {
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+    if (word_map.find(word) == word_map.end()) {    //添加单词操作
+        words.push_back(word);
+        word_map[word] = (int )word.length();
     }
 }
 
@@ -141,7 +157,7 @@ void create_nodes() {
     }
 }
 
-bool check_circle() {
+bool has_circle() {
     queue<Node *> q;
     int count = 0;
     for (int i = 0; i < nodes_size; i++) {
@@ -162,5 +178,9 @@ bool check_circle() {
             }
         }
     }
-    return count == nodes_size;
+    return count != nodes_size;
+}
+
+void solve() {
+
 }
