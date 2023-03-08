@@ -64,7 +64,6 @@ int dp[MAXN] = {0};
 int lastWord[MAXN] = {-1};
 // dfs算法
 bool vis[MAXN] = {false};
-stack<string> chain_stack;
 // 最终结果
 int longest_value = 0;
 vector<string> longest_chain;
