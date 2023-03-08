@@ -41,6 +41,10 @@ public:
         return id;
     }
 
+    int get_v() const {
+        return value;
+    }
+
     void addToNodes(Node *node) {
         toNodes.push_back(node);
     }
