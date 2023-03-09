@@ -262,13 +262,22 @@ void solve() {
 }
 
 void genAllWordChain(char head, char tail, char not_head) {
-    for (int i = 0; i <nodes_size; i++) {
-        if ((!is_head || (nodes[i]->get_s() == head)) &&
-            (!is_not_head || (not_head != nodes[i]->get_s()))) {
+    for (int i = 0; i < 26; i++) {
+        if (is_head && (head - 'a' != i)) continue;
+        if (is_not_head && (head - 'a' == i)) continue;
+        int size = (int )nodes_with_diff_head[i].size();
+        for (int j = 0; j < size; j++) {
             memset(vis, false, nodes_size);
             dfs_all_chain(i, *new vector<string>, head, tail, not_head);
         }
     }
+//    for (int i = 0; i < nodes_size; i++) {
+//        if ((!is_head || (nodes[i]->get_s() == head)) &&
+//            (!is_not_head || (not_head != nodes[i]->get_s()))) {
+//            memset(vis, false, nodes_size);
+//            dfs_all_chain(i, *new vector<string>, head, tail, not_head);
+//        }
+//    }
 }
 
 void dfs_all_chain(int id, vector<string> cur_chain, char head, char tail, char not_head) {
@@ -319,6 +328,7 @@ void dp_longest_chain(char head, char tail, char not_head) {
             }
         }
     }
+
     // 根据拓扑排序迭代
     while (!q.empty()) {
         Node *tmp = q.front();
@@ -339,6 +349,7 @@ void dp_longest_chain(char head, char tail, char not_head) {
             }
         }
     }
+
     // 最终遍历结果，找到最长的链
     int max_length = 0, max_index;
     for (int i = 0; i < nodes_size; i++) {
@@ -347,6 +358,7 @@ void dp_longest_chain(char head, char tail, char not_head) {
             max_length = dp[i];
         }
     }
+
     // 将结果保存并返回
     while (max_index != -1) {
         longest_chain.push_back(nodes[max_index]->get_context());
