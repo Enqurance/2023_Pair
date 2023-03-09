@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.21"
+						"string" : "3.24"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Wordlist::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Wordlist-Debug-94cd6f90d68c8ebf645b.json",
+					"jsonFile" : "target-Wordlist-Debug-970f64b4af01dbd79eb6.json",
 					"name" : "Wordlist",
 					"projectIndex" : 0
 				}

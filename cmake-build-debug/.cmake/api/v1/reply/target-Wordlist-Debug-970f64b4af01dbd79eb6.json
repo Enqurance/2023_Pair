@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Wordlist.exe"
+			"path" : "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.exe"
 		},
 		{
-			"path" : "Wordlist.pdb"
+			"path" : "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 14,
 				"parent" : 0
 			}
 		]

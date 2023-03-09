@@ -18,8 +18,8 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Wordlist">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Wordlist.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -40,8 +40,8 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Wordlist/fast">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Wordlist.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
