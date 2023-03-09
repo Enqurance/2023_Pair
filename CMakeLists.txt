@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-project(InitProject)
+project(Wordlist)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(InitProject src/main.cpp)
+add_executable(Wordlist src/main.cpp)
