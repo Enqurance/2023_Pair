@@ -1,0 +1,9 @@
+# clion 产生的编译目录
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+
+
+
+# clion 产生的缓存文件
+.idea/
