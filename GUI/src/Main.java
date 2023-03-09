@@ -1,5 +1,8 @@
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,6 +10,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 
 
 public class Main {
@@ -38,8 +45,8 @@ class MyFrame extends JFrame {
         add(panel2);
 
         JPanel panel3 = new JPanel();
+        panel3.setLayout(null);
         panel3.setLocation(500, 0);
-        panel3.setSize(300, 600);
         add(panel3);
 
 
@@ -109,6 +116,121 @@ class MyFrame extends JFrame {
         saveButton.setBounds(50, 230, 80, 30);
         panel2.add(saveButton);
 
+
+        /* 添加多选框 */
+        JLabel multiple = new JLabel("功能参数选择");
+        JCheckBox checkBox_n = new JCheckBox("-n");
+        JCheckBox checkBox_w = new JCheckBox("-w");
+        JCheckBox checkBox_c = new JCheckBox("-c");
+        JCheckBox checkBox_h = new JCheckBox("-h");
+        JCheckBox checkBox_t = new JCheckBox("-t");
+        JCheckBox checkBox_j = new JCheckBox("-j");
+        JCheckBox checkBox_r = new JCheckBox("-r");
+        panel3.add(multiple);
+        panel3.add(checkBox_n);
+        panel3.add(checkBox_w);
+        panel3.add(checkBox_c);
+        panel3.add(checkBox_h);
+        panel3.add(checkBox_t);
+        panel3.add(checkBox_j);
+        panel3.add(checkBox_r);
+        int x_offset = 0, y_offset = 100, width = 50, height = 20;
+        multiple.setBounds(550, 160, 100, 20);
+        checkBox_n.setBounds(x_offset + 550, y_offset + 100, width, height);
+        checkBox_w.setBounds(x_offset + 550, y_offset + 140, width, height);
+        checkBox_c.setBounds(x_offset + 550, y_offset + 180, width, height);
+        checkBox_h.setBounds(x_offset + 550, y_offset + 220, width, height);
+        checkBox_t.setBounds(x_offset + 550, y_offset + 260, width, height);
+        checkBox_j.setBounds(x_offset + 550, y_offset + 300, width, height);
+        checkBox_r.setBounds(x_offset + 550, y_offset + 340, width, height);
+
+        /* 字母选择框 */
+        String[] options = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+                "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+        JComboBox<String> comboBox_h = new JComboBox<>(options);
+        comboBox_h.setBounds(x_offset + 600, y_offset + 220, width + 50, 20);
+        panel3.add(comboBox_h);
+        JComboBox<String> comboBox_t = new JComboBox<>(options);
+        comboBox_t.setBounds(x_offset + 600, y_offset + 260, width + 50, 20);
+        panel3.add(comboBox_t);
+        JComboBox<String> comboBox_j = new JComboBox<>(options);
+        comboBox_j.setBounds(x_offset + 600, y_offset + 300, width + 50, 20);
+        panel3.add(comboBox_j);
+
+        /* 主动屏蔽冲突参数 */
+        checkBox_n.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                checkBox_w.setEnabled(false);
+                checkBox_c.setEnabled(false);
+                checkBox_h.setEnabled(false);
+                checkBox_t.setEnabled(false);
+                checkBox_j.setEnabled(false);
+                checkBox_r.setEnabled(false);
+                comboBox_h.setEnabled(false);
+                comboBox_t.setEnabled(false);
+                comboBox_j.setEnabled(false);
+            } else {
+                checkBox_w.setEnabled(true);
+                checkBox_c.setEnabled(true);
+            }
+        });
+
+        checkBox_w.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                checkBox_n.setEnabled(false);
+                checkBox_c.setEnabled(false);
+                checkBox_h.setEnabled(true);
+                checkBox_t.setEnabled(true);
+                checkBox_j.setEnabled(true);
+                checkBox_r.setEnabled(true);
+                comboBox_h.setEnabled(true);
+                comboBox_t.setEnabled(true);
+                comboBox_j.setEnabled(true);
+            } else {
+                checkBox_n.setEnabled(true);
+                checkBox_c.setEnabled(true);
+                checkBox_h.setEnabled(false);
+                checkBox_t.setEnabled(false);
+                checkBox_j.setEnabled(false);
+                checkBox_r.setEnabled(false);
+                comboBox_h.setEnabled(false);
+                comboBox_t.setEnabled(false);
+                comboBox_j.setEnabled(false);
+            }
+        });
+
+        checkBox_c.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                checkBox_n.setEnabled(false);
+                checkBox_w.setEnabled(false);
+                checkBox_h.setEnabled(true);
+                checkBox_t.setEnabled(true);
+                checkBox_j.setEnabled(true);
+                checkBox_r.setEnabled(true);
+                comboBox_h.setEnabled(true);
+                comboBox_t.setEnabled(true);
+                comboBox_j.setEnabled(true);
+            } else {
+                checkBox_n.setEnabled(true);
+                checkBox_w.setEnabled(true);
+                checkBox_h.setEnabled(false);
+                checkBox_t.setEnabled(false);
+                checkBox_j.setEnabled(false);
+                checkBox_r.setEnabled(false);
+                comboBox_h.setEnabled(false);
+                comboBox_t.setEnabled(false);
+                comboBox_j.setEnabled(false);
+            }
+        });
+
+        /* 选择框初始状态 */
+        checkBox_h.setEnabled(false);
+        checkBox_t.setEnabled(false);
+        checkBox_j.setEnabled(false);
+        checkBox_r.setEnabled(false);
+        comboBox_h.setEnabled(false);
+        comboBox_t.setEnabled(false);
+        comboBox_j.setEnabled(false);
     }
 
     private String readTxtFile(String filepath) {
