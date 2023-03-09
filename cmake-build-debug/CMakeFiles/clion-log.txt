@@ -1,0 +1,4 @@
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair -B D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug
