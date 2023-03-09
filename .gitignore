@@ -9,3 +9,6 @@
 #.idea/
 
 #.DS_Store
+
+# .gitignore本身
+#.gitignore
