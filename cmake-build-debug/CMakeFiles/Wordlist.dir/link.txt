@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\Wordlist.dir/objects.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc CMakeFiles\Wordlist.dir/objects.a @CMakeFiles\Wordlist.dir\objects1.rsp
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\Wordlist.dir/objects.a -Wl,--no-whole-archive -o D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\bin\Wordlist.exe -Wl,--out-implib,libWordlist.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Wordlist.dir\linklibs.rsp
