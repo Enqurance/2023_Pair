@@ -13,7 +13,7 @@ using namespace std;
 class FileReader {
 public:
     // 读文件，输出文件
-    int read_file(const std::string &filename) {   /* 读文件，目前只能读绝对路径 */
+    int read_file(const std::string &filename) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -74,6 +74,15 @@ public:
     }
 
 private:
+    bool fault[10];         // 储存异常信息
+    // 读入时，单词储存相关
+
+    enum file_op {
+        is_all_chain,
+        is_count_chain,
+        is_word_chain
+    };
+
     unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
     vector<string> words_vec;
     int words_cnt = 0;
