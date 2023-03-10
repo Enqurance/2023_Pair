@@ -14,4 +14,5 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 add_executable(Wordlist src/main.cpp)
 
 # 生成共享库
-#add_library(common SHARED util.cpp)
+#add_library(common SHARED core.cpp)
+#add_library(common SHARED lib.cpp)
