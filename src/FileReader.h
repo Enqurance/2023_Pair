@@ -13,7 +13,7 @@ using namespace std;
 class FileReader {
 public:
     // 读文件，输出文件
-    int read_file(const std::string &filename) {   /* 读文件，目前只能读绝对路径 */
+    int read_file(const std::string &filename) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
