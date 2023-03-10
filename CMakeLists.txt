@@ -15,5 +15,4 @@ add_executable(Wordlist src/main.cpp)
 add_executable(Test src/Test.cpp)
 
 # 生成共享库
-#add_library(common SHARED core.cpp)
-#add_library(common SHARED lib.cpp)
+#add_library(common SHARED src/Core.h src/Core.cpp src/FileReader.cpp src/FileReader.h src/Node.cpp src/Node.h)
