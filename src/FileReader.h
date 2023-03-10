@@ -17,7 +17,6 @@ public:
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
-//            fault[file_not_exists] = true;
             cerr << "cannot open file!" << endl;
             return -1;
         }
@@ -45,20 +44,40 @@ public:
         if (!word.empty()) {
             store_word(word);
         }
+        copy();
     }
 
     void store_word(string &word) {     /* 储存单词的函数 */
         transform(word.begin(), word.end(), word.begin(), ::tolower);
         if (word_map.find(word) == word_map.end()) {    //添加单词操作
-            words.push_back(word);
+            words_vec.push_back(word);
             word_map[word] = (int) word.length();
         }
     }
 
+    void copy() {
+        int size = int(words_vec.size());
+        words_cnt = size;
+        for (int i = 0; i < size; i++) {
+            words[i] = const_cast<char *>(words_vec[i].c_str());
+        }
+    }
+
+    void print_words() {
+        for (int i = 0; i < words_cnt; i++) {
+            cout << words[i] << endl;
+        }
+    }
+
+    char **get_words() {
+        return words;
+    }
+
 private:
-    bool fault[10];         // 储存异常信息
     unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
-    vector<string> words;
+    vector<string> words_vec;
+    int words_cnt = 0;
+    char *words[20005];
 };
 
 
