@@ -1,4 +1,6 @@
-"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair -B D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.24 or higher is required.  You are running version 3.21.1
+
+
+-- Configuring incomplete, errors occurred!
