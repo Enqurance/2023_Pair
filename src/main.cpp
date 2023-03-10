@@ -8,14 +8,6 @@
 void parse_args(int argc, char *argv[]);
 void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size);
 
-void create_nodes();
-void check_circle();
-
-int read_file(const std::string &filename);
-void output_result();
-
-void solve();
-
 // 程序参数相关
 string input_file;
 bool is_all_chain = false;             // -n
@@ -45,16 +37,16 @@ int main(int argc, char *argv[]) {
     /* 读取命令行，获取参数信息，检查冲突 */
     parse_args(argc, argv);
 
-    /* 读取文件，建图 */
-    read_file(input_file);
-    create_nodes();
-    check_circle();
-    if (circle_exist && !allow_circle) {
-        cout << "has Circle !" << endl;
-    }
+    FileIO f;
+    f.read_file(input_file);
+
+    Core calcuCore = new Core(f.get_words(), allow_circle, req_head, req_tail, req_not_head);
     /* 求解 */
-    solve();
-    output_result();        //待写
+    if (is_all_chain) {
+        f.output_screen();
+    } else if (is_word_chain || is_count_chain) {
+        f.output_file();
+    }
     return 0;
 }
 

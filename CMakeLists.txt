@@ -14,4 +14,4 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 add_executable(Wordlist src/main.cpp)
 add_executable(Test src/Test.cpp)
 
-#add_library(common SHARED src/Core.h src/Core.cpp src/FileReader.cpp src/FileReader.h src/Node.cpp src/Node.h)
+add_library(common SHARED src/Core.h src/Core.cpp src/Node.cpp src/Node.h src/FileIO.cpp src/FileIO.h)

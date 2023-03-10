@@ -1,4 +1,5 @@
-/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/Wordlist.dir
-/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/Test.dir
-/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/CMakeFiles/Wordlist.dir
+D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/CMakeFiles/Test.dir
+D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/CMakeFiles/common.dir
+D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/CMakeFiles/rebuild_cache.dir
