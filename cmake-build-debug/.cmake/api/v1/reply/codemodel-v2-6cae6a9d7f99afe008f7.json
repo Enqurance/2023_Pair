@@ -41,11 +41,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Test::@6890427a1f51a3e7e1df",
-<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6cae6a9d7f99afe008f7.json
 					"jsonFile" : "target-Test-Debug-968f517b57407df11798.json",
-========
-					"jsonFile" : "target-Test-Debug-33c9a323a6fbbdcd2a3c.json",
->>>>>>>> refs/remotes/origin/main:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-fce59806dab378d28012.json
 					"name" : "Test",
 					"projectIndex" : 0
 				},
