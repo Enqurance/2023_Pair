@@ -2,7 +2,11 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
+<<<<<<< HEAD
   set(CMAKE_INSTALL_PREFIX "/usr/local")
+=======
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Wordlist")
+>>>>>>> refs/remotes/origin/main
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

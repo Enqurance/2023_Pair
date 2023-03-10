@@ -128,6 +128,43 @@ Wordlist/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wordlist.dir\build.make CMakeFiles/Wordlist.dir/build
 .PHONY : Wordlist/fast
 
+#=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Test
+.PHONY : Test
+
+# fast build rule for target.
+Test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
+
+src/Test.obj: src/Test.cpp.obj
+.PHONY : src/Test.obj
+
+# target to build an object file
+src/Test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.obj
+.PHONY : src/Test.cpp.obj
+
+src/Test.i: src/Test.cpp.i
+.PHONY : src/Test.i
+
+# target to preprocess a source file
+src/Test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.i
+.PHONY : src/Test.cpp.i
+
+src/Test.s: src/Test.cpp.s
+.PHONY : src/Test.s
+
+# target to generate assembly for a file
+src/Test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.s
+.PHONY : src/Test.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -160,7 +197,11 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Test
 	@echo ... Wordlist
+	@echo ... src/Test.obj
+	@echo ... src/Test.i
+	@echo ... src/Test.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
