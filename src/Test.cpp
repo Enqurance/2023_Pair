@@ -1,7 +1,7 @@
-#include "FileReader.h"
+#include "FileIO.h"
 
 int main() {
-    FileReader f;
+    FileIO f;
     f.read_file("../Testfile.txt");
     f.print_words();
 }

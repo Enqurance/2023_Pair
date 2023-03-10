@@ -1,19 +1,19 @@
 //
-// Created by Enqurance on 2023/3/10.
+// Created by Yoga on 2023/3/10.
 //
+
+#ifndef WORDLIST_FILEIO_H
+#define WORDLIST_FILEIO_H
+
 #include "bits/stdc++.h"
 #include "Node.h"
 
 using namespace std;
 
-#ifndef WORDLIST_FILEREADER_H
-#define WORDLIST_FILEREADER_H
-
-
-class FileReader {
+class FileIO {
 public:
     // 读文件，输出文件
-    int read_file(const std::string &filename) {
+    int read_file(const string &filename) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -63,6 +63,34 @@ public:
         }
     }
 
+    int output_screen(vector<vector<string>> all_chains) {
+        int all_chains_size = (int )all_chains.size();
+        cout << all_chains_size << endl;
+        for (int i = 0; i < all_chains_size; i++) {
+            int single_size = (int )all_chains[i].size();
+            for (int j = 0; j < single_size; j++) {
+                cout << all_chains[i][j] << " ";
+            }
+            cout << endl;
+        }
+        return 1;
+    }
+
+    int output_file(vector<string> longest_chain) {
+        ofstream file;
+        file.open("solution.txt", ios::out);
+        if (!file.is_open()) {
+            cerr << "cannot output to solution.txt!" << endl;
+            return -1;
+        }
+        int longest_chain_size = (int )longest_chain.size();
+        for (int i = 0; i < longest_chain_size; i++) {
+            file << longest_chain[i] << endl;
+        }
+        file.close();
+        return 1;
+    }
+
     void print_words() {
         for (int i = 0; i < words_cnt; i++) {
             cout << words[i] << endl;
@@ -74,20 +102,12 @@ public:
     }
 
 private:
-    bool fault[10];         // 储存异常信息
     // 读入时，单词储存相关
-
-    enum file_op {
-        is_all_chain,
-        is_count_chain,
-        is_word_chain
-    };
-
     unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
     vector<string> words_vec;
     int words_cnt = 0;
-    char *words[20005];
+    char *words[10005];
 };
 
 
-#endif //WORDLIST_FILEREADER_H
+#endif //WORDLIST_FILEIO_H
