@@ -190,7 +190,7 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/g++.exe"
 		},
 		{
@@ -322,18 +322,6 @@
 			"value" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32"
 		},
 		{
-			"name" : "CMAKE_C_ABI_COMPILED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Result of TRY_COMPILE"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "FALSE"
-		},
-		{
 			"name" : "CMAKE_C_COMPILER",
 			"properties" : 
 			[
@@ -346,7 +334,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -739,7 +727,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/InitProject"
+			"value" : "C:/Program Files (x86)/Wordlist"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1336,42 +1324,6 @@
 			],
 			"type" : "BOOL",
 			"value" : "FALSE"
-		},
-		{
-			"name" : "InitProject_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"
-		},
-		{
-			"name" : "InitProject_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "InitProject_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair"
 		},
 		{
 			"name" : "Wordlist_BINARY_DIR",
