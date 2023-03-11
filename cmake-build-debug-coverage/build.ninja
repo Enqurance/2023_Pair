@@ -1,0 +1,693 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: Wordlist
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/
+# =============================================================================
+# Object build statements for EXECUTABLE target Wordlist
+
+
+#############################################
+# Order-only phony target for Wordlist
+
+build cmake_object_order_depends_target_Wordlist: phony || CMakeFiles/Wordlist.dir
+
+build CMakeFiles/Wordlist.dir/src/main.cpp.o: CXX_COMPILER__Wordlist_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/main.cpp || cmake_object_order_depends_target_Wordlist
+  DEP_FILE = CMakeFiles/Wordlist.dir/src/main.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest
+  OBJECT_DIR = CMakeFiles/Wordlist.dir
+  OBJECT_FILE_DIR = CMakeFiles/Wordlist.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Wordlist
+
+
+#############################################
+# Link the executable /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist
+
+build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist: CXX_EXECUTABLE_LINKER__Wordlist_Debug CMakeFiles/Wordlist.dir/src/main.cpp.o
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  OBJECT_DIR = CMakeFiles/Wordlist.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist
+  TARGET_PDB = Wordlist.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Test
+
+
+#############################################
+# Order-only phony target for Test
+
+build cmake_object_order_depends_target_Test: phony || CMakeFiles/Test.dir
+
+build CMakeFiles/Test.dir/src/Test.cpp.o: CXX_COMPILER__Test_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Test.cpp || cmake_object_order_depends_target_Test
+  DEP_FILE = CMakeFiles/Test.dir/src/Test.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest
+  OBJECT_DIR = CMakeFiles/Test.dir
+  OBJECT_FILE_DIR = CMakeFiles/Test.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Test
+
+
+#############################################
+# Link the executable /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test
+
+build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test: CXX_EXECUTABLE_LINKER__Test_Debug CMakeFiles/Test.dir/src/Test.cpp.o
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  OBJECT_DIR = CMakeFiles/Test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test
+  TARGET_PDB = Test.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target iotest
+
+
+#############################################
+# Order-only phony target for iotest
+
+build cmake_object_order_depends_target_iotest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.o: CXX_COMPILER__iotest_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/tests/iotest/iotest.cpp || cmake_object_order_depends_target_iotest
+  DEP_FILE = CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = CMakeFiles/iotest.dir
+  OBJECT_FILE_DIR = CMakeFiles/iotest.dir/tests/iotest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target iotest
+
+
+#############################################
+# Link the executable /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest
+
+build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest: CXX_EXECUTABLE_LINKER__iotest_Debug CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.o | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a
+  OBJECT_DIR = CMakeFiles/iotest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest
+  TARGET_PDB = iotest.dbg
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target common
+
+
+#############################################
+# Order-only phony target for common
+
+build cmake_object_order_depends_target_common: phony || CMakeFiles/common.dir
+
+build CMakeFiles/common.dir/src/Core.cpp.o: CXX_COMPILER__common_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Core.cpp || cmake_object_order_depends_target_common
+  DEFINES = -Dcommon_EXPORTS
+  DEP_FILE = CMakeFiles/common.dir/src/Core.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fPIC -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest
+  OBJECT_DIR = CMakeFiles/common.dir
+  OBJECT_FILE_DIR = CMakeFiles/common.dir/src
+
+build CMakeFiles/common.dir/src/Node.cpp.o: CXX_COMPILER__common_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Node.cpp || cmake_object_order_depends_target_common
+  DEFINES = -Dcommon_EXPORTS
+  DEP_FILE = CMakeFiles/common.dir/src/Node.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fPIC -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest
+  OBJECT_DIR = CMakeFiles/common.dir
+  OBJECT_FILE_DIR = CMakeFiles/common.dir/src
+
+build CMakeFiles/common.dir/src/FileIO.cpp.o: CXX_COMPILER__common_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/FileIO.cpp || cmake_object_order_depends_target_common
+  DEFINES = -Dcommon_EXPORTS
+  DEP_FILE = CMakeFiles/common.dir/src/FileIO.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fPIC -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest
+  OBJECT_DIR = CMakeFiles/common.dir
+  OBJECT_FILE_DIR = CMakeFiles/common.dir/src
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target common
+
+
+#############################################
+# Link the shared library /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib
+
+build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib: CXX_SHARED_LIBRARY_LINKER__common_Debug CMakeFiles/common.dir/src/Core.cpp.o CMakeFiles/common.dir/src/Node.cpp.o CMakeFiles/common.dir/src/FileIO.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  INSTALLNAME_DIR = @rpath/
+  LANGUAGE_COMPILE_FLAGS = -fprofile-instr-generate -fcoverage-mapping -g
+  OBJECT_DIR = CMakeFiles/common.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libcommon.dylib
+  SONAME_FLAG = -install_name
+  TARGET_FILE = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib
+  TARGET_PDB = common.dylib.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage && /Applications/CMake.app/Contents/bin/ccmake -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build lib/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib && /Applications/CMake.app/Contents/bin/ccmake -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build lib/edit_cache: phony lib/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build lib/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build lib/rebuild_cache: phony lib/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build lib/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build lib/CMakeFiles/install.util: CUSTOM_COMMAND lib/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build lib/install: phony lib/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build lib/CMakeFiles/install/local.util: CUSTOM_COMMAND lib/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build lib/install/local: phony lib/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build lib/CMakeFiles/install/strip.util: CUSTOM_COMMAND lib/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build lib/install/strip: phony lib/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build lib/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = lib/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1   -std=c++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = lib/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = lib/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug lib/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LANGUAGE_COMPILE_FLAGS = -fprofile-instr-generate -fcoverage-mapping -g
+  OBJECT_DIR = lib/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build lib/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = lib/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1   -std=c++14
+  INCLUDES = -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = lib/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = lib/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug lib/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LANGUAGE_COMPILE_FLAGS = -fprofile-instr-generate -fcoverage-mapping -g
+  OBJECT_DIR = lib/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build lib/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock && /Applications/CMake.app/Contents/bin/ccmake -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build lib/googlemock/edit_cache: phony lib/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build lib/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build lib/googlemock/rebuild_cache: phony lib/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build lib/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build lib/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND lib/googlemock/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build lib/googlemock/install: phony lib/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build lib/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND lib/googlemock/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build lib/googlemock/install/local: phony lib/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build lib/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND lib/googlemock/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build lib/googlemock/install/strip: phony lib/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || lib/googletest/CMakeFiles/gtest.dir
+
+build lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1   -std=c++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = lib/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = lib/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LANGUAGE_COMPILE_FLAGS = -fprofile-instr-generate -fcoverage-mapping -g
+  OBJECT_DIR = lib/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1   -std=c++14
+  INCLUDES = -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = lib/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = lib/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LANGUAGE_COMPILE_FLAGS = -fprofile-instr-generate -fcoverage-mapping -g
+  OBJECT_DIR = lib/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build lib/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest && /Applications/CMake.app/Contents/bin/ccmake -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build lib/googletest/edit_cache: phony lib/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build lib/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest && /Applications/CMake.app/Contents/bin/cmake --regenerate-during-build -S/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build lib/googletest/rebuild_cache: phony lib/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build lib/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build lib/googletest/CMakeFiles/install.util: CUSTOM_COMMAND lib/googletest/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest && /Applications/CMake.app/Contents/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build lib/googletest/install: phony lib/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build lib/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND lib/googletest/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build lib/googletest/install/local: phony lib/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build lib/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND lib/googletest/all
+  COMMAND = cd /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest && /Applications/CMake.app/Contents/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build lib/googletest/install/strip: phony lib/googletest/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Target aliases.
+
+build Test: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test
+
+build Wordlist: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist
+
+build common: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build iotest: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest
+
+build libcommon.dylib: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
+
+build all: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib lib/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib
+
+build lib/all: phony lib/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock
+
+build lib/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a lib/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest
+
+build lib/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Applications/CMake.app/Contents/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock_main.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/Config.cmake.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest_main.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Applications/CMake.app/Contents/share/cmake-3.24/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeDependentOption.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckIncludeFile.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/CheckLibraryExists.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPackageMessage.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPython.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindPython/Support.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/FindThreads.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/GNUInstallDirs.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Applications/CMake.app/Contents/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock_main.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/CMakeLists.txt /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/Config.cmake.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest_main.pc.in /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/internal_utils.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

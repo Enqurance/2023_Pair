@@ -2,14 +2,14 @@
 401	1532	1678522447869427333	lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	acdf167bcc7d3c6
 484	515	1678522446857606742	/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test	a6a60961ccd0a93f
 319	352	1678172992086309852	InitProject	ba1520e60840d5ec
-2	410	1678522446749428915	CMakeFiles/rftest.dir/tests/rftest/rftest.cpp.o	237075622c73567c
+3	557	1678524232046515568	CMakeFiles/rftest.dir/tests/rftest/rftest.cpp.o	237075622c73567c
 2	484	1678522446823798429	CMakeFiles/Test.dir/src/Test.cpp.o	d439c6c1db01cea9
+0	125	1678528025862125738	build.ninja	1c16c0ae16bfa339
 0	8	0	clean	3c8e6cc385ee00ba
-0	125	1678522844134288180	build.ninja	1c16c0ae16bfa339
 4	401	1678522446740481008	lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	9ff149fa20593ab7
 2	439	1678522446778142865	CMakeFiles/Wordlist.dir/src/main.cpp.o	78fecb62861c91d2
 3	780	1678522447118769762	lib/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	e4e3cfce65f87134
 3	31	1678522635139310000	lib/libgtest.a	e4f48b65d2c2b9b9
 31	48	1678522635156323000	lib/libgtest_main.a	68e72bb588491e6b
 2	469	1678522446807856512	lib/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	aeef80f8c0d06981
-48	85	1678522635192340880	/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/rftest	2d327d7db99a0a8a
+557	599	1678524232090753977	/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/rftest	2d327d7db99a0a8a

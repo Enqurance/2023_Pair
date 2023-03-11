@@ -1,11 +1,7 @@
 #include "bits/stdc++.h"
 #include "Node.h"
-<<<<<<< HEAD
-#include "FileReader.h"
-=======
 #include "Core.h"
 #include "FileIO.h"
->>>>>>> refs/remotes/origin/main
 
 #define MAX 10000
 

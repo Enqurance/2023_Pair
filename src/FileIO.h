@@ -9,7 +9,7 @@ using namespace std;
 class FileIO {
 public:
     // 读文件，输出文件
-    int read_file(const string &filename, int *len) {
+    int read_file(const string &filename) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -21,7 +21,7 @@ public:
             parse_words(temp);
         }
         file.close();
-        *len = int(words.size());
+        words_cnt = int(words.size());
         return 1;
     }
 
@@ -51,12 +51,6 @@ public:
         }
         file.close();
         return 1;
-    }
-
-    void print_words() {
-        for (int i = 0; i < words_cnt; i++) {
-            cout << words[i] << endl;
-        }
     }
 
     vector<string> get_words(int &size) {

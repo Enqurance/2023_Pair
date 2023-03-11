@@ -21,8 +21,11 @@ add_subdirectory(lib)
 include_directories(lib/googletest/include googletest)
 
 # 添加测试文件
-add_executable(rftest tests/rftest/rftest.cpp)
-target_link_libraries(rftest gtest gtest_main)
+add_executable(iotest tests/iotest/iotest.cpp)
+target_link_libraries(iotest gtest gtest_main)
 
 add_library(common SHARED src/Core.h src/Core.cpp src/Node.cpp src/Node.h src/FileIO.cpp src/FileIO.h)
+
+# 单元测试代码覆盖率
+add_compile_options(-fprofile-arcs -ftest-coverage)
 
