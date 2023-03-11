@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include "../../src/FileIO.h"
 #include "string"
-#include <stdlib.h>
 
 // 测试套件示例
 class FileIOTest : public ::testing::Test {

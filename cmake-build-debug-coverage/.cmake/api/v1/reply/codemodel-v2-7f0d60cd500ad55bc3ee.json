@@ -23,7 +23,8 @@
 						0,
 						1,
 						2,
-						7
+						3,
+						8
 					]
 				},
 				{
@@ -49,7 +50,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-lib.googlemock-Debug-9cf7b39648fc2eb01a54.json",
+					"jsonFile" : "directory-lib.googlemock-Debug-e2c861ae11958f7f7efb.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -59,14 +60,14 @@
 					"source" : "lib/googlemock",
 					"targetIndexes" : 
 					[
-						3,
-						4
+						4,
+						5
 					]
 				},
 				{
 					"build" : "lib/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-lib.googletest-Debug-73a581014cf160730980.json",
+					"jsonFile" : "directory-lib.googletest-Debug-629a3e03e9ca5e00fd5f.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -76,8 +77,8 @@
 					"source" : "lib/googletest",
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -99,7 +100,8 @@
 						0,
 						1,
 						2,
-						7
+						3,
+						8
 					]
 				},
 				{
@@ -127,8 +129,8 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						3,
-						4
+						4,
+						5
 					]
 				},
 				{
@@ -140,8 +142,8 @@
 					"parentIndex" : 2,
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -164,8 +166,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "common::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-common-Debug-d59b9835bb42c112507b.json",
+					"jsonFile" : "target-common-Debug-606f68f7213aebb3e4e5.json",
 					"name" : "common",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "coretest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-coretest-Debug-990d333d44e481077560.json",
+					"name" : "coretest",
 					"projectIndex" : 0
 				},
 				{
@@ -199,7 +208,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "iotest::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-iotest-Debug-3b9ed3f97117af9e921c.json",
+					"jsonFile" : "target-iotest-Debug-5373159613e9c8bfbc72.json",
 					"name" : "iotest",
 					"projectIndex" : 0
 				}

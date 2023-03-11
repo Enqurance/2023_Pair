@@ -135,6 +135,39 @@ build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist
   TARGET_PDB = iotest.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target coretest
+
+
+#############################################
+# Order-only phony target for coretest
+
+build cmake_object_order_depends_target_coretest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.o: CXX_COMPILER__coretest_Debug /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/tests/coretest/coretest.cpp || cmake_object_order_depends_target_coretest
+  DEP_FILE = CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.o.d
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++14
+  INCLUDES = -I/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include -isystem /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
+  OBJECT_DIR = CMakeFiles/coretest.dir
+  OBJECT_FILE_DIR = CMakeFiles/coretest.dir/tests/coretest
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target coretest
+
+
+#############################################
+# Link the executable /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest
+
+build /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest: CXX_EXECUTABLE_LINKER__coretest_Debug CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.o | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+  FLAGS = -fprofile-instr-generate -fcoverage-mapping -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+  LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a
+  OBJECT_DIR = CMakeFiles/coretest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest
+  TARGET_PDB = coretest.dbg
+
+# =============================================================================
 # Object build statements for SHARED_LIBRARY target common
 
 
@@ -607,6 +640,8 @@ build Wordlist: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结�
 
 build common: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib
 
+build coretest: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest
+
 build gmock: phony lib/libgmock.a
 
 build gmock_main: phony lib/libgmock_main.a
@@ -635,7 +670,7 @@ build libgtest_main.a: phony lib/libgtest_main.a
 #############################################
 # Folder: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage
 
-build all: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib lib/all
+build all: phony /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Test /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/libcommon.dylib lib/all
 
 # =============================================================================
 
