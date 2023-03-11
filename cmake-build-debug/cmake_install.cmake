@@ -73,6 +73,11 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib.h")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/lib/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

@@ -50,3 +50,20 @@ install(TARGETS lib
         LIBRARY DESTINATION lib
         PUBLIC_HEADER DESTINATION include
         )
+
+# 添加测试单元库
+add_subdirectory(lib)
+include_directories(lib/googletest/include googletest)
+
+# 添加测试文件
+# io测试
+add_executable(iotest tests/iotest/iotest.cpp)
+target_link_libraries(iotest gtest gtest_main)
+# core测试
+add_executable(coretest tests/coretest/coretest.cpp)
+target_link_libraries(coretest gtest gtest_main)
+
+add_library(common SHARED src/Core.h src/Core.cpp src/Node.cpp src/Node.h src/FileIO.cpp src/FileIO.h)
+
+# 单元测试代码覆盖率
+add_compile_options(-fprofile-arcs -ftest-coverage)
