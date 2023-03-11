@@ -3,7 +3,7 @@
 // 函数返回值为单词链的总数
 int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
     Core core = *new Core(words, len);
-    core.genAllWordChain()
+    core.genAllWordChain();
 }
 
 // 函数返回值为单词链的长度
