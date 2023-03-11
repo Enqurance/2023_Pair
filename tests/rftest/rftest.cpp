@@ -1,12 +1,24 @@
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include "../../src/FileIO.h"
 
-int my_function(int a, int b) {
-    return a + b;
+// 测试套件示例
+class MyTestSuite : public ::testing::Test {
+protected:
+    void SetUp() override {
+    }
+
+    void TearDown() override {
+    }
+};
+
+// 测试用例1
+TEST_F(MyTestSuite, Test1) {
+    EXPECT_EQ(1, 1);
 }
 
-TEST(MyTest, TestMyFunction) {
-    // 调用 my_function 并断言其返回值是否等于 3
-    EXPECT_EQ(my_function(1, 2), 3);
+// 测试用例2
+TEST_F(MyTestSuite, Test2) {
+    EXPECT_TRUE(false);
 }
 
 int main(int argc, char **argv) {

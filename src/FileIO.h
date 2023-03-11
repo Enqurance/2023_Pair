@@ -1,7 +1,3 @@
-//
-// Created by Yoga on 2023/3/10.
-//
-
 #ifndef WORDLIST_FILEIO_H
 #define WORDLIST_FILEIO_H
 
@@ -13,11 +9,7 @@ using namespace std;
 class FileIO {
 public:
     // 读文件，输出文件
-<<<<<<< HEAD:src/FileReader.h
-    int read_file(const std::string &filename, int *len) {
-=======
-    int read_file(const string &filename) {
->>>>>>> refs/remotes/origin/main:src/FileIO.h
+    int read_file(const string &filename, int *len) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -29,15 +21,15 @@ public:
             parse_words(temp);
         }
         file.close();
-        *len = int(words_vec.size());
+        *len = int(words.size());
         return 1;
     }
 
     int output_screen(vector<vector<string>> all_chains) {
-        int all_chains_size = (int )all_chains.size();
+        int all_chains_size = (int) all_chains.size();
         cout << all_chains_size << endl;
         for (int i = 0; i < all_chains_size; i++) {
-            int single_size = (int )all_chains[i].size();
+            int single_size = (int) all_chains[i].size();
             for (int j = 0; j < single_size; j++) {
                 cout << all_chains[i][j] << " ";
             }
@@ -53,7 +45,7 @@ public:
             cerr << "cannot output to solution.txt!" << endl;
             return -1;
         }
-        int longest_chain_size = (int )longest_chain.size();
+        int longest_chain_size = (int) longest_chain.size();
         for (int i = 0; i < longest_chain_size; i++) {
             file << longest_chain[i] << endl;
         }
@@ -67,7 +59,7 @@ public:
         }
     }
 
-    vector<string> get_words(int& size) {
+    vector<string> get_words(int &size) {
         size = words_cnt;
         return words;
     }
