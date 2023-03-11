@@ -13,7 +13,7 @@ using namespace std;
 class FileReader {
 public:
     // 读文件，输出文件
-    int read_file(const std::string &filename) {
+    int read_file(const std::string &filename, int *len) {
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -25,6 +25,7 @@ public:
             parse_words(temp);
         }
         file.close();
+        *len = int(words_vec.size());
         return 1;
     }
 

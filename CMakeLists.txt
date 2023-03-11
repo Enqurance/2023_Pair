@@ -15,3 +15,11 @@ add_executable(Wordlist src/main.cpp)
 add_executable(Test src/Test.cpp)
 
 #add_library(common SHARED src/Core.h src/Core.cpp src/FileReader.cpp src/FileReader.h src/Node.cpp src/Node.h)
+
+# 添加测试单元库
+add_subdirectory(lib)
+include_directories(lib/googletest/include googletest)
+
+# 添加测试文件
+add_executable(rftest tests/rftest/rftest.cpp)
+target_link_libraries(rftest gtest gtest_main)

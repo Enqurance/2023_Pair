@@ -1,9 +1,4 @@
-/Applications/CMake.app/Contents/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject -B /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug
-CMake Error at CMakeLists.txt:20:
-  Parse error.  Expected a command name, got unquoted argument with text
-  "=======".
-
-
--- Configuring incomplete, errors occurred!
-See also "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/InitProject/cmake-build-debug/CMakeFiles/CMakeError.log".
+/Applications/CMake.app/Contents/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist -B /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug

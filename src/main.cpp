@@ -1,6 +1,5 @@
 #include "bits/stdc++.h"
 #include "Node.h"
-#include "Core.h"
 #include "FileReader.h"
 
 #define MAX 10000
