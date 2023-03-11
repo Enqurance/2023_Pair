@@ -66,7 +66,7 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Test">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test_bin/Test.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -90,7 +90,7 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Test/fast">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test_bin/Test.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -113,8 +113,8 @@
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="core">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/libcore.dll" prefix_auto="0" extension_auto="0"/>
+			<Target title="CORE">
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/core.dll" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
@@ -131,14 +131,14 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 core"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 CORE"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="core/fast">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/libcore.dll" prefix_auto="0" extension_auto="0"/>
+			<Target title="CORE/fast">
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/core.dll" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
@@ -155,14 +155,14 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 core/fast"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 CORE/fast"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="lib">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/liblib.dll" prefix_auto="0" extension_auto="0"/>
+			<Target title="LIB">
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/lib.dll" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
@@ -179,14 +179,14 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 lib"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 LIB"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="lib/fast">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/liblib.dll" prefix_auto="0" extension_auto="0"/>
+			<Target title="LIB/fast">
+				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/lib.dll" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
@@ -203,7 +203,7 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 lib/fast"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 LIB/fast"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -304,54 +304,6 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 coretest/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="common">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/libcommon.dll" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib/googletest/include"/>
-					<Add directory="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/googletest"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 common"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="common/fast">
-				<Option output="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/libcommon.dll" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="3"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib/googletest/include"/>
-					<Add directory="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/googletest"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 common/fast"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -631,39 +583,33 @@
 			<Option target="gtest_main"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Core.cpp">
-			<Option target="core"/>
-			<Option target="common"/>
+			<Option target="CORE"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Core.h">
-			<Option target="core"/>
-			<Option target="common"/>
+			<Option target="CORE"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/FileIO.cpp">
-			<Option target="lib"/>
-			<Option target="common"/>
+			<Option target="LIB"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/FileIO.h">
-			<Option target="lib"/>
-			<Option target="common"/>
+			<Option target="LIB"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Node.cpp">
-			<Option target="core"/>
-			<Option target="common"/>
+			<Option target="CORE"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Node.h">
-			<Option target="core"/>
-			<Option target="common"/>
-		</Unit>
-		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Test.cpp">
-			<Option target="Test"/>
+			<Option target="CORE"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/main.cpp">
 			<Option target="Wordlist"/>
 		</Unit>
-		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/tests/coretest/coretest.cpp">
+		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test/Test.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test/coretest/coretest.cpp">
 			<Option target="coretest"/>
 		</Unit>
-		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/tests/iotest/iotest.cpp">
+		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test/iotest/iotest.cpp">
 			<Option target="iotest"/>
 		</Unit>
 		<Unit filename="D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/CMakeLists.txt">

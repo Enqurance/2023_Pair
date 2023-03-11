@@ -240,13 +240,13 @@ public:
 //因此不宜采用直接返回报错码的方式处理，因此各位不要在返回值上承载异常信息，保证返回值正确
 
 // 函数返回值为单词链的长度
-int gen_chain_word(const vector<string> &words, int len, vector<string> &result, char head, char tail, bool enable_loop);
+int gen_chain_word(const vector<string> &words, int len, vector<string> &result, char head, char tail, char reject, bool enable_loop);
 
 // 函数返回值为单词链的总数
 int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result);
 
 // 函数返回值为单词链的长度
-int gen_chain_char(const vector<string> &words, int len, vector<string> &result, char head, char tail, bool enable_loop);
+int gen_chain_char(const vector<string> &words, int len, vector<string> &result, char head, char tail, char reject, bool enable_loop);
 
 
 #endif //WORDLIST_CORE_H

@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
-#include "core.h"
-#include "lib.h"
+#include "Core.h"
+#include "FileIO.h"
 
 #define MAX 10000
 
@@ -40,12 +40,14 @@ int main(int argc, char *argv[]) {
     int words_size = 0;
     vector<string> words = f.get_words(words_size);
 
+    vector<vector<string>> result;
+    gen_chains_all(words, words_size, result);
+
+
 //    /* 求解 */
-//    if (is_all_chain) {
-//        f.output_screen();
-//    } else if (is_word_chain || is_count_chain) {
-//        f.output_file();
-//    }
+//
+    f.output_screen(result);
+//
     return 0;
 }
 

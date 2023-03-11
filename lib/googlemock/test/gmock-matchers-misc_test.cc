@@ -29,7 +29,7 @@
 
 // Google Mock - a framework for writing C++ mock classes.
 //
-// This file tests some commonly used argument matchers.
+// This file test some commonly used argument matchers.
 
 #include "gtest/gtest.h"
 
@@ -83,7 +83,7 @@ TEST(AddressTest, Describe) {
             DescribeNegation(matcher));
 }
 
-// The following two tests verify that values without a public copy
+// The following two test verify that values without a public copy
 // ctor can be used as arguments to matchers like Eq(), Ge(), and etc
 // with the help of ByRef().
 
@@ -1001,7 +1001,7 @@ TEST(MatcherMacroTest, Works) {
   EXPECT_EQ("", Explain(m, 7));
 }
 
-// This also tests that the description string can reference 'negation'.
+// This also test that the description string can reference 'negation'.
 MATCHER(IsEven2, negation ? "is odd" : "is even") {
   if ((arg % 2) == 0) {
     // Verifies that we can stream to result_listener, a listener
@@ -1014,7 +1014,7 @@ MATCHER(IsEven2, negation ? "is odd" : "is even") {
   }
 }
 
-// This also tests that the description string can reference matcher
+// This also test that the description string can reference matcher
 // parameters.
 MATCHER_P2(EqSumOf, x, y,
            std::string(negation ? "doesn't equal" : "equals") + " the sum of " +
@@ -1229,7 +1229,7 @@ TEST(MatcherPnMacroTest, Works) {
 }
 
 // Tests that MATCHER*() definitions can be overloaded on the number
-// of parameters; also tests MATCHER_Pn() where n >= 3.
+// of parameters; also test MATCHER_Pn() where n >= 3.
 
 MATCHER(EqualsSumOf, "") { return arg == 0; }
 MATCHER_P(EqualsSumOf, a, "") { return arg == a; }

@@ -187,30 +187,30 @@ Test/fast:
 .PHONY : Test/fast
 
 #=============================================================================
-# Target rules for targets named core
+# Target rules for targets named CORE
 
 # Build rule for target.
-core: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 core
-.PHONY : core
+CORE: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CORE
+.PHONY : CORE
 
 # fast build rule for target.
-core/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/build
-.PHONY : core/fast
+CORE/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/build
+.PHONY : CORE/fast
 
 #=============================================================================
-# Target rules for targets named lib
+# Target rules for targets named LIB
 
 # Build rule for target.
-lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib
-.PHONY : lib
+LIB: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LIB
+.PHONY : LIB
 
 # fast build rule for target.
-lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/build
-.PHONY : lib/fast
+LIB/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LIB.dir\build.make CMakeFiles/LIB.dir/build
+.PHONY : LIB/fast
 
 #=============================================================================
 # Target rules for targets named iotest
@@ -237,19 +237,6 @@ coretest: cmake_check_build_system
 coretest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/build
 .PHONY : coretest/fast
-
-#=============================================================================
-# Target rules for targets named common
-
-# Build rule for target.
-common: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 common
-.PHONY : common
-
-# fast build rule for target.
-common/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/build
-.PHONY : common/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -308,8 +295,7 @@ src/Core.obj: src/Core.cpp.obj
 
 # target to build an object file
 src/Core.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Core.cpp.obj
 .PHONY : src/Core.cpp.obj
 
 src/Core.i: src/Core.cpp.i
@@ -317,8 +303,7 @@ src/Core.i: src/Core.cpp.i
 
 # target to preprocess a source file
 src/Core.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Core.cpp.i
 .PHONY : src/Core.cpp.i
 
 src/Core.s: src/Core.cpp.s
@@ -326,8 +311,7 @@ src/Core.s: src/Core.cpp.s
 
 # target to generate assembly for a file
 src/Core.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Core.cpp.s
 .PHONY : src/Core.cpp.s
 
 src/FileIO.obj: src/FileIO.cpp.obj
@@ -335,8 +319,7 @@ src/FileIO.obj: src/FileIO.cpp.obj
 
 # target to build an object file
 src/FileIO.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LIB.dir\build.make CMakeFiles/LIB.dir/src/FileIO.cpp.obj
 .PHONY : src/FileIO.cpp.obj
 
 src/FileIO.i: src/FileIO.cpp.i
@@ -344,8 +327,7 @@ src/FileIO.i: src/FileIO.cpp.i
 
 # target to preprocess a source file
 src/FileIO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LIB.dir\build.make CMakeFiles/LIB.dir/src/FileIO.cpp.i
 .PHONY : src/FileIO.cpp.i
 
 src/FileIO.s: src/FileIO.cpp.s
@@ -353,8 +335,7 @@ src/FileIO.s: src/FileIO.cpp.s
 
 # target to generate assembly for a file
 src/FileIO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LIB.dir\build.make CMakeFiles/LIB.dir/src/FileIO.cpp.s
 .PHONY : src/FileIO.cpp.s
 
 src/Node.obj: src/Node.cpp.obj
@@ -362,8 +343,7 @@ src/Node.obj: src/Node.cpp.obj
 
 # target to build an object file
 src/Node.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Node.cpp.obj
 .PHONY : src/Node.cpp.obj
 
 src/Node.i: src/Node.cpp.i
@@ -371,8 +351,7 @@ src/Node.i: src/Node.cpp.i
 
 # target to preprocess a source file
 src/Node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Node.cpp.i
 .PHONY : src/Node.cpp.i
 
 src/Node.s: src/Node.cpp.s
@@ -380,33 +359,8 @@ src/Node.s: src/Node.cpp.s
 
 # target to generate assembly for a file
 src/Node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\CORE.dir\build.make CMakeFiles/CORE.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
-
-src/Test.obj: src/Test.cpp.obj
-.PHONY : src/Test.obj
-
-# target to build an object file
-src/Test.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.obj
-.PHONY : src/Test.cpp.obj
-
-src/Test.i: src/Test.cpp.i
-.PHONY : src/Test.i
-
-# target to preprocess a source file
-src/Test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.i
-.PHONY : src/Test.cpp.i
-
-src/Test.s: src/Test.cpp.s
-.PHONY : src/Test.s
-
-# target to generate assembly for a file
-src/Test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/src/Test.cpp.s
-.PHONY : src/Test.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -432,53 +386,77 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wordlist.dir\build.make CMakeFiles/Wordlist.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-tests/coretest/coretest.obj: tests/coretest/coretest.cpp.obj
-.PHONY : tests/coretest/coretest.obj
+test/Test.obj: test/Test.cpp.obj
+.PHONY : test/Test.obj
 
 # target to build an object file
-tests/coretest/coretest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.obj
-.PHONY : tests/coretest/coretest.cpp.obj
+test/Test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/test/Test.cpp.obj
+.PHONY : test/Test.cpp.obj
 
-tests/coretest/coretest.i: tests/coretest/coretest.cpp.i
-.PHONY : tests/coretest/coretest.i
+test/Test.i: test/Test.cpp.i
+.PHONY : test/Test.i
 
 # target to preprocess a source file
-tests/coretest/coretest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.i
-.PHONY : tests/coretest/coretest.cpp.i
+test/Test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/test/Test.cpp.i
+.PHONY : test/Test.cpp.i
 
-tests/coretest/coretest.s: tests/coretest/coretest.cpp.s
-.PHONY : tests/coretest/coretest.s
+test/Test.s: test/Test.cpp.s
+.PHONY : test/Test.s
 
 # target to generate assembly for a file
-tests/coretest/coretest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/tests/coretest/coretest.cpp.s
-.PHONY : tests/coretest/coretest.cpp.s
+test/Test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/test/Test.cpp.s
+.PHONY : test/Test.cpp.s
 
-tests/iotest/iotest.obj: tests/iotest/iotest.cpp.obj
-.PHONY : tests/iotest/iotest.obj
+test/coretest/coretest.obj: test/coretest/coretest.cpp.obj
+.PHONY : test/coretest/coretest.obj
 
 # target to build an object file
-tests/iotest/iotest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.obj
-.PHONY : tests/iotest/iotest.cpp.obj
+test/coretest/coretest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/test/coretest/coretest.cpp.obj
+.PHONY : test/coretest/coretest.cpp.obj
 
-tests/iotest/iotest.i: tests/iotest/iotest.cpp.i
-.PHONY : tests/iotest/iotest.i
+test/coretest/coretest.i: test/coretest/coretest.cpp.i
+.PHONY : test/coretest/coretest.i
 
 # target to preprocess a source file
-tests/iotest/iotest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.i
-.PHONY : tests/iotest/iotest.cpp.i
+test/coretest/coretest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/test/coretest/coretest.cpp.i
+.PHONY : test/coretest/coretest.cpp.i
 
-tests/iotest/iotest.s: tests/iotest/iotest.cpp.s
-.PHONY : tests/iotest/iotest.s
+test/coretest/coretest.s: test/coretest/coretest.cpp.s
+.PHONY : test/coretest/coretest.s
 
 # target to generate assembly for a file
-tests/iotest/iotest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/tests/iotest/iotest.cpp.s
-.PHONY : tests/iotest/iotest.cpp.s
+test/coretest/coretest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\coretest.dir\build.make CMakeFiles/coretest.dir/test/coretest/coretest.cpp.s
+.PHONY : test/coretest/coretest.cpp.s
+
+test/iotest/iotest.obj: test/iotest/iotest.cpp.obj
+.PHONY : test/iotest/iotest.obj
+
+# target to build an object file
+test/iotest/iotest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/test/iotest/iotest.cpp.obj
+.PHONY : test/iotest/iotest.cpp.obj
+
+test/iotest/iotest.i: test/iotest/iotest.cpp.i
+.PHONY : test/iotest/iotest.i
+
+# target to preprocess a source file
+test/iotest/iotest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/test/iotest/iotest.cpp.i
+.PHONY : test/iotest/iotest.cpp.i
+
+test/iotest/iotest.s: test/iotest/iotest.cpp.s
+.PHONY : test/iotest/iotest.s
+
+# target to generate assembly for a file
+test/iotest/iotest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\iotest.dir\build.make CMakeFiles/iotest.dir/test/iotest/iotest.cpp.s
+.PHONY : test/iotest/iotest.cpp.s
 
 # Help Target
 help:
@@ -492,17 +470,16 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... CORE
+	@echo ... LIB
 	@echo ... Test
 	@echo ... Wordlist
-	@echo ... common
-	@echo ... core
 	@echo ... coretest
 	@echo ... gmock
 	@echo ... gmock_main
 	@echo ... gtest
 	@echo ... gtest_main
 	@echo ... iotest
-	@echo ... lib
 	@echo ... src/Core.obj
 	@echo ... src/Core.i
 	@echo ... src/Core.s
@@ -512,18 +489,18 @@ help:
 	@echo ... src/Node.obj
 	@echo ... src/Node.i
 	@echo ... src/Node.s
-	@echo ... src/Test.obj
-	@echo ... src/Test.i
-	@echo ... src/Test.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
-	@echo ... tests/coretest/coretest.obj
-	@echo ... tests/coretest/coretest.i
-	@echo ... tests/coretest/coretest.s
-	@echo ... tests/iotest/iotest.obj
-	@echo ... tests/iotest/iotest.i
-	@echo ... tests/iotest/iotest.s
+	@echo ... test/Test.obj
+	@echo ... test/Test.i
+	@echo ... test/Test.s
+	@echo ... test/coretest/coretest.obj
+	@echo ... test/coretest/coretest.i
+	@echo ... test/coretest/coretest.s
+	@echo ... test/iotest/iotest.obj
+	@echo ... test/iotest/iotest.i
+	@echo ... test/iotest/iotest.s
 .PHONY : help
 
 

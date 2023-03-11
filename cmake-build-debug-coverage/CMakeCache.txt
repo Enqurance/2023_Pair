@@ -305,7 +305,7 @@ gmock_LIB_DEPENDS:STATIC=general;gtest;
 //Value Computed by CMake
 gmock_SOURCE_DIR:STATIC=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock
 
-//Build all of Google Mock's own tests.
+//Build all of Google Mock's own test.
 gmock_build_tests:BOOL=OFF
 
 //Dependencies for the target
@@ -332,7 +332,7 @@ gtest_SOURCE_DIR:STATIC=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结
 //Build gtest's sample programs.
 gtest_build_samples:BOOL=OFF
 
-//Build all of gtest's own tests.
+//Build all of gtest's own test.
 gtest_build_tests:BOOL=OFF
 
 //Disable uses of pthreads in gtest.
