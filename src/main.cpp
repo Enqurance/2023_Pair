@@ -1,7 +1,6 @@
 #include "bits/stdc++.h"
-#include "Node.h"
-#include "Core.h"
-#include "FileIO.h"
+#include "core.h"
+#include "lib.h"
 
 #define MAX 10000
 
@@ -13,9 +12,9 @@ string input_file;
 bool is_all_chain = false;             // -n
 bool is_count_chain = false;   // -w
 bool is_word_chain = false;    // -c
-bool is_head = false;      char req_head = 0;      // -h
-bool is_tail = false;      char req_tail = 0;      // -t
-bool is_not_head = false;  char req_not_head = 0;  // -j
+bool is_head = false;      char head = 0;      // -h
+bool is_tail = false;      char tail = 0;      // -t
+bool is_not_head = false;  char reject = 0;  // -j
 bool enableLoop = false;          // -r
 
 // 程序错误处理相关，要换为异常处理
@@ -62,11 +61,11 @@ void parse_args(int argc, char *argv[]) {
         } else if (strcmp(argv[i], "-c") == 0) {
             is_word_chain = true;
         } else if (strcmp(argv[i], "-h") == 0) {
-            parse_additional_args(is_head, req_head, argv, i, argc);
+            parse_additional_args(is_head, head, argv, i, argc);
         } else if (strcmp(argv[i], "-t") == 0) {
-            parse_additional_args(is_tail, req_tail, argv, i, argc);
+            parse_additional_args(is_tail, tail, argv, i, argc);
         } else if (strcmp(argv[i], "-j") == 0) {
-            parse_additional_args(is_not_head, req_not_head, argv, i, argc);
+            parse_additional_args(is_not_head, reject, argv, i, argc);
         } else if (strcmp(argv[i], "-r") == 0) {
             enableLoop = true;
         } else {

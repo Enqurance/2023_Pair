@@ -22,9 +22,11 @@ private:
     // dfs算法
     bool vis[MAX] = {false};
     // 最终结果
-    int longest_value = 0;
     vector<string> longest_chain;
+    int longest_size = 0;
     vector<vector<string>> all_chains;
+    int all_chains_size = 0;
+
     // 建图相关
     vector<Node *> nodes;
     int nodes_size = -1;
@@ -35,9 +37,9 @@ private:
 
     bool enable_loop = false;
     bool loop_exist = false;
-    char req_head = 0;
-    char req_tail = 0;
-    char req_reject = 0;
+    char head = 0;
+    char tail = 0;
+    char reject = 0;
 
     vector<Node *> nodes_with_diff_head[26];    // 不同开头的单词
 
@@ -86,23 +88,24 @@ private:
         loop_exist = count != nodes_size;
     }
 
-    void dfs_all_chain(int id, vector<string> cur_chain, char head, char tail, char not_head) {
+    void dfs_all_chain(int id, vector<string> cur_chain) {
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
         if ((tail == 0 || tail == nodes[id]->get_e()) && (cur_chain.size() >= 2)) {
             all_chains.push_back(cur_chain);
+            all_chains_size++;
         }
         int toNode_size = (int )(nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
-                (not_head == 0 || not_head != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
-                dfs_all_chain(toNode_id, cur_chain, head, tail, not_head);
+                (reject == 0 || reject != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
+                dfs_all_chain(toNode_id, cur_chain);
             }
         }
     }
 
-    void dp_longest_chain(char head, char tail, char not_head) {
+    void dp_longest_chain() {
         // 局部变量初始化
         queue<Node *> q;
         int tmp_inDegree[MAX];
@@ -115,7 +118,7 @@ private:
                 // 有要求指定开头字母，或者没有要求
                 // 有要求指定不能开头的字母，或者没有要求
                 if ((head == 0 || nodes[i]->get_s() == head) &&
-                    (not_head == 0 || not_head != nodes[i]->get_s())) {
+                    (reject == 0 || reject != nodes[i]->get_s())) {
                     q.push(nodes[i]);
                     dp[i] = nodes[i]->get_v();
                 }
@@ -136,7 +139,7 @@ private:
                 tmp_inDegree[toNode_id]--;
                 if (tmp_inDegree[toNode_id] == 0) {
                     if ((head == 0 || nodes[i]->get_s() == head) &&
-                        (not_head == 0 || not_head != nodes[i]->get_s())) {
+                        (reject == 0 || reject != nodes[i]->get_s())) {
                         q.push(nodes[toNode_id]);
                     }
                 }
@@ -160,19 +163,19 @@ private:
         reverse(longest_chain.begin(), longest_chain.end());
     }
 
-    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain, char head, char tail, char not_head) {
+    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain) {
         cur_chain.push_back(nodes[id]->get_context());
         cur_v += nodes[id]->get_v();
-        if ((cur_v > longest_value) && (tail == 0 || nodes[id]->get_e() == tail) && cur_chain.size() >= 2) {
+        if ((cur_v > longest_size) && (tail == 0 || nodes[id]->get_e() == tail) && cur_chain.size() >= 2) {
             longest_chain.assign(cur_chain.begin(), cur_chain.end());
-            longest_value = cur_v;
+            longest_size = cur_v;
         }
         int toNode_size = (int )(nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
-                (not_head == 0 || not_head != nodes[toNode_id]->get_s())) {
-                dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain, head, tail, not_head);
+                (reject == 0 || reject != nodes[toNode_id]->get_s())) {
+                dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain);
             }
         }
     }
@@ -183,9 +186,9 @@ public:
         this->words = words;
         this->words_size = words_size;
         this->enable_loop = enableLoop;
-        this->req_head = head;
-        this->req_tail = tail;
-        this->req_reject = reject;
+        this->head = head;
+        this->tail = tail;
+        this->reject = reject;
         create_nodes(graph_mode);
         check_circle();
     }
@@ -194,37 +197,41 @@ public:
         this->words = words;
         this->words_size = words_size;
         this->enable_loop = false;
-        this->req_head = 0;
-        this->req_tail = 0;
-        this->req_reject = 0;
+        this->head = 0;
+        this->tail = 0;
+        this->reject = 0;
         create_nodes(false);
         check_circle();
     }
 
     // 不要求和其他参数联合使用
-    void genAllWordChain(char head, char tail, char not_head) {
+    int genAllWordChain(vector<vector<string>> &result) {
         for (int i = 0; i < 26; i++) {
             if (head != 0 && (head - 'a' != i)) continue;
-            if (not_head != 0 && (head - 'a' == i)) continue;
+            if (reject != 0 && (head - 'a' == i)) continue;
             int size = (int )nodes_with_diff_head[i].size();
             for (int j = 0; j < size; j++) {
                 memset(vis, false, nodes_size);
-                dfs_all_chain(nodes_with_diff_head[i][j]->get_id(), *new vector<string>, head, tail, not_head);
+                dfs_all_chain(nodes_with_diff_head[i][j]->get_id(), *new vector<string>);
             }
         }
+        result = all_chains;
+        return all_chains_size;
     }
 
-    void genMaxWordCountChain(bool circle_exist, char head, char tail, char not_head) {
-        if (circle_exist) {
+    int genMaxWordCountChain(vector<string> &result) {
+        if (loop_exist) {
             for (int i = 0; i < nodes_size; i++) {
                 if ((head == 0 || head == nodes[i]->get_s()) &&
-                    (not_head == 0 || not_head != nodes[i]->get_s())) {
-                    dfs_longest_chain(i, 0, *new vector<string>, head, tail, not_head);
+                    (reject == 0 || reject != nodes[i]->get_s())) {
+                    dfs_longest_chain(i, 0, *new vector<string>);
                 }
             }
         } else {
-            dp_longest_chain(head, tail, not_head);
+            dp_longest_chain();
         }
+        result = longest_chain;
+        return longest_size;
     }
 };
 

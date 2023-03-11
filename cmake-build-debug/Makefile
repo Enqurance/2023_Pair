@@ -84,6 +84,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\CMake\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug\CMakeFiles D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug\\CMakeFiles\progress.marks
@@ -142,24 +187,37 @@ Test/fast:
 .PHONY : Test/fast
 
 #=============================================================================
-# Target rules for targets named common
+# Target rules for targets named core
 
 # Build rule for target.
-common: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 common
-.PHONY : common
+core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 core
+.PHONY : core
 
 # fast build rule for target.
-common/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/build
-.PHONY : common/fast
+core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/build
+.PHONY : core/fast
+
+#=============================================================================
+# Target rules for targets named lib
+
+# Build rule for target.
+lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib
+.PHONY : lib
+
+# fast build rule for target.
+lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/build
+.PHONY : lib/fast
 
 src/Core.obj: src/Core.cpp.obj
 .PHONY : src/Core.obj
 
 # target to build an object file
 src/Core.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.obj
 .PHONY : src/Core.cpp.obj
 
 src/Core.i: src/Core.cpp.i
@@ -167,7 +225,7 @@ src/Core.i: src/Core.cpp.i
 
 # target to preprocess a source file
 src/Core.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.i
 .PHONY : src/Core.cpp.i
 
 src/Core.s: src/Core.cpp.s
@@ -175,7 +233,7 @@ src/Core.s: src/Core.cpp.s
 
 # target to generate assembly for a file
 src/Core.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Core.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Core.cpp.s
 .PHONY : src/Core.cpp.s
 
 src/FileIO.obj: src/FileIO.cpp.obj
@@ -183,7 +241,7 @@ src/FileIO.obj: src/FileIO.cpp.obj
 
 # target to build an object file
 src/FileIO.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.obj
 .PHONY : src/FileIO.cpp.obj
 
 src/FileIO.i: src/FileIO.cpp.i
@@ -191,7 +249,7 @@ src/FileIO.i: src/FileIO.cpp.i
 
 # target to preprocess a source file
 src/FileIO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.i
 .PHONY : src/FileIO.cpp.i
 
 src/FileIO.s: src/FileIO.cpp.s
@@ -199,7 +257,7 @@ src/FileIO.s: src/FileIO.cpp.s
 
 # target to generate assembly for a file
 src/FileIO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/FileIO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lib.dir\build.make CMakeFiles/lib.dir/src/FileIO.cpp.s
 .PHONY : src/FileIO.cpp.s
 
 src/Node.obj: src/Node.cpp.obj
@@ -207,7 +265,7 @@ src/Node.obj: src/Node.cpp.obj
 
 # target to build an object file
 src/Node.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.obj
 .PHONY : src/Node.cpp.obj
 
 src/Node.i: src/Node.cpp.i
@@ -215,7 +273,7 @@ src/Node.i: src/Node.cpp.i
 
 # target to preprocess a source file
 src/Node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.i
 .PHONY : src/Node.cpp.i
 
 src/Node.s: src/Node.cpp.s
@@ -223,7 +281,7 @@ src/Node.s: src/Node.cpp.s
 
 # target to generate assembly for a file
 src/Node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\common.dir\build.make CMakeFiles/common.dir/src/Node.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\core.dir\build.make CMakeFiles/core.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
 
 src/Test.obj: src/Test.cpp.obj
@@ -281,10 +339,15 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... Test
 	@echo ... Wordlist
-	@echo ... common
+	@echo ... core
+	@echo ... lib
 	@echo ... src/Core.obj
 	@echo ... src/Core.i
 	@echo ... src/Core.s
