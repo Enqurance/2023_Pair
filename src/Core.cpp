@@ -1,11 +1,19 @@
 #include "Core.h"
 
-int gen_chain(char *words[], int len, char *result[]);
+// 函数返回值为单词链的总数
+int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
+    Core core = *new Core(words, len);
+    core.genAllWordChain()
+}
 
-int gen_chain_word(char *words[], int len, char *result[], char head, char tail, bool enable_loop);
+// 函数返回值为单词链的长度
+int gen_chain_word(const vector<string> &words, int len, vector<string> &result,
+                   char head, char tail, char reject, bool enable_loop) {
+    Core core = *new Core(words, len, enable_loop, head, tail, reject, false);
+}
 
-int gen_chains_all(char *words[], int len, char *result[]);
-
-int gen_chain_word_unique(char *words[], int len, char *result[]);
-
-int gen_chain_char(char *words[], int len, char *result[], char head, char tail, bool enable_loop);
+// 函数返回值为单词链的长度
+int gen_chain_char(const vector<string> &words, int len, vector<string> &result,
+                   char head, char tail, char reject, bool enable_loop) {
+    Core core = *new Core(words, len, enable_loop, head, tail, reject, true);
+}

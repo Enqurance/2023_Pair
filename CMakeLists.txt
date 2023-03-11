@@ -23,3 +23,6 @@ include_directories(lib/googletest/include googletest)
 # 添加测试文件
 add_executable(rftest tests/rftest/rftest.cpp)
 target_link_libraries(rftest gtest gtest_main)
+
+add_library(common SHARED src/Core.h src/Core.cpp src/Node.cpp src/Node.h src/FileIO.cpp src/FileIO.h)
+

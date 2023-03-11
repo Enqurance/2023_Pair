@@ -19,10 +19,8 @@ public:
         context.append(str);
         id = index;
         value = v;
-        if (!str.empty()) {
-            s = str[0];
-            e = str[str.size() - 1];
-        }
+        s = str[0];
+        e = str[str.size() - 1];
     }
 
     char get_s() const {

@@ -24,25 +24,27 @@ private:
     // 最终结果
     int longest_value = 0;
     vector<string> longest_chain;
-    vector<vector<string>> all_chain;
+    vector<vector<string>> all_chains;
     // 建图相关
     vector<Node *> nodes;
     int nodes_size = -1;
     int inDegree[MAX] = {0};
 
     vector<string> words;
+    int words_size;
 
-    bool enableLoop = false;
+    bool enable_loop = false;
     bool loop_exist = false;
     char req_head = 0;
     char req_tail = 0;
+    char req_reject = 0;
 
     vector<Node *> nodes_with_diff_head[26];    // 不同开头的单词
 
     void create_nodes(bool is_word_chain) {       /* 创建节点，生成图 */
         int cnt = 0;
-        for (const auto &word: words) {
-            Node *n = new Node(word, cnt++, (is_word_chain) ? (int )word.length() : 1);
+        for (int i = 0; i < words_size; i++) {
+            Node *n = new Node(words[i], cnt++, (is_word_chain) ? (int )words[i].length() : 1);
             nodes.push_back(n);
             nodes_with_diff_head[n->get_s() - 'a'].push_back(n);
         }
@@ -84,23 +86,11 @@ private:
         loop_exist = count != nodes_size;
     }
 
-    void genAllWordChain(char head, char tail, char not_head) {
-        for (int i = 0; i < 26; i++) {
-            if (head != 0 && (head - 'a' != i)) continue;
-            if (not_head != 0 && (head - 'a' == i)) continue;
-            int size = (int )nodes_with_diff_head[i].size();
-            for (int j = 0; j < size; j++) {
-                memset(vis, false, nodes_size);
-                dfs_all_chain(nodes_with_diff_head[i][j]->get_id(), *new vector<string>, head, tail, not_head);
-            }
-        }
-    }
-
     void dfs_all_chain(int id, vector<string> cur_chain, char head, char tail, char not_head) {
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
         if ((tail == 0 || tail == nodes[id]->get_e()) && (cur_chain.size() >= 2)) {
-            all_chain.push_back(cur_chain);
+            all_chains.push_back(cur_chain);
         }
         int toNode_size = (int )(nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
@@ -109,19 +99,6 @@ private:
                 (not_head == 0 || not_head != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
                 dfs_all_chain(toNode_id, cur_chain, head, tail, not_head);
             }
-        }
-    }
-
-    void genMaxWordCountChain(bool circle_exist, char head, char tail, char not_head) {
-        if (circle_exist) {
-            for (int i = 0; i < nodes_size; i++) {
-                if ((head == 0 || head == nodes[i]->get_s()) &&
-                    (not_head == 0 || not_head != nodes[i]->get_s())) {
-                    dfs_longest_chain(i, 0, *new vector<string>, head, tail, not_head);
-                }
-            }
-        } else {
-            dp_longest_chain(head, tail, not_head);
         }
     }
 
@@ -201,15 +178,68 @@ private:
     }
 
 public:
-    Core(const vector<string> &words, bool enableLoop, char req_head, char req_tail, bool graph_mode) {
+    Core(const vector<string> &words, int words_size, bool enableLoop,
+         char head, char tail, char reject, bool graph_mode) {
         this->words = words;
-        this->enableLoop = enableLoop;
-        this->req_head = req_head;
-        this->req_tail = req_tail;
+        this->words_size = words_size;
+        this->enable_loop = enableLoop;
+        this->req_head = head;
+        this->req_tail = tail;
+        this->req_reject = reject;
         create_nodes(graph_mode);
         check_circle();
     }
+
+    Core(const vector<string> &words, int words_size) {
+        this->words = words;
+        this->words_size = words_size;
+        this->enable_loop = false;
+        this->req_head = 0;
+        this->req_tail = 0;
+        this->req_reject = 0;
+        create_nodes(false);
+        check_circle();
+    }
+
+    // 不要求和其他参数联合使用
+    void genAllWordChain(char head, char tail, char not_head) {
+        for (int i = 0; i < 26; i++) {
+            if (head != 0 && (head - 'a' != i)) continue;
+            if (not_head != 0 && (head - 'a' == i)) continue;
+            int size = (int )nodes_with_diff_head[i].size();
+            for (int j = 0; j < size; j++) {
+                memset(vis, false, nodes_size);
+                dfs_all_chain(nodes_with_diff_head[i][j]->get_id(), *new vector<string>, head, tail, not_head);
+            }
+        }
+    }
+
+    void genMaxWordCountChain(bool circle_exist, char head, char tail, char not_head) {
+        if (circle_exist) {
+            for (int i = 0; i < nodes_size; i++) {
+                if ((head == 0 || head == nodes[i]->get_s()) &&
+                    (not_head == 0 || not_head != nodes[i]->get_s())) {
+                    dfs_longest_chain(i, 0, *new vector<string>, head, tail, not_head);
+                }
+            }
+        } else {
+            dp_longest_chain(head, tail, not_head);
+        }
+    }
 };
+
+//指针数组result的长度上限为20000，超出上限时报错并保证返回值正确，此时输出到solution.txt中的单词链可以为空
+//如果采用推荐的API接口，由于各组之间需要互换前后端，且推荐的API接口中返回值已经具有实际意义
+//因此不宜采用直接返回报错码的方式处理，因此各位不要在返回值上承载异常信息，保证返回值正确
+
+// 函数返回值为单词链的长度
+int gen_chain_word(const vector<string> &words, int len, vector<string> &result, char head, char tail, bool enable_loop);
+
+// 函数返回值为单词链的总数
+int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result);
+
+// 函数返回值为单词链的长度
+int gen_chain_char(const vector<string> &words, int len, vector<string> &result, char head, char tail, bool enable_loop);
 
 
 #endif //WORDLIST_CORE_H
