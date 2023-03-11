@@ -1,4 +1,5 @@
 #include "bits/stdc++.h"
+#include "windows.h"
 #include "Core.h"
 #include "FileIO.h"
 
@@ -40,14 +41,19 @@ int main(int argc, char *argv[]) {
     int words_size = 0;
     vector<string> words = f.get_words(words_size);
 
-    vector<vector<string>> result;
-    gen_chains_all(words, words_size, result);
-
-
-//    /* 求解 */
-//
-    f.output_screen(result);
-//
+    if (is_all_chain) {
+        vector<vector<string>> result;
+        gen_chains_all(words, words_size, result);
+        f.output_screen(result);
+    } else if (is_word_chain || is_count_chain) {
+        vector<string> result;
+        if (is_word_chain) {
+            gen_chain_word(words, words_size, result, head, tail, reject, enableLoop);
+        } else {
+            gen_chain_char(words, words_size, result, head, tail, reject, enableLoop);
+        }
+        f.output_file(result);
+    }
     return 0;
 }
 
