@@ -1,5 +1,4 @@
 #include "bits/stdc++.h"
-#include "windows.h"
 #include "Core.h"
 #include "FileIO.h"
 
@@ -65,9 +64,9 @@ void parse_args(int argc, char *argv[]) {
         if (strcmp(argv[i], "-n") == 0) {
             is_all_chain = true;
         } else if (strcmp(argv[i], "-w") == 0) {
-            is_count_chain = true;
-        } else if (strcmp(argv[i], "-c") == 0) {
             is_word_chain = true;
+        } else if (strcmp(argv[i], "-c") == 0) {
+            is_count_chain = true;
         } else if (strcmp(argv[i], "-h") == 0) {
             parse_additional_args(is_head, head, argv, i, argc);
         } else if (strcmp(argv[i], "-t") == 0) {
