@@ -89,7 +89,7 @@ class MyFrame extends JFrame {
         executeButton.addActionListener(e -> {
             if (!reCompile) {
                 try {
-                    Process process = Runtime.getRuntime().exec("g++ -std=c++14 -o Wordlist ../src/main.cpp\n");
+                    Process process = Runtime.getRuntime().exec("g++ -std=c++14 -o Wordlist main.cpp\n");
                     BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                     String line;
                     while ((line = reader.readLine()) != null) {
@@ -128,14 +128,15 @@ class MyFrame extends JFrame {
                 if (!fileToSave.getName().endsWith(".txt")) {
                     // 如果不是，弹出提示框，提示用户选择一个 .txt 文件
                     JOptionPane.showMessageDialog(this, "请选择一个 .txt 格式的文件！");
-                }
-                try {
-                    FileWriter writer = new FileWriter(fileToSave);
-                    writer.write(outputArea.getText());
-                    writer.close();
-                    JOptionPane.showMessageDialog(this, "文件保存成功！");
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(this, "保存文件失败：" + ex.getMessage());
+                } else {
+                    try {
+                        FileWriter writer = new FileWriter(fileToSave);
+                        writer.write(outputArea.getText());
+                        writer.close();
+                        JOptionPane.showMessageDialog(this, "文件保存成功！");
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(this, "保存文件失败：" + ex.getMessage());
+                    }
                 }
             }
         });
