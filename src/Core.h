@@ -171,6 +171,7 @@ private:
     }
 
     void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain) {
+        vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
         cur_v += nodes[id]->get_v();
         if ((cur_v > longest_size) && (tail == 0 || nodes[id]->get_e() == tail) && cur_chain.size() >= 2) {
@@ -213,14 +214,6 @@ public:
 
     // 不要求和其他参数联合使用
     int genAllWordChain(vector<vector<string>> &result) {
-        for (int i = 0; i < nodes_size; i++) {
-            cout << nodes[i]->get_id() << " " << nodes[i]->get_context() << ":" << endl;
-            int size = (int )nodes[i]->toNodes.size();
-            for (int j = 0; j < size; j++) {
-                cout << nodes[i]->toNodes[j]->get_context() << endl;
-                cout << endl;
-            }
-        }
         for (int i = 0; i < 26; i++) {
             int size = (int )nodes_with_diff_head[i].size();
             for (int j = 0; j < size; j++) {
