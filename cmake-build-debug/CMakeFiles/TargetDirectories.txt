@@ -4,6 +4,7 @@
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/LIB.dir
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/iotest.dir
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/coretest.dir
+/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/GUIMain.dir
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug/CMakeFiles/list_install_components.dir

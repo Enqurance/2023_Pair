@@ -69,6 +69,7 @@ all: CMakeFiles/CORE.dir/all
 all: CMakeFiles/LIB.dir/all
 all: CMakeFiles/iotest.dir/all
 all: CMakeFiles/coretest.dir/all
+all: CMakeFiles/GUIMain.dir/all
 all: lib/all
 .PHONY : all
 
@@ -83,6 +84,7 @@ clean: CMakeFiles/CORE.dir/clean
 clean: CMakeFiles/LIB.dir/clean
 clean: CMakeFiles/iotest.dir/clean
 clean: CMakeFiles/coretest.dir/clean
+clean: CMakeFiles/GUIMain.dir/clean
 clean: lib/clean
 .PHONY : clean
 
@@ -144,7 +146,7 @@ lib/googletest/clean: lib/googletest/CMakeFiles/gtest_main.dir/clean
 CMakeFiles/Wordlist.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wordlist.dir/build.make CMakeFiles/Wordlist.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wordlist.dir/build.make CMakeFiles/Wordlist.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=8,9 "Built target Wordlist"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=10,11 "Built target Wordlist"
 .PHONY : CMakeFiles/Wordlist.dir/all
 
 # Build rule for subdir invocation for target.
@@ -170,7 +172,7 @@ CMakeFiles/Wordlist.dir/clean:
 CMakeFiles/Test.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=6,7 "Built target Test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=8,9 "Built target Test"
 .PHONY : CMakeFiles/Test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -222,7 +224,7 @@ CMakeFiles/CORE.dir/clean:
 CMakeFiles/LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIB.dir/build.make CMakeFiles/LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LIB.dir/build.make CMakeFiles/LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=4,5 "Built target LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=6,7 "Built target LIB"
 .PHONY : CMakeFiles/LIB.dir/all
 
 # Build rule for subdir invocation for target.
@@ -249,7 +251,7 @@ CMakeFiles/iotest.dir/all: lib/googletest/CMakeFiles/gtest.dir/all
 CMakeFiles/iotest.dir/all: lib/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iotest.dir/build.make CMakeFiles/iotest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iotest.dir/build.make CMakeFiles/iotest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=20,21 "Built target iotest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=22,23 "Built target iotest"
 .PHONY : CMakeFiles/iotest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -276,7 +278,7 @@ CMakeFiles/coretest.dir/all: lib/googletest/CMakeFiles/gtest.dir/all
 CMakeFiles/coretest.dir/all: lib/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/coretest.dir/build.make CMakeFiles/coretest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/coretest.dir/build.make CMakeFiles/coretest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=10,11 "Built target coretest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=12,13 "Built target coretest"
 .PHONY : CMakeFiles/coretest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -296,13 +298,39 @@ CMakeFiles/coretest.dir/clean:
 .PHONY : CMakeFiles/coretest.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/GUIMain.dir
+
+# All Build rule for target.
+CMakeFiles/GUIMain.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=4,5 "Built target GUIMain"
+.PHONY : CMakeFiles/GUIMain.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/GUIMain.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GUIMain.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles 0
+.PHONY : CMakeFiles/GUIMain.dir/rule
+
+# Convenience name for target.
+GUIMain: CMakeFiles/GUIMain.dir/rule
+.PHONY : GUIMain
+
+# clean rule for target.
+CMakeFiles/GUIMain.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/clean
+.PHONY : CMakeFiles/GUIMain.dir/clean
+
+#=============================================================================
 # Target rules for target lib/googlemock/CMakeFiles/gmock.dir
 
 # All Build rule for target.
 lib/googlemock/CMakeFiles/gmock.dir/all: lib/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googlemock/CMakeFiles/gmock.dir/build.make lib/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googlemock/CMakeFiles/gmock.dir/build.make lib/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=12,13 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=14,15 "Built target gmock"
 .PHONY : lib/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -329,7 +357,7 @@ lib/googlemock/CMakeFiles/gmock_main.dir/all: lib/googlemock/CMakeFiles/gmock.di
 lib/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=14,15 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=16,17 "Built target gmock_main"
 .PHONY : lib/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -355,7 +383,7 @@ lib/googlemock/CMakeFiles/gmock_main.dir/clean:
 lib/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=16,17 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=18,19 "Built target gtest"
 .PHONY : lib/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -381,7 +409,7 @@ lib/googletest/CMakeFiles/gtest.dir/clean:
 lib/googletest/CMakeFiles/gtest_main.dir/all: lib/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f lib/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=18,19 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/CMakeFiles --progress-num=20,21 "Built target gtest_main"
 .PHONY : lib/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.

@@ -68,7 +68,7 @@ class MyFrame extends JFrame {
 
         /* 文件选择器FileChooser */
         JButton fileChooseButton = new JButton("选择文件");
-        fileChooseButton.setBounds(50, 260, 80, 30);
+        fileChooseButton.setBounds(50, 260, 100, 30);
         fileChooseButton.addActionListener(e -> {
             JFileChooser fileChooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Text Files", "txt");
@@ -85,7 +85,7 @@ class MyFrame extends JFrame {
 
         /* 文件执行按钮 */
         JButton executeButton = new JButton("执行程序");
-        executeButton.setBounds(150, 260, 80, 30);
+        executeButton.setBounds(150, 260, 100, 30);
         executeButton.addActionListener(e -> {
             if (!reCompile) {
                 try {
@@ -140,7 +140,7 @@ class MyFrame extends JFrame {
                 }
             }
         });
-        saveButton.setBounds(50, 230, 80, 30);
+        saveButton.setBounds(50, 230, 100, 30);
         panel2.add(saveButton);
 
 

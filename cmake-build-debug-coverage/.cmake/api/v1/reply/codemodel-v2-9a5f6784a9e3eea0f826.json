@@ -25,7 +25,8 @@
 						2,
 						3,
 						4,
-						9
+						5,
+						10
 					]
 				},
 				{
@@ -51,7 +52,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-lib.googlemock-Debug-e7e6081ce9a83a5ed570.json",
+					"jsonFile" : "directory-lib.googlemock-Debug-28dfccff84930ba4889c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -61,14 +62,14 @@
 					"source" : "lib/googlemock",
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
 					]
 				},
 				{
 					"build" : "lib/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-lib.googletest-Debug-ab164392a05d6167a80b.json",
+					"jsonFile" : "directory-lib.googletest-Debug-8342f36c19a35d81ab5e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -78,8 +79,8 @@
 					"source" : "lib/googletest",
 					"targetIndexes" : 
 					[
-						7,
-						8
+						8,
+						9
 					]
 				}
 			],
@@ -103,7 +104,8 @@
 						2,
 						3,
 						4,
-						9
+						5,
+						10
 					]
 				},
 				{
@@ -131,8 +133,8 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
 					]
 				},
 				{
@@ -144,8 +146,8 @@
 					"parentIndex" : 2,
 					"targetIndexes" : 
 					[
-						7,
-						8
+						8,
+						9
 					]
 				}
 			],
@@ -156,6 +158,13 @@
 					"id" : "CORE::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-CORE-Debug-a32f5a64e59476b0c908.json",
 					"name" : "CORE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "GUIMain::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-GUIMain-Debug-f51fa89e39250c52ac34.json",
+					"name" : "GUIMain",
 					"projectIndex" : 0
 				},
 				{

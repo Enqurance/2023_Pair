@@ -240,6 +240,19 @@ coretest/fast:
 .PHONY : coretest/fast
 
 #=============================================================================
+# Target rules for targets named GUIMain
+
+# Build rule for target.
+GUIMain: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GUIMain
+.PHONY : GUIMain
+
+# fast build rule for target.
+GUIMain/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/build
+.PHONY : GUIMain/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -290,6 +303,30 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f lib/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+GUI/main.o: GUI/main.cpp.o
+.PHONY : GUI/main.o
+
+# target to build an object file
+GUI/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/GUI/main.cpp.o
+.PHONY : GUI/main.cpp.o
+
+GUI/main.i: GUI/main.cpp.i
+.PHONY : GUI/main.i
+
+# target to preprocess a source file
+GUI/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/GUI/main.cpp.i
+.PHONY : GUI/main.cpp.i
+
+GUI/main.s: GUI/main.cpp.s
+.PHONY : GUI/main.s
+
+# target to generate assembly for a file
+GUI/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GUIMain.dir/build.make CMakeFiles/GUIMain.dir/GUI/main.cpp.s
+.PHONY : GUI/main.cpp.s
 
 src/Core.o: src/Core.cpp.o
 .PHONY : src/Core.o
@@ -472,6 +509,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... CORE"
+	@echo "... GUIMain"
 	@echo "... LIB"
 	@echo "... Test"
 	@echo "... Wordlist"
@@ -481,6 +519,9 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... iotest"
+	@echo "... GUI/main.o"
+	@echo "... GUI/main.i"
+	@echo "... GUI/main.s"
 	@echo "... src/Core.o"
 	@echo "... src/Core.i"
 	@echo "... src/Core.s"

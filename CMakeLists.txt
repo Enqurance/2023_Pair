@@ -45,3 +45,6 @@ target_link_libraries(coretest gtest gtest_main)
 
 # 单元测试代码覆盖率
 add_compile_options(-fprofile-arcs -ftest-coverage)
+
+# GUI的main文件
+add_executable(GUIMain GUI/main.cpp)
