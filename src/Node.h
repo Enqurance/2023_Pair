@@ -20,7 +20,7 @@ public:
         id = index;
         value = v;
         s = str[0];
-        e = str[str.size() - 1];
+        e = str[str.length() - 1];
     }
 
     char get_s() const {

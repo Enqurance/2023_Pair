@@ -54,9 +54,10 @@ private:
             nodes.push_back(n);
             nodes_with_diff_head[n->get_s() - 'a'].push_back(n);
         }
-        nodes_size = int(nodes.size());
+        nodes_size = cnt;
         for (int i = 0; i < nodes_size; i++) {
-            for (int j = 0; (j < nodes_size) & (i != j); j++) {
+            for (int j = 0; j < nodes_size; j++) {
+                if (i == j) continue;
                 if (nodes[i]->get_e() == nodes[j]->get_s()) {
                     nodes[i]->addToNodes(nodes[j]);
                     inDegree[j]++;
@@ -95,15 +96,14 @@ private:
     void dfs_all_chain(int id, vector<string> cur_chain) {
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
-        if ((tail == 0 || tail == nodes[id]->get_e()) && (cur_chain.size() >= 2)) {
+        if (cur_chain.size() >= 2) {
             all_chains.push_back(cur_chain);
             all_chains_size++;
         }
         int toNode_size = (int )(nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
-            if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
-                (reject == 0 || reject != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
+            if (!vis[toNode_id]) {
                 dfs_all_chain(toNode_id, cur_chain);
             }
         }
@@ -210,9 +210,15 @@ public:
 
     // 不要求和其他参数联合使用
     int genAllWordChain(vector<vector<string>> &result) {
+        for (int i = 0; i < nodes_size; i++) {
+            cout << nodes[i]->get_id() << " " << nodes[i]->get_context() << ":" << endl;
+            int size = (int )nodes[i]->toNodes.size();
+            for (int j = 0; j < size; j++) {
+                cout << nodes[i]->toNodes[j]->get_context() << endl;
+                cout << endl;
+            }
+        }
         for (int i = 0; i < 26; i++) {
-            if (head != 0 && (head - 'a' != i)) continue;
-            if (reject != 0 && (head - 'a' == i)) continue;
             int size = (int )nodes_with_diff_head[i].size();
             for (int j = 0; j < size; j++) {
                 memset(vis, false, nodes_size);
