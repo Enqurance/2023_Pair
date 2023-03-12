@@ -1,19 +1,12 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
 
 
 public class Main {
@@ -23,6 +16,8 @@ public class Main {
 }
 
 class MyFrame extends JFrame {
+    boolean reCompile = false;
+
     public MyFrame() {
         setTitle("Longest-Word-Chain");
         setSize(800, 600);
@@ -87,6 +82,37 @@ class MyFrame extends JFrame {
             }
         });
         panel1.add(fileChooseButton);
+
+        /* 文件执行按钮 */
+        JButton executeButton = new JButton("执行程序");
+        executeButton.setBounds(150, 260, 80, 30);
+        executeButton.addActionListener(e -> {
+            if (!reCompile) {
+                try {
+                    Process process = Runtime.getRuntime().exec("g++ -std=c++14 -o Wordlist ../src/main.cpp\n");
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println(line);
+                    }
+                    process.waitFor();
+                    reader.close();
+                    System.out.println("Compilation completed successfully.");
+                    reCompile = true;
+                } catch (IOException | InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            String data = inputArea.getText();
+            try {
+                FileWriter writer = new FileWriter("input.txt");
+                writer.write(data);
+                writer.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+        panel1.add(executeButton);
 
         /* 将输出框内容保存为文件 */
         JButton saveButton = new JButton("保存文件");
