@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest"
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest.pdb"
-  "CMakeFiles/iotest.dir/test/iotest/iotest.cpp.o"
-  "CMakeFiles/iotest.dir/test/iotest/iotest.cpp.o.d"
+  "CMakeFiles/iotest.dir/test/iotest/iotest.cpp.obj"
+  "CMakeFiles/iotest.dir/test/iotest/iotest.cpp.obj.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/iotest.exe"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/iotest.exe.manifest"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/iotest.pdb"
+  "libiotest.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

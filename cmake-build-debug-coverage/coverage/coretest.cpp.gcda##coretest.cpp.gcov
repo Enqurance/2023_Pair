@@ -1,0 +1,2774 @@
+        -:    0:Source:D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test/coretest/coretest.cpp
+        -:    0:Graph:D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug-coverage\CMakeFiles\coretest.dir\test\coretest\coretest.cpp.gcno
+        -:    0:Data:D:\BUAA_Files\Learning_Files\Senior_Three_2\BUAA_SE\Pair_Project\2023_Pair\cmake-build-debug-coverage\CMakeFiles\coretest.dir\test\coretest\coretest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "../../src/Core.h"
+        -:    3:#include "../../src/FileIO.h"
+        -:    4:#include "string"
+        -:    5:
+        -:    6:// 测试套件示例
+        -:    7:class CoreTest : public ::testing::Test {
+        -:    8:protected:
+function _ZN8CoreTest5SetUpEv called 1 returned 100% blocks executed 100%
+        1:    9:    void SetUp() override {
+        1:   10:    }
+        -:   11:
+function _ZN8CoreTest8TearDownEv called 1 returned 100% blocks executed 100%
+        1:   12:    void TearDown() override {
+        1:   13:    }
+        -:   14:};
+        -:   15:
+        -:   16:// -n
+    #####:   17:TEST_F(CoreTest, Test_N) {
+        -:   18:    int words_size;
+    #####:   19:    FileIO f;
+    #####:   20:    string filename = "../test/Testfiles/input1.txt";
+    #####:   21:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:   22:    vector<string> words = f.get_words(words_size);
+    #####:   23:    ASSERT_EQ(words_size, 4);
+        -:   24:
+        -:   25:    /* 准备工作完成，开始测试 */
+    #####:   26:    Core core = *new Core(words, words_size);
+    #####:   27:    vector<vector<string>> result;
+    #####:   28:    gen_chains_all(words, words_size, result);
+    #####:   29:    EXPECT_EQ(f.output_screen(result), 1);
+    #####:   30:}
+------------------
+_ZN20CoreTest_Test_N_TestC1Ev:
+function _ZN20CoreTest_Test_N_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   17:TEST_F(CoreTest, Test_N) {
+    %%%%%:   17-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_N_TestD0Ev:
+function _ZN20CoreTest_Test_N_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   17:TEST_F(CoreTest, Test_N) {
+    %%%%%:   17-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN20CoreTest_Test_N_TestD1Ev:
+function _ZN20CoreTest_Test_N_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   17:TEST_F(CoreTest, Test_N) {
+    %%%%%:   17-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_N_Test8TestBodyEv:
+function _ZN20CoreTest_Test_N_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   17:TEST_F(CoreTest, Test_N) {
+        -:   18:    int words_size;
+    #####:   19:    FileIO f;
+    %%%%%:   19-block  0
+call    0 never executed
+    #####:   20:    string filename = "../test/Testfiles/input1.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   20-block  0
+    #####:   21:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   21-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   21-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   21-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   21-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   21-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   21-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:   21-block  6
+call   21 never executed
+    $$$$$:   21-block  7
+    $$$$$:   21-block  8
+    $$$$$:   21-block  9
+call   22 never executed
+    $$$$$:   21-block 10
+    $$$$$:   21-block 11
+call   23 never executed
+    $$$$$:   21-block 12
+    $$$$$:   21-block 13
+call   24 never executed
+    #####:   22:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   22-block  0
+call    3 never executed
+    #####:   23:    ASSERT_EQ(words_size, 4);
+    %%%%%:   23-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   23-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   23-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   23-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   23-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   23-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:   23-block  6
+    %%%%%:   23-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:   23-block  8
+    $$$$$:   23-block  9
+call   21 never executed
+    $$$$$:   23-block 10
+    $$$$$:   23-block 11
+call   22 never executed
+    $$$$$:   23-block 12
+    $$$$$:   23-block 13
+call   23 never executed
+        -:   24:
+        -:   25:    /* 准备工作完成，开始测试 */
+    #####:   26:    Core core = *new Core(words, words_size);
+    %%%%%:   26-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   26-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   26-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:   26-block  3
+call   10 never executed
+    $$$$$:   26-block  4
+call   11 never executed
+    #####:   27:    vector<vector<string>> result;
+    %%%%%:   27-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   27-block  1
+call    2 never executed
+    #####:   28:    gen_chains_all(words, words_size, result);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   29:    EXPECT_EQ(f.output_screen(result), 1);
+    %%%%%:   29-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   29-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   29-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   29-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   29-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   29-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   29-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:   29-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:   29-block  8
+call   25 never executed
+    $$$$$:   29-block  9
+    $$$$$:   29-block 10
+    $$$$$:   29-block 11
+    $$$$$:   29-block 12
+call   26 never executed
+    $$$$$:   29-block 13
+    $$$$$:   29-block 14
+call   27 never executed
+    $$$$$:   29-block 15
+    $$$$$:   29-block 16
+call   28 never executed
+    #####:   30:}
+    %%%%%:   30-block  0
+    %%%%%:   30-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   30-block  2
+    %%%%%:   30-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:   30-block  4
+call    6 never executed
+    $$$$$:   30-block  5
+call    7 never executed
+------------------
+        -:   31:
+        -:   32:// -w
+    #####:   33:TEST_F(CoreTest, Test_W) {
+        -:   34:    int words_size;
+    #####:   35:    FileIO f;
+    #####:   36:    string filename = "../test/Testfiles/input2.txt";
+    #####:   37:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:   38:    vector<string> words = f.get_words(words_size);
+    #####:   39:    ASSERT_EQ(words_size, 11);
+        -:   40:
+        -:   41:    /* 准备工作完成，开始测试 */
+    #####:   42:    Core core = *new Core(words, words_size);
+    #####:   43:    vector<string> result;
+    #####:   44:    char c = 0;
+    #####:   45:    gen_chain_word(words, words_size, result, c, c, c, false);
+    #####:   46:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:   47:}
+------------------
+_ZN20CoreTest_Test_W_TestC1Ev:
+function _ZN20CoreTest_Test_W_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   33:TEST_F(CoreTest, Test_W) {
+    %%%%%:   33-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_W_TestD0Ev:
+function _ZN20CoreTest_Test_W_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   33:TEST_F(CoreTest, Test_W) {
+    %%%%%:   33-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN20CoreTest_Test_W_TestD1Ev:
+function _ZN20CoreTest_Test_W_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   33:TEST_F(CoreTest, Test_W) {
+    %%%%%:   33-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_W_Test8TestBodyEv:
+function _ZN20CoreTest_Test_W_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   33:TEST_F(CoreTest, Test_W) {
+        -:   34:    int words_size;
+    #####:   35:    FileIO f;
+    %%%%%:   35-block  0
+call    0 never executed
+    #####:   36:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   36-block  0
+    #####:   37:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   37-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   37-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   37-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   37-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   37-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   37-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:   37-block  6
+call   21 never executed
+    $$$$$:   37-block  7
+    $$$$$:   37-block  8
+    $$$$$:   37-block  9
+call   22 never executed
+    $$$$$:   37-block 10
+    $$$$$:   37-block 11
+call   23 never executed
+    $$$$$:   37-block 12
+    $$$$$:   37-block 13
+call   24 never executed
+    #####:   38:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   38-block  0
+call    3 never executed
+    #####:   39:    ASSERT_EQ(words_size, 11);
+    %%%%%:   39-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   39-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   39-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   39-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   39-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   39-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:   39-block  6
+    %%%%%:   39-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:   39-block  8
+    $$$$$:   39-block  9
+call   21 never executed
+    $$$$$:   39-block 10
+    $$$$$:   39-block 11
+call   22 never executed
+    $$$$$:   39-block 12
+    $$$$$:   39-block 13
+call   23 never executed
+        -:   40:
+        -:   41:    /* 准备工作完成，开始测试 */
+    #####:   42:    Core core = *new Core(words, words_size);
+    %%%%%:   42-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   42-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   42-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:   42-block  3
+call   10 never executed
+    $$$$$:   42-block  4
+call   11 never executed
+    #####:   43:    vector<string> result;
+    %%%%%:   43-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   43-block  1
+call    2 never executed
+    #####:   44:    char c = 0;
+    #####:   45:    gen_chain_word(words, words_size, result, c, c, c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   46:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:   46-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   46-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   46-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   46-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   46-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   46-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   46-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:   46-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:   46-block  8
+call   25 never executed
+    $$$$$:   46-block  9
+    $$$$$:   46-block 10
+    $$$$$:   46-block 11
+    $$$$$:   46-block 12
+call   26 never executed
+    $$$$$:   46-block 13
+    $$$$$:   46-block 14
+call   27 never executed
+    $$$$$:   46-block 15
+    $$$$$:   46-block 16
+call   28 never executed
+    #####:   47:}
+    %%%%%:   47-block  0
+    %%%%%:   47-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   47-block  2
+    %%%%%:   47-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:   47-block  4
+call    6 never executed
+    $$$$$:   47-block  5
+call    7 never executed
+------------------
+        -:   48:
+        -:   49:// -h -w
+        4:   50:TEST_F(CoreTest, Test_H_W) {
+        -:   51:    int words_size;
+        1:   52:    FileIO f;
+        1:   53:    string filename = "../test/Testfiles/input2.txt";
+       1*:   54:    EXPECT_EQ(f.read_file(filename), 1);
+        1:   55:    vector<string> words = f.get_words(words_size);
+       1*:   56:    ASSERT_EQ(words_size, 11);
+        -:   57:
+        -:   58:    /* 准备工作完成，开始测试 */
+        2:   59:    Core core = *new Core(words, words_size);
+        2:   60:    vector<string> result;
+        1:   61:    char c = 0;
+        1:   62:    gen_chain_word(words, words_size, result, 'e', c, c, false);
+       1*:   63:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+        1:   64:}
+------------------
+_ZN22CoreTest_Test_H_W_TestC1Ev:
+function _ZN22CoreTest_Test_H_W_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   50:TEST_F(CoreTest, Test_H_W) {
+        1:   50-block  0
+call    0 returned 1
+------------------
+_ZN22CoreTest_Test_H_W_TestD0Ev:
+function _ZN22CoreTest_Test_H_W_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   50:TEST_F(CoreTest, Test_H_W) {
+        1:   50-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN22CoreTest_Test_H_W_TestD1Ev:
+function _ZN22CoreTest_Test_H_W_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   50:TEST_F(CoreTest, Test_H_W) {
+        1:   50-block  0
+call    0 returned 1
+------------------
+_ZN22CoreTest_Test_H_W_Test8TestBodyEv:
+function _ZN22CoreTest_Test_H_W_Test8TestBodyEv called 1 returned 100% blocks executed 35%
+        1:   50:TEST_F(CoreTest, Test_H_W) {
+        -:   51:    int words_size;
+        1:   52:    FileIO f;
+        1:   52-block  0
+call    0 returned 1
+        1:   53:    string filename = "../test/Testfiles/input2.txt";
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   53-block  0
+       1*:   54:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   54-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   54-block  1
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:   54-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   54-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   54-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   54-block  5
+call   19 never executed
+call   20 never executed
+        1:   54-block  6
+call   21 returned 1
+    $$$$$:   54-block  7
+    $$$$$:   54-block  8
+    $$$$$:   54-block  9
+call   22 never executed
+    $$$$$:   54-block 10
+    $$$$$:   54-block 11
+call   23 never executed
+    $$$$$:   54-block 12
+    $$$$$:   54-block 13
+call   24 never executed
+        1:   55:    vector<string> words = f.get_words(words_size);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:   55-block  0
+call    3 never executed
+       1*:   56:    ASSERT_EQ(words_size, 11);
+        1:   56-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   56-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   56-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   56-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   56-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   56-block  5
+call   16 never executed
+call   17 never executed
+        1:   56-block  6
+        1:   56-block  7
+call   18 returned 1
+branch 19 taken 1 (fallthrough)
+branch 20 taken 0
+    $$$$$:   56-block  8
+    $$$$$:   56-block  9
+call   21 never executed
+    $$$$$:   56-block 10
+    $$$$$:   56-block 11
+call   22 never executed
+    $$$$$:   56-block 12
+    $$$$$:   56-block 13
+call   23 never executed
+        -:   57:
+        -:   58:    /* 准备工作完成，开始测试 */
+        2:   59:    Core core = *new Core(words, words_size);
+        1:   59-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   59-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   59-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 1
+    $$$$$:   59-block  3
+call   10 never executed
+    $$$$$:   59-block  4
+call   11 never executed
+        2:   60:    vector<string> result;
+        1:   60-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   60-block  1
+call    2 never executed
+        1:   61:    char c = 0;
+        1:   62:    gen_chain_word(words, words_size, result, 'e', c, c, false);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   63:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+        1:   63-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   63-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   63-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   63-block  3
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1
+    %%%%%:   63-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   63-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   63-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:   63-block  7
+call   23 never executed
+call   24 never executed
+        1:   63-block  8
+call   25 returned 1
+    $$$$$:   63-block  9
+    $$$$$:   63-block 10
+    $$$$$:   63-block 11
+    $$$$$:   63-block 12
+call   26 never executed
+    $$$$$:   63-block 13
+    $$$$$:   63-block 14
+call   27 never executed
+    $$$$$:   63-block 15
+    $$$$$:   63-block 16
+call   28 never executed
+        1:   64:}
+        1:   64-block  0
+        1:   64-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   64-block  2
+        1:   64-block  3
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+    $$$$$:   64-block  4
+call    6 never executed
+    $$$$$:   64-block  5
+call    7 never executed
+------------------
+        -:   65:
+        -:   66:// -t -w
+    #####:   67:TEST_F(CoreTest, Test_T_W) {
+        -:   68:    int words_size;
+    #####:   69:    FileIO f;
+    #####:   70:    string filename = "../test/Testfiles/input2.txt";
+    #####:   71:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:   72:    vector<string> words = f.get_words(words_size);
+    #####:   73:    ASSERT_EQ(words_size, 11);
+        -:   74:
+        -:   75:    /* 准备工作完成，开始测试 */
+    #####:   76:    Core core = *new Core(words, words_size);
+    #####:   77:    vector<string> result;
+    #####:   78:    char c = 0;
+    #####:   79:    gen_chain_word(words, words_size, result, c, 't', c, false);
+    #####:   80:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:   81:}
+------------------
+_ZN22CoreTest_Test_T_W_TestC1Ev:
+function _ZN22CoreTest_Test_T_W_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   67:TEST_F(CoreTest, Test_T_W) {
+    %%%%%:   67-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_T_W_TestD0Ev:
+function _ZN22CoreTest_Test_T_W_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   67:TEST_F(CoreTest, Test_T_W) {
+    %%%%%:   67-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN22CoreTest_Test_T_W_TestD1Ev:
+function _ZN22CoreTest_Test_T_W_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   67:TEST_F(CoreTest, Test_T_W) {
+    %%%%%:   67-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_T_W_Test8TestBodyEv:
+function _ZN22CoreTest_Test_T_W_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   67:TEST_F(CoreTest, Test_T_W) {
+        -:   68:    int words_size;
+    #####:   69:    FileIO f;
+    %%%%%:   69-block  0
+call    0 never executed
+    #####:   70:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   70-block  0
+    #####:   71:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   71-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   71-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   71-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   71-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   71-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   71-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:   71-block  6
+call   21 never executed
+    $$$$$:   71-block  7
+    $$$$$:   71-block  8
+    $$$$$:   71-block  9
+call   22 never executed
+    $$$$$:   71-block 10
+    $$$$$:   71-block 11
+call   23 never executed
+    $$$$$:   71-block 12
+    $$$$$:   71-block 13
+call   24 never executed
+    #####:   72:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   72-block  0
+call    3 never executed
+    #####:   73:    ASSERT_EQ(words_size, 11);
+    %%%%%:   73-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   73-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   73-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   73-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   73-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   73-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:   73-block  6
+    %%%%%:   73-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:   73-block  8
+    $$$$$:   73-block  9
+call   21 never executed
+    $$$$$:   73-block 10
+    $$$$$:   73-block 11
+call   22 never executed
+    $$$$$:   73-block 12
+    $$$$$:   73-block 13
+call   23 never executed
+        -:   74:
+        -:   75:    /* 准备工作完成，开始测试 */
+    #####:   76:    Core core = *new Core(words, words_size);
+    %%%%%:   76-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   76-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   76-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:   76-block  3
+call   10 never executed
+    $$$$$:   76-block  4
+call   11 never executed
+    #####:   77:    vector<string> result;
+    %%%%%:   77-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   77-block  1
+call    2 never executed
+    #####:   78:    char c = 0;
+    #####:   79:    gen_chain_word(words, words_size, result, c, 't', c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   80:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:   80-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   80-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   80-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   80-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   80-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   80-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   80-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:   80-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:   80-block  8
+call   25 never executed
+    $$$$$:   80-block  9
+    $$$$$:   80-block 10
+    $$$$$:   80-block 11
+    $$$$$:   80-block 12
+call   26 never executed
+    $$$$$:   80-block 13
+    $$$$$:   80-block 14
+call   27 never executed
+    $$$$$:   80-block 15
+    $$$$$:   80-block 16
+call   28 never executed
+    #####:   81:}
+    %%%%%:   81-block  0
+    %%%%%:   81-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   81-block  2
+    %%%%%:   81-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:   81-block  4
+call    6 never executed
+    $$$$$:   81-block  5
+call    7 never executed
+------------------
+        -:   82:
+        -:   83:// -j -w
+    #####:   84:TEST_F(CoreTest, Test_J_W) {
+        -:   85:    int words_size;
+    #####:   86:    FileIO f;
+    #####:   87:    string filename = "../test/Testfiles/input2.txt";
+    #####:   88:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:   89:    vector<string> words = f.get_words(words_size);
+    #####:   90:    ASSERT_EQ(words_size, 11);
+        -:   91:
+        -:   92:    /* 准备工作完成，开始测试 */
+    #####:   93:    Core core = *new Core(words, words_size);
+    #####:   94:    vector<string> result;
+    #####:   95:    char c = 0;
+    #####:   96:    gen_chain_word(words, words_size, result, c, c, 'a', false);
+    #####:   97:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:   98:}
+------------------
+_ZN22CoreTest_Test_J_W_TestC1Ev:
+function _ZN22CoreTest_Test_J_W_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:   84:TEST_F(CoreTest, Test_J_W) {
+    %%%%%:   84-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_J_W_TestD0Ev:
+function _ZN22CoreTest_Test_J_W_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:   84:TEST_F(CoreTest, Test_J_W) {
+    %%%%%:   84-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN22CoreTest_Test_J_W_TestD1Ev:
+function _ZN22CoreTest_Test_J_W_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:   84:TEST_F(CoreTest, Test_J_W) {
+    %%%%%:   84-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_J_W_Test8TestBodyEv:
+function _ZN22CoreTest_Test_J_W_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:   84:TEST_F(CoreTest, Test_J_W) {
+        -:   85:    int words_size;
+    #####:   86:    FileIO f;
+    %%%%%:   86-block  0
+call    0 never executed
+    #####:   87:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   87-block  0
+    #####:   88:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   88-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   88-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   88-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:   88-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   88-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:   88-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:   88-block  6
+call   21 never executed
+    $$$$$:   88-block  7
+    $$$$$:   88-block  8
+    $$$$$:   88-block  9
+call   22 never executed
+    $$$$$:   88-block 10
+    $$$$$:   88-block 11
+call   23 never executed
+    $$$$$:   88-block 12
+    $$$$$:   88-block 13
+call   24 never executed
+    #####:   89:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:   89-block  0
+call    3 never executed
+    #####:   90:    ASSERT_EQ(words_size, 11);
+    %%%%%:   90-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   90-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   90-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   90-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   90-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   90-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:   90-block  6
+    %%%%%:   90-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:   90-block  8
+    $$$$$:   90-block  9
+call   21 never executed
+    $$$$$:   90-block 10
+    $$$$$:   90-block 11
+call   22 never executed
+    $$$$$:   90-block 12
+    $$$$$:   90-block 13
+call   23 never executed
+        -:   91:
+        -:   92:    /* 准备工作完成，开始测试 */
+    #####:   93:    Core core = *new Core(words, words_size);
+    %%%%%:   93-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   93-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   93-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:   93-block  3
+call   10 never executed
+    $$$$$:   93-block  4
+call   11 never executed
+    #####:   94:    vector<string> result;
+    %%%%%:   94-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:   94-block  1
+call    2 never executed
+    #####:   95:    char c = 0;
+    #####:   96:    gen_chain_word(words, words_size, result, c, c, 'a', false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   97:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:   97-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   97-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   97-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   97-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   97-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   97-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   97-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:   97-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:   97-block  8
+call   25 never executed
+    $$$$$:   97-block  9
+    $$$$$:   97-block 10
+    $$$$$:   97-block 11
+    $$$$$:   97-block 12
+call   26 never executed
+    $$$$$:   97-block 13
+    $$$$$:   97-block 14
+call   27 never executed
+    $$$$$:   97-block 15
+    $$$$$:   97-block 16
+call   28 never executed
+    #####:   98:}
+    %%%%%:   98-block  0
+    %%%%%:   98-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   98-block  2
+    %%%%%:   98-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:   98-block  4
+call    6 never executed
+    $$$$$:   98-block  5
+call    7 never executed
+------------------
+        -:   99:
+        -:  100:
+        -:  101:// -h -t -w
+    #####:  102:TEST_F(CoreTest, Test_H_T_W) {
+        -:  103:    int words_size;
+    #####:  104:    FileIO f;
+    #####:  105:    string filename = "../test/Testfiles/input2.txt";
+    #####:  106:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  107:    vector<string> words = f.get_words(words_size);
+    #####:  108:    ASSERT_EQ(words_size, 11);
+        -:  109:
+        -:  110:    /* 准备工作完成，开始测试 */
+    #####:  111:    Core core = *new Core(words, words_size);
+    #####:  112:    vector<string> result;
+    #####:  113:    char c = 0;
+    #####:  114:    gen_chain_word(words, words_size, result, 'a', 't', c, false);
+    #####:  115:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  116:}
+------------------
+_ZN24CoreTest_Test_H_T_W_TestC1Ev:
+function _ZN24CoreTest_Test_H_T_W_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  102:TEST_F(CoreTest, Test_H_T_W) {
+    %%%%%:  102-block  0
+call    0 never executed
+------------------
+_ZN24CoreTest_Test_H_T_W_TestD0Ev:
+function _ZN24CoreTest_Test_H_T_W_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  102:TEST_F(CoreTest, Test_H_T_W) {
+    %%%%%:  102-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN24CoreTest_Test_H_T_W_TestD1Ev:
+function _ZN24CoreTest_Test_H_T_W_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  102:TEST_F(CoreTest, Test_H_T_W) {
+    %%%%%:  102-block  0
+call    0 never executed
+------------------
+_ZN24CoreTest_Test_H_T_W_Test8TestBodyEv:
+function _ZN24CoreTest_Test_H_T_W_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  102:TEST_F(CoreTest, Test_H_T_W) {
+        -:  103:    int words_size;
+    #####:  104:    FileIO f;
+    %%%%%:  104-block  0
+call    0 never executed
+    #####:  105:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  105-block  0
+    #####:  106:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  106-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  106-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  106-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  106-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  106-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  106-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  106-block  6
+call   21 never executed
+    $$$$$:  106-block  7
+    $$$$$:  106-block  8
+    $$$$$:  106-block  9
+call   22 never executed
+    $$$$$:  106-block 10
+    $$$$$:  106-block 11
+call   23 never executed
+    $$$$$:  106-block 12
+    $$$$$:  106-block 13
+call   24 never executed
+    #####:  107:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  107-block  0
+call    3 never executed
+    #####:  108:    ASSERT_EQ(words_size, 11);
+    %%%%%:  108-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  108-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  108-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  108-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  108-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  108-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  108-block  6
+    %%%%%:  108-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  108-block  8
+    $$$$$:  108-block  9
+call   21 never executed
+    $$$$$:  108-block 10
+    $$$$$:  108-block 11
+call   22 never executed
+    $$$$$:  108-block 12
+    $$$$$:  108-block 13
+call   23 never executed
+        -:  109:
+        -:  110:    /* 准备工作完成，开始测试 */
+    #####:  111:    Core core = *new Core(words, words_size);
+    %%%%%:  111-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  111-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  111-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  111-block  3
+call   10 never executed
+    $$$$$:  111-block  4
+call   11 never executed
+    #####:  112:    vector<string> result;
+    %%%%%:  112-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  112-block  1
+call    2 never executed
+    #####:  113:    char c = 0;
+    #####:  114:    gen_chain_word(words, words_size, result, 'a', 't', c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  115:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  115-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  115-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  115-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  115-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  115-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  115-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  115-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  115-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  115-block  8
+call   25 never executed
+    $$$$$:  115-block  9
+    $$$$$:  115-block 10
+    $$$$$:  115-block 11
+    $$$$$:  115-block 12
+call   26 never executed
+    $$$$$:  115-block 13
+    $$$$$:  115-block 14
+call   27 never executed
+    $$$$$:  115-block 15
+    $$$$$:  115-block 16
+call   28 never executed
+    #####:  116:}
+    %%%%%:  116-block  0
+    %%%%%:  116-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  116-block  2
+    %%%%%:  116-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  116-block  4
+call    6 never executed
+    $$$$$:  116-block  5
+call    7 never executed
+------------------
+        -:  117:
+        -:  118:// -h -t -j -w
+    #####:  119:TEST_F(CoreTest, Test_H_T_J_W) {
+        -:  120:    int words_size;
+    #####:  121:    FileIO f;
+    #####:  122:    string filename = "../test/Testfiles/input2.txt";
+    #####:  123:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  124:    vector<string> words = f.get_words(words_size);
+    #####:  125:    ASSERT_EQ(words_size, 11);
+        -:  126:
+        -:  127:    /* 准备工作完成，开始测试 */
+    #####:  128:    Core core = *new Core(words, words_size);
+    #####:  129:    vector<string> result;
+    #####:  130:    char c = 0;
+    #####:  131:    gen_chain_word(words, words_size, result, 'a', 't', 'a', false);
+    #####:  132:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  133:}
+------------------
+_ZN26CoreTest_Test_H_T_J_W_TestC1Ev:
+function _ZN26CoreTest_Test_H_T_J_W_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  119:TEST_F(CoreTest, Test_H_T_J_W) {
+    %%%%%:  119-block  0
+call    0 never executed
+------------------
+_ZN26CoreTest_Test_H_T_J_W_TestD0Ev:
+function _ZN26CoreTest_Test_H_T_J_W_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  119:TEST_F(CoreTest, Test_H_T_J_W) {
+    %%%%%:  119-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN26CoreTest_Test_H_T_J_W_TestD1Ev:
+function _ZN26CoreTest_Test_H_T_J_W_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  119:TEST_F(CoreTest, Test_H_T_J_W) {
+    %%%%%:  119-block  0
+call    0 never executed
+------------------
+_ZN26CoreTest_Test_H_T_J_W_Test8TestBodyEv:
+function _ZN26CoreTest_Test_H_T_J_W_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  119:TEST_F(CoreTest, Test_H_T_J_W) {
+        -:  120:    int words_size;
+    #####:  121:    FileIO f;
+    %%%%%:  121-block  0
+call    0 never executed
+    #####:  122:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  122-block  0
+    #####:  123:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  123-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  123-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  123-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  123-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  123-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  123-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  123-block  6
+call   21 never executed
+    $$$$$:  123-block  7
+    $$$$$:  123-block  8
+    $$$$$:  123-block  9
+call   22 never executed
+    $$$$$:  123-block 10
+    $$$$$:  123-block 11
+call   23 never executed
+    $$$$$:  123-block 12
+    $$$$$:  123-block 13
+call   24 never executed
+    #####:  124:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  124-block  0
+call    3 never executed
+    #####:  125:    ASSERT_EQ(words_size, 11);
+    %%%%%:  125-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  125-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  125-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  125-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  125-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  125-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  125-block  6
+    %%%%%:  125-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  125-block  8
+    $$$$$:  125-block  9
+call   21 never executed
+    $$$$$:  125-block 10
+    $$$$$:  125-block 11
+call   22 never executed
+    $$$$$:  125-block 12
+    $$$$$:  125-block 13
+call   23 never executed
+        -:  126:
+        -:  127:    /* 准备工作完成，开始测试 */
+    #####:  128:    Core core = *new Core(words, words_size);
+    %%%%%:  128-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  128-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  128-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  128-block  3
+call   10 never executed
+    $$$$$:  128-block  4
+call   11 never executed
+    #####:  129:    vector<string> result;
+    %%%%%:  129-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  129-block  1
+call    2 never executed
+    #####:  130:    char c = 0;
+    #####:  131:    gen_chain_word(words, words_size, result, 'a', 't', 'a', false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  132:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  132-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  132-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  132-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  132-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  132-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  132-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  132-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  132-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  132-block  8
+call   25 never executed
+    $$$$$:  132-block  9
+    $$$$$:  132-block 10
+    $$$$$:  132-block 11
+    $$$$$:  132-block 12
+call   26 never executed
+    $$$$$:  132-block 13
+    $$$$$:  132-block 14
+call   27 never executed
+    $$$$$:  132-block 15
+    $$$$$:  132-block 16
+call   28 never executed
+    #####:  133:}
+    %%%%%:  133-block  0
+    %%%%%:  133-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  133-block  2
+    %%%%%:  133-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  133-block  4
+call    6 never executed
+    $$$$$:  133-block  5
+call    7 never executed
+------------------
+        -:  134:
+        -:  135:// -c
+    #####:  136:TEST_F(CoreTest, Test_C) {
+        -:  137:    int words_size;
+    #####:  138:    FileIO f;
+    #####:  139:    string filename = "../test/Testfiles/input2.txt";
+    #####:  140:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  141:    vector<string> words = f.get_words(words_size);
+    #####:  142:    ASSERT_EQ(words_size, 11);
+        -:  143:
+        -:  144:    /* 准备工作完成，开始测试 */
+    #####:  145:    Core core = *new Core(words, words_size);
+    #####:  146:    vector<string> result;
+    #####:  147:    char c = 0;
+    #####:  148:    gen_chain_char(words, words_size, result, c, c, c, false);
+    #####:  149:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  150:}
+------------------
+_ZN20CoreTest_Test_C_TestC1Ev:
+function _ZN20CoreTest_Test_C_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  136:TEST_F(CoreTest, Test_C) {
+    %%%%%:  136-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_C_TestD0Ev:
+function _ZN20CoreTest_Test_C_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  136:TEST_F(CoreTest, Test_C) {
+    %%%%%:  136-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN20CoreTest_Test_C_TestD1Ev:
+function _ZN20CoreTest_Test_C_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  136:TEST_F(CoreTest, Test_C) {
+    %%%%%:  136-block  0
+call    0 never executed
+------------------
+_ZN20CoreTest_Test_C_Test8TestBodyEv:
+function _ZN20CoreTest_Test_C_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  136:TEST_F(CoreTest, Test_C) {
+        -:  137:    int words_size;
+    #####:  138:    FileIO f;
+    %%%%%:  138-block  0
+call    0 never executed
+    #####:  139:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  139-block  0
+    #####:  140:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  140-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  140-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  140-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  140-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  140-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  140-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  140-block  6
+call   21 never executed
+    $$$$$:  140-block  7
+    $$$$$:  140-block  8
+    $$$$$:  140-block  9
+call   22 never executed
+    $$$$$:  140-block 10
+    $$$$$:  140-block 11
+call   23 never executed
+    $$$$$:  140-block 12
+    $$$$$:  140-block 13
+call   24 never executed
+    #####:  141:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  141-block  0
+call    3 never executed
+    #####:  142:    ASSERT_EQ(words_size, 11);
+    %%%%%:  142-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  142-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  142-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  142-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  142-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  142-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  142-block  6
+    %%%%%:  142-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  142-block  8
+    $$$$$:  142-block  9
+call   21 never executed
+    $$$$$:  142-block 10
+    $$$$$:  142-block 11
+call   22 never executed
+    $$$$$:  142-block 12
+    $$$$$:  142-block 13
+call   23 never executed
+        -:  143:
+        -:  144:    /* 准备工作完成，开始测试 */
+    #####:  145:    Core core = *new Core(words, words_size);
+    %%%%%:  145-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  145-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  145-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  145-block  3
+call   10 never executed
+    $$$$$:  145-block  4
+call   11 never executed
+    #####:  146:    vector<string> result;
+    %%%%%:  146-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  146-block  1
+call    2 never executed
+    #####:  147:    char c = 0;
+    #####:  148:    gen_chain_char(words, words_size, result, c, c, c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  149:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  149-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  149-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  149-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  149-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  149-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  149-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  149-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  149-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  149-block  8
+call   25 never executed
+    $$$$$:  149-block  9
+    $$$$$:  149-block 10
+    $$$$$:  149-block 11
+    $$$$$:  149-block 12
+call   26 never executed
+    $$$$$:  149-block 13
+    $$$$$:  149-block 14
+call   27 never executed
+    $$$$$:  149-block 15
+    $$$$$:  149-block 16
+call   28 never executed
+    #####:  150:}
+    %%%%%:  150-block  0
+    %%%%%:  150-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  150-block  2
+    %%%%%:  150-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  150-block  4
+call    6 never executed
+    $$$$$:  150-block  5
+call    7 never executed
+------------------
+        -:  151:
+        -:  152:// -h -c
+    #####:  153:TEST_F(CoreTest, Test_H_C) {
+        -:  154:    int words_size;
+    #####:  155:    FileIO f;
+    #####:  156:    string filename = "../test/Testfiles/input2.txt";
+    #####:  157:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  158:    vector<string> words = f.get_words(words_size);
+    #####:  159:    ASSERT_EQ(words_size, 11);
+        -:  160:
+        -:  161:    /* 准备工作完成，开始测试 */
+    #####:  162:    Core core = *new Core(words, words_size);
+    #####:  163:    vector<string> result;
+    #####:  164:    char c = 0;
+    #####:  165:    gen_chain_char(words, words_size, result, 'a', c, c, false);
+    #####:  166:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  167:}
+------------------
+_ZN22CoreTest_Test_H_C_TestC1Ev:
+function _ZN22CoreTest_Test_H_C_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  153:TEST_F(CoreTest, Test_H_C) {
+    %%%%%:  153-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_H_C_TestD0Ev:
+function _ZN22CoreTest_Test_H_C_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  153:TEST_F(CoreTest, Test_H_C) {
+    %%%%%:  153-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN22CoreTest_Test_H_C_TestD1Ev:
+function _ZN22CoreTest_Test_H_C_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  153:TEST_F(CoreTest, Test_H_C) {
+    %%%%%:  153-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_H_C_Test8TestBodyEv:
+function _ZN22CoreTest_Test_H_C_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  153:TEST_F(CoreTest, Test_H_C) {
+        -:  154:    int words_size;
+    #####:  155:    FileIO f;
+    %%%%%:  155-block  0
+call    0 never executed
+    #####:  156:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  156-block  0
+    #####:  157:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  157-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  157-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  157-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  157-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  157-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  157-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  157-block  6
+call   21 never executed
+    $$$$$:  157-block  7
+    $$$$$:  157-block  8
+    $$$$$:  157-block  9
+call   22 never executed
+    $$$$$:  157-block 10
+    $$$$$:  157-block 11
+call   23 never executed
+    $$$$$:  157-block 12
+    $$$$$:  157-block 13
+call   24 never executed
+    #####:  158:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  158-block  0
+call    3 never executed
+    #####:  159:    ASSERT_EQ(words_size, 11);
+    %%%%%:  159-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  159-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  159-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  159-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  159-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  159-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  159-block  6
+    %%%%%:  159-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  159-block  8
+    $$$$$:  159-block  9
+call   21 never executed
+    $$$$$:  159-block 10
+    $$$$$:  159-block 11
+call   22 never executed
+    $$$$$:  159-block 12
+    $$$$$:  159-block 13
+call   23 never executed
+        -:  160:
+        -:  161:    /* 准备工作完成，开始测试 */
+    #####:  162:    Core core = *new Core(words, words_size);
+    %%%%%:  162-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  162-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  162-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  162-block  3
+call   10 never executed
+    $$$$$:  162-block  4
+call   11 never executed
+    #####:  163:    vector<string> result;
+    %%%%%:  163-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  163-block  1
+call    2 never executed
+    #####:  164:    char c = 0;
+    #####:  165:    gen_chain_char(words, words_size, result, 'a', c, c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  166:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  166-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  166-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  166-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  166-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  166-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  166-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  166-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  166-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  166-block  8
+call   25 never executed
+    $$$$$:  166-block  9
+    $$$$$:  166-block 10
+    $$$$$:  166-block 11
+    $$$$$:  166-block 12
+call   26 never executed
+    $$$$$:  166-block 13
+    $$$$$:  166-block 14
+call   27 never executed
+    $$$$$:  166-block 15
+    $$$$$:  166-block 16
+call   28 never executed
+    #####:  167:}
+    %%%%%:  167-block  0
+    %%%%%:  167-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  167-block  2
+    %%%%%:  167-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  167-block  4
+call    6 never executed
+    $$$$$:  167-block  5
+call    7 never executed
+------------------
+        -:  168:
+        -:  169:// -t -c
+    #####:  170:TEST_F(CoreTest, Test_T_C) {
+        -:  171:    int words_size;
+    #####:  172:    FileIO f;
+    #####:  173:    string filename = "../test/Testfiles/input2.txt";
+    #####:  174:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  175:    vector<string> words = f.get_words(words_size);
+    #####:  176:    ASSERT_EQ(words_size, 11);
+        -:  177:
+        -:  178:    /* 准备工作完成，开始测试 */
+    #####:  179:    Core core = *new Core(words, words_size);
+    #####:  180:    vector<string> result;
+    #####:  181:    char c = 0;
+    #####:  182:    gen_chain_char(words, words_size, result, c, 't', c, false);
+    #####:  183:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  184:}
+------------------
+_ZN22CoreTest_Test_T_C_TestC1Ev:
+function _ZN22CoreTest_Test_T_C_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  170:TEST_F(CoreTest, Test_T_C) {
+    %%%%%:  170-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_T_C_TestD0Ev:
+function _ZN22CoreTest_Test_T_C_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  170:TEST_F(CoreTest, Test_T_C) {
+    %%%%%:  170-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN22CoreTest_Test_T_C_TestD1Ev:
+function _ZN22CoreTest_Test_T_C_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  170:TEST_F(CoreTest, Test_T_C) {
+    %%%%%:  170-block  0
+call    0 never executed
+------------------
+_ZN22CoreTest_Test_T_C_Test8TestBodyEv:
+function _ZN22CoreTest_Test_T_C_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  170:TEST_F(CoreTest, Test_T_C) {
+        -:  171:    int words_size;
+    #####:  172:    FileIO f;
+    %%%%%:  172-block  0
+call    0 never executed
+    #####:  173:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  173-block  0
+    #####:  174:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  174-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  174-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  174-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  174-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  174-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  174-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  174-block  6
+call   21 never executed
+    $$$$$:  174-block  7
+    $$$$$:  174-block  8
+    $$$$$:  174-block  9
+call   22 never executed
+    $$$$$:  174-block 10
+    $$$$$:  174-block 11
+call   23 never executed
+    $$$$$:  174-block 12
+    $$$$$:  174-block 13
+call   24 never executed
+    #####:  175:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  175-block  0
+call    3 never executed
+    #####:  176:    ASSERT_EQ(words_size, 11);
+    %%%%%:  176-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  176-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  176-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  176-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  176-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  176-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  176-block  6
+    %%%%%:  176-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  176-block  8
+    $$$$$:  176-block  9
+call   21 never executed
+    $$$$$:  176-block 10
+    $$$$$:  176-block 11
+call   22 never executed
+    $$$$$:  176-block 12
+    $$$$$:  176-block 13
+call   23 never executed
+        -:  177:
+        -:  178:    /* 准备工作完成，开始测试 */
+    #####:  179:    Core core = *new Core(words, words_size);
+    %%%%%:  179-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  179-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  179-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  179-block  3
+call   10 never executed
+    $$$$$:  179-block  4
+call   11 never executed
+    #####:  180:    vector<string> result;
+    %%%%%:  180-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  180-block  1
+call    2 never executed
+    #####:  181:    char c = 0;
+    #####:  182:    gen_chain_char(words, words_size, result, c, 't', c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  183:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  183-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  183-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  183-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  183-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  183-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  183-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  183-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  183-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  183-block  8
+call   25 never executed
+    $$$$$:  183-block  9
+    $$$$$:  183-block 10
+    $$$$$:  183-block 11
+    $$$$$:  183-block 12
+call   26 never executed
+    $$$$$:  183-block 13
+    $$$$$:  183-block 14
+call   27 never executed
+    $$$$$:  183-block 15
+    $$$$$:  183-block 16
+call   28 never executed
+    #####:  184:}
+    %%%%%:  184-block  0
+    %%%%%:  184-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  184-block  2
+    %%%%%:  184-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  184-block  4
+call    6 never executed
+    $$$$$:  184-block  5
+call    7 never executed
+------------------
+        -:  185:
+        -:  186:// -h -t -c
+    #####:  187:TEST_F(CoreTest, Test_H_T_C) {
+        -:  188:    int words_size;
+    #####:  189:    FileIO f;
+    #####:  190:    string filename = "../test/Testfiles/input2.txt";
+    #####:  191:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  192:    vector<string> words = f.get_words(words_size);
+    #####:  193:    ASSERT_EQ(words_size, 11);
+        -:  194:
+        -:  195:    /* 准备工作完成，开始测试 */
+    #####:  196:    Core core = *new Core(words, words_size);
+    #####:  197:    vector<string> result;
+    #####:  198:    char c = 0;
+    #####:  199:    gen_chain_char(words, words_size, result, 'a', 'e', c, false);
+    #####:  200:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  201:}
+------------------
+_ZN24CoreTest_Test_H_T_C_TestC1Ev:
+function _ZN24CoreTest_Test_H_T_C_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  187:TEST_F(CoreTest, Test_H_T_C) {
+    %%%%%:  187-block  0
+call    0 never executed
+------------------
+_ZN24CoreTest_Test_H_T_C_TestD0Ev:
+function _ZN24CoreTest_Test_H_T_C_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  187:TEST_F(CoreTest, Test_H_T_C) {
+    %%%%%:  187-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN24CoreTest_Test_H_T_C_TestD1Ev:
+function _ZN24CoreTest_Test_H_T_C_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  187:TEST_F(CoreTest, Test_H_T_C) {
+    %%%%%:  187-block  0
+call    0 never executed
+------------------
+_ZN24CoreTest_Test_H_T_C_Test8TestBodyEv:
+function _ZN24CoreTest_Test_H_T_C_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  187:TEST_F(CoreTest, Test_H_T_C) {
+        -:  188:    int words_size;
+    #####:  189:    FileIO f;
+    %%%%%:  189-block  0
+call    0 never executed
+    #####:  190:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  190-block  0
+    #####:  191:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  191-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  191-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  191-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  191-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  191-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  191-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  191-block  6
+call   21 never executed
+    $$$$$:  191-block  7
+    $$$$$:  191-block  8
+    $$$$$:  191-block  9
+call   22 never executed
+    $$$$$:  191-block 10
+    $$$$$:  191-block 11
+call   23 never executed
+    $$$$$:  191-block 12
+    $$$$$:  191-block 13
+call   24 never executed
+    #####:  192:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  192-block  0
+call    3 never executed
+    #####:  193:    ASSERT_EQ(words_size, 11);
+    %%%%%:  193-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  193-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  193-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  193-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  193-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  193-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  193-block  6
+    %%%%%:  193-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  193-block  8
+    $$$$$:  193-block  9
+call   21 never executed
+    $$$$$:  193-block 10
+    $$$$$:  193-block 11
+call   22 never executed
+    $$$$$:  193-block 12
+    $$$$$:  193-block 13
+call   23 never executed
+        -:  194:
+        -:  195:    /* 准备工作完成，开始测试 */
+    #####:  196:    Core core = *new Core(words, words_size);
+    %%%%%:  196-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  196-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  196-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  196-block  3
+call   10 never executed
+    $$$$$:  196-block  4
+call   11 never executed
+    #####:  197:    vector<string> result;
+    %%%%%:  197-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  197-block  1
+call    2 never executed
+    #####:  198:    char c = 0;
+    #####:  199:    gen_chain_char(words, words_size, result, 'a', 'e', c, false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  200:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  200-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  200-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  200-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  200-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  200-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  200-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  200-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  200-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  200-block  8
+call   25 never executed
+    $$$$$:  200-block  9
+    $$$$$:  200-block 10
+    $$$$$:  200-block 11
+    $$$$$:  200-block 12
+call   26 never executed
+    $$$$$:  200-block 13
+    $$$$$:  200-block 14
+call   27 never executed
+    $$$$$:  200-block 15
+    $$$$$:  200-block 16
+call   28 never executed
+    #####:  201:}
+    %%%%%:  201-block  0
+    %%%%%:  201-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  201-block  2
+    %%%%%:  201-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  201-block  4
+call    6 never executed
+    $$$$$:  201-block  5
+call    7 never executed
+------------------
+        -:  202:
+        -:  203:// -h -t -j -c
+    #####:  204:TEST_F(CoreTest, Test_H_T_R_C) {
+        -:  205:    int words_size;
+    #####:  206:    FileIO f;
+    #####:  207:    string filename = "../test/Testfiles/input2.txt";
+    #####:  208:    EXPECT_EQ(f.read_file(filename), 1);
+    #####:  209:    vector<string> words = f.get_words(words_size);
+    #####:  210:    ASSERT_EQ(words_size, 11);
+        -:  211:
+        -:  212:    /* 准备工作完成，开始测试 */
+    #####:  213:    Core core = *new Core(words, words_size);
+    #####:  214:    vector<string> result;
+    #####:  215:    gen_chain_char(words, words_size, result, 'a', 'e', 'a', false);
+    #####:  216:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    #####:  217:}
+------------------
+_ZN26CoreTest_Test_H_T_R_C_TestC1Ev:
+function _ZN26CoreTest_Test_H_T_R_C_TestC1Ev called 0 returned 0% blocks executed 0%
+    #####:  204:TEST_F(CoreTest, Test_H_T_R_C) {
+    %%%%%:  204-block  0
+call    0 never executed
+------------------
+_ZN26CoreTest_Test_H_T_R_C_TestD0Ev:
+function _ZN26CoreTest_Test_H_T_R_C_TestD0Ev called 0 returned 0% blocks executed 0%
+    #####:  204:TEST_F(CoreTest, Test_H_T_R_C) {
+    %%%%%:  204-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN26CoreTest_Test_H_T_R_C_TestD1Ev:
+function _ZN26CoreTest_Test_H_T_R_C_TestD1Ev called 0 returned 0% blocks executed 0%
+    #####:  204:TEST_F(CoreTest, Test_H_T_R_C) {
+    %%%%%:  204-block  0
+call    0 never executed
+------------------
+_ZN26CoreTest_Test_H_T_R_C_Test8TestBodyEv:
+function _ZN26CoreTest_Test_H_T_R_C_Test8TestBodyEv called 0 returned 0% blocks executed 0%
+    #####:  204:TEST_F(CoreTest, Test_H_T_R_C) {
+        -:  205:    int words_size;
+    #####:  206:    FileIO f;
+    %%%%%:  206-block  0
+call    0 never executed
+    #####:  207:    string filename = "../test/Testfiles/input2.txt";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  207-block  0
+    #####:  208:    EXPECT_EQ(f.read_file(filename), 1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  208-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  208-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  208-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  208-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  208-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  208-block  5
+call   19 never executed
+call   20 never executed
+    %%%%%:  208-block  6
+call   21 never executed
+    $$$$$:  208-block  7
+    $$$$$:  208-block  8
+    $$$$$:  208-block  9
+call   22 never executed
+    $$$$$:  208-block 10
+    $$$$$:  208-block 11
+call   23 never executed
+    $$$$$:  208-block 12
+    $$$$$:  208-block 13
+call   24 never executed
+    #####:  209:    vector<string> words = f.get_words(words_size);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    $$$$$:  209-block  0
+call    3 never executed
+    #####:  210:    ASSERT_EQ(words_size, 11);
+    %%%%%:  210-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  210-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  210-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  210-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  210-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  210-block  5
+call   16 never executed
+call   17 never executed
+    %%%%%:  210-block  6
+    %%%%%:  210-block  7
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    $$$$$:  210-block  8
+    $$$$$:  210-block  9
+call   21 never executed
+    $$$$$:  210-block 10
+    $$$$$:  210-block 11
+call   22 never executed
+    $$$$$:  210-block 12
+    $$$$$:  210-block 13
+call   23 never executed
+        -:  211:
+        -:  212:    /* 准备工作完成，开始测试 */
+    #####:  213:    Core core = *new Core(words, words_size);
+    %%%%%:  213-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  213-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  213-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+    $$$$$:  213-block  3
+call   10 never executed
+    $$$$$:  213-block  4
+call   11 never executed
+    #####:  214:    vector<string> result;
+    %%%%%:  214-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  214-block  1
+call    2 never executed
+    #####:  215:    gen_chain_char(words, words_size, result, 'a', 'e', 'a', false);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  216:    EXPECT_EQ(f.output_file(result), 1);    // 测试时，solution.txt在bin下
+    %%%%%:  216-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  216-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  216-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  216-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  216-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  216-block  5
+call   16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  216-block  6
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  216-block  7
+call   23 never executed
+call   24 never executed
+    %%%%%:  216-block  8
+call   25 never executed
+    $$$$$:  216-block  9
+    $$$$$:  216-block 10
+    $$$$$:  216-block 11
+    $$$$$:  216-block 12
+call   26 never executed
+    $$$$$:  216-block 13
+    $$$$$:  216-block 14
+call   27 never executed
+    $$$$$:  216-block 15
+    $$$$$:  216-block 16
+call   28 never executed
+    #####:  217:}
+    %%%%%:  217-block  0
+    %%%%%:  217-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  217-block  2
+    %%%%%:  217-block  3
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  217-block  4
+call    6 never executed
+    $$$$$:  217-block  5
+call    7 never executed
+------------------
+        -:  218:
+function main called 1 returned 100% blocks executed 100%
+        1:  219:int main(int argc, char **argv) {
+        1:  220:    ::testing::InitGoogleTest(&argc, argv);
+        1:  220-block  0
+call    0 returned 1
+        1:  221:    return RUN_ALL_TESTS();
+call    0 returned 1
+        -:  222:}

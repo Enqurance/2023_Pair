@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest
-# Build directory: /Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest
+# Source directory: D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib/googletest
+# Build directory: D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug-coverage/lib/googletest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

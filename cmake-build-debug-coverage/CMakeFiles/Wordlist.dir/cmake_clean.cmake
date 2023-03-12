@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist"
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist.pdb"
-  "CMakeFiles/Wordlist.dir/src/main.cpp.o"
-  "CMakeFiles/Wordlist.dir/src/main.cpp.o.d"
+  "CMakeFiles/Wordlist.dir/src/main.cpp.obj"
+  "CMakeFiles/Wordlist.dir/src/main.cpp.obj.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.exe"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.exe.manifest"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/Wordlist.pdb"
+  "libWordlist.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

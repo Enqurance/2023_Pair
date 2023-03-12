@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Core.cpp" "CMakeFiles/CORE.dir/src/Core.cpp.o" "gcc" "CMakeFiles/CORE.dir/src/Core.cpp.o.d"
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Node.cpp" "CMakeFiles/CORE.dir/src/Node.cpp.o" "gcc" "CMakeFiles/CORE.dir/src/Node.cpp.o.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Core.cpp" "CMakeFiles/CORE.dir/src/Core.cpp.obj" "gcc" "CMakeFiles/CORE.dir/src/Core.cpp.obj.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/Node.cpp" "CMakeFiles/CORE.dir/src/Node.cpp.obj" "gcc" "CMakeFiles/CORE.dir/src/Node.cpp.obj.d"
   )
 
 # Targets to which this target links.

@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest"
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest.pdb"
-  "CMakeFiles/coretest.dir/test/coretest/coretest.cpp.o"
-  "CMakeFiles/coretest.dir/test/coretest/coretest.cpp.o.d"
+  "CMakeFiles/coretest.dir/test/coretest/coretest.cpp.obj"
+  "CMakeFiles/coretest.dir/test/coretest/coretest.cpp.obj.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/coretest.exe"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/coretest.exe.manifest"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/bin/coretest.pdb"
+  "libcoretest.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test_bin/Test"
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test_bin/Test.pdb"
-  "CMakeFiles/Test.dir/test/Test.cpp.o"
-  "CMakeFiles/Test.dir/test/Test.cpp.o.d"
+  "CMakeFiles/Test.dir/test/Test.cpp.obj"
+  "CMakeFiles/Test.dir/test/Test.cpp.obj.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test_bin/Test.exe"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test_bin/Test.exe.manifest"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/test_bin/Test.pdb"
+  "libTest.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

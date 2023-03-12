@@ -159,6 +159,9 @@ private:
             }
         }
 
+        // 没有长度超过2的单词链
+        if (max_length < 2) return;
+
         // 将结果保存并返回
         while (max_index != -1) {
             longest_chain.push_back(nodes[max_index]->get_context());
@@ -178,7 +181,7 @@ private:
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
-                (reject == 0 || reject != nodes[toNode_id]->get_s())) {
+                (reject == 0 || reject != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
                 dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain);
             }
         }
@@ -234,6 +237,7 @@ public:
             for (int i = 0; i < nodes_size; i++) {
                 if ((head == 0 || head == nodes[i]->get_s()) &&
                     (reject == 0 || reject != nodes[i]->get_s())) {
+                    memset(vis, false, nodes_size);
                     dfs_longest_chain(i, 0, *new vector<string>);
                 }
             }

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest-all.cc" "lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o" "gcc" "lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib/googletest/src/gtest-all.cc" "lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj" "gcc" "lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj.d"
   )
 
 # Targets to which this target links.

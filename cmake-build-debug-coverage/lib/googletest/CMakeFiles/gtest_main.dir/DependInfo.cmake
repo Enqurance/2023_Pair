@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest_main.cc" "lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o" "gcc" "lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/lib/googletest/src/gtest_main.cc" "lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj" "gcc" "lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug-coverage/lib/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

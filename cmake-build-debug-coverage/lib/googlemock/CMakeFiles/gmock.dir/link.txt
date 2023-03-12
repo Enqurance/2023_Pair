@@ -1,2 +1,2 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc ../libgmock.a "CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-/Library/Developer/CommandLineTools/usr/bin/ranlib ../libgmock.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc ..\libgmock.a "CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe ..\libgmock.a

@@ -1,22 +1,4 @@
-Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
-Build flags: -fprofile-instr-generate;-fcoverage-mapping
-Id flags:  
+The C compiler identification could not be found in "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug-coverage/CMakeFiles/3.24.2/CompilerIdC/a-CMakeCCompilerId.gcno"
 
-The output was:
-1
-ld: library not found for -lSystem
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-
-
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
-Build flags: -fprofile-instr-generate;-fcoverage-mapping
-Id flags:  
-
-The output was:
-1
-ld: library not found for -lc++
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-
+The CXX compiler identification could not be found in "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/cmake-build-debug-coverage/CMakeFiles/3.24.2/CompilerIdCXX/a-CMakeCXXCompilerId.gcno"
 

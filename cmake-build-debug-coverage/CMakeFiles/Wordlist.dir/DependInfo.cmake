@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/main.cpp" "CMakeFiles/Wordlist.dir/src/main.cpp.o" "gcc" "CMakeFiles/Wordlist.dir/src/main.cpp.o.d"
+  "D:/BUAA_Files/Learning_Files/Senior_Three_2/BUAA_SE/Pair_Project/2023_Pair/src/main.cpp" "CMakeFiles/Wordlist.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Wordlist.dir/src/main.cpp.obj.d"
   )
 
 # Targets to which this target links.
