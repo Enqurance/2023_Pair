@@ -1,5 +1,4 @@
 #include "bits/stdc++.h"
-#include "windows.h"
 #include "Core.h"
 #include "FileIO.h"
 

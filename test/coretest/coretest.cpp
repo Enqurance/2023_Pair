@@ -18,14 +18,15 @@ TEST_F(CoreTest, Test1) {
     int words_size;
     FileIO f;
     string filename = "../test/Testfiles/input1.txt";
+    EXPECT_EQ(f.read_file(filename), 1);
     vector<string> words = f.get_words(words_size);
-    EXPECT_EQ(f.output_file(f.get_words(words_size)), 1);
-    ASSERT_EQ(words_size, 20);
+    ASSERT_EQ(words_size, 4);
 
     /* 准备工作完成，开始测试 */
     Core core = *new Core(words, words_size);
     vector<vector<string>> result;
     gen_chains_all(words, words_size, result);
+    EXPECT_EQ(f.output_screen(result), 1);
 }
 
 //测试用例2

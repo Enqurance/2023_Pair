@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Wordlist"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googlemock\;CMake Files\lib\googlemock\cmake\;CMake Files\lib\googletest\;CMake Files\lib\googletest\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Wordlist">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Wordlist"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Wordlist/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/Wordlist" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Wordlist/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Test">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test_bin/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Test/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test_bin/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 Test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CORE">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/core.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 CORE"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CORE/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/core.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 CORE/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LIB">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 LIB"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LIB/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 LIB/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iotest">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 iotest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iotest/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/iotest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 iotest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="coretest">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 coretest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="coretest/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin/coretest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/googletest"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 coretest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgmock.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgmock_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/include"/>
+					<Add directory="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/cmake-build-debug-coverage/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/src/gmock-all.cc">
+			<Option target="gmock"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/src/gmock_main.cc">
+			<Option target="gmock_main"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Core.cpp">
+			<Option target="CORE"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Core.h">
+			<Option target="CORE"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/FileIO.cpp">
+			<Option target="LIB"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/FileIO.h">
+			<Option target="LIB"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Node.cpp">
+			<Option target="CORE"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/Node.h">
+			<Option target="CORE"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/src/main.cpp">
+			<Option target="Wordlist"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test/Test.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test/coretest/coretest.cpp">
+			<Option target="coretest"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/test/iotest/iotest.cpp">
+			<Option target="iotest"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googlemock\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock.pc.in">
+			<Option virtualFolder="CMake Files\lib\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googlemock/cmake/gmock_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/gtest_main.pc.in">
+			<Option virtualFolder="CMake Files\lib\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/enqurance/Desktop/BUAA/大三下/罗杰软工/结对编程/Wordlist/lib/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\lib\googletest\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
