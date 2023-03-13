@@ -1,5 +1,6 @@
 # Ignore the build/ directory
 cmake-build-debug/
+cmake-build-debug-coverage/
 
 # Ignore .DS_Store files on macOS
 .DS_Store
