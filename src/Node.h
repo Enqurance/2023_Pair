@@ -2,14 +2,12 @@
 // Created by Enqurance on 2023/3/7.
 //
 
-#ifndef INITPROJECT_NODE_H
-#define INITPROJECT_NODE_H
+#pragma once
 
 #include "vector"
 #include "string"
 
 using namespace std;
-
 
 class Node {
 public:
@@ -52,6 +50,3 @@ private:
     char s, e;
     int id, value = 1;
 };
-
-
-#endif //INITPROJECT_NODE_H

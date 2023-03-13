@@ -2,14 +2,7 @@
 // Created by Enqurance on 2023/3/10.
 //
 
-#ifndef WORDLIST_CORE_H
-#define WORDLIST_CORE_H
-
-#ifdef WORDLIST_CORE_EXPORTS
-#define WORDLIST_CORE_API __declspec(dllexport)
-#else
-#define WORDLIST_CORE_API __declspec(dllimport)
-#endif
+#pragma once
 
 #include "bits/stdc++.h"
 #include "Node.h"
@@ -246,25 +239,27 @@ public:
 //如果采用推荐的API接口，由于各组之间需要互换前后端，且推荐的API接口中返回值已经具有实际意义
 //因此不宜采用直接返回报错码的方式处理，因此各位不要在返回值上承载异常信息，保证返回值正确
 
-// 函数返回值为单词链的总数
-int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
     Core core = *new Core(words, len);
     return core.genAllWordChain(result);
 }
 
-// 函数返回值为单词链的长度
-int gen_chain_word(const vector<string> &words, int len, vector<string> &result,
-                   char head, char tail, char reject, bool enable_loop) {
+__declspec(dllexport) int gen_chain_word(const vector<string> &words, int len, vector<string> &result,
+                                         char head, char tail, char reject, bool enable_loop) {
     Core core = *new Core(words, len, enable_loop, head, tail, reject, false);
     return core.genMaxWordCountChain(result);
 }
 
-// 函数返回值为单词链的长度
-int gen_chain_char(const vector<string> &words, int len, vector<string> &result,
-                   char head, char tail, char reject, bool enable_loop) {
+__declspec(dllexport) int gen_chain_char(const vector<string> &words, int len, vector<string> &result,
+                                         char head, char tail, char reject, bool enable_loop) {
     Core core = *new Core(words, len, enable_loop, head, tail, reject, true);
     return core.genMaxWordCountChain(result);
 }
 
-
-#endif //WORDLIST_CORE_H
+#ifdef __cplusplus
+}
+#endif

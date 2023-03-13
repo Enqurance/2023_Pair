@@ -1,8 +1,10 @@
 #include "bits/stdc++.h"
-#include "Core.h"
 #include "FileIO.h"
+#include "windows.h"
 
 #define MAX 10000
+
+using namespace std;
 
 void parse_args(int argc, char *argv[]);
 void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size);
@@ -30,42 +32,51 @@ enum args_fault {
 };
 bool fault[10];         // 储存异常信息
 
+// 获取函数地址
+typedef FileIO* (*CreateFileFunc)();
+typedef int (*GEN_CHAINS_ALL)(const vector<string> &words, int len, vector<vector<string>> &result);
+typedef int (*GEN_CHAINS_WORD)(const vector<string> &words, int len, vector<string> &result,
+                               char head, char tail, char reject, bool enable_loop);
+typedef int (*GEN_CHAINS_CHAR)(const vector<string> &words, int len, vector<string> &result,
+                               char head, char tail, char reject, bool enable_loop);
+
 int main(int argc, char *argv[]) {
     /* 读取命令行，获取参数信息，检查冲突 */
     parse_args(argc, argv);
 
-    FileIO f;
-    f.read_file(input_file);
+    // 加载lib.dll库
+    HINSTANCE LibDll = LoadLibrary("lib.dll");
+    if (!LibDll) {
+        cout << "Unable to load DLL!" << endl;
+        return 1;
+    }
+
+    auto createFile = reinterpret_cast<CreateFileFunc>(GetProcAddress(LibDll, "FileIO"));
+    FileIO* f = createFile();
+    f->read_file(input_file);
 
     int words_size = 0;
-    vector<string> words = f.get_words(words_size);
+    vector<string> words = f->get_words(words_size);
 
-//    // 加载DLL库
-//    HMODULE dllHandle = LoadLibrary("core.dll");
-//    if (dllHandle == nullptr) {
-//        cout << "Unable to load DLL!" << endl;
-//        return 1;
-//    }
-//
-//    // 获取函数地址
-//    typedef int (*GEN_CHAINS_ALL)(const vector<string> &words, int len, vector<vector<string>> &result);
-//    typedef int (*GEN_CHAINS_WORD)(const vector<string> &words, int len, vector<string> &result,
-//                                   char head, char tail, char reject, bool enable_loop);
-//    typedef int (*GEN_CHAINS_CHAR)(const vector<string> &words, int len, vector<string> &result,
-//                                   char head, char tail, char reject, bool enable_loop);
-//
-//    auto gen_chains_all = (GEN_CHAINS_ALL) GetProcAddress(dllHandle, "gen_chains_all");
-//    auto gen_chain_word = (GEN_CHAINS_WORD) GetProcAddress(dllHandle, "gen_chain_word");
-//    auto gen_chain_char = (GEN_CHAINS_CHAR) GetProcAddress(dllHandle, "gen_chain_char");
-//    if (gen_chains_all == nullptr || gen_chain_word || gen_chain_char) {
-//        cout << "Unable to get function address!" << std::endl;
-//        return 1;
-//    }
+    // 加载core.dll库
+    HINSTANCE CoreDll = LoadLibrary("core.dll");
+    if (!CoreDll) {
+        cout << "Unable to load DLL!" << endl;
+        return 1;
+    }
+
+    auto gen_chains_all = (GEN_CHAINS_ALL) GetProcAddress(CoreDll, "gen_chains_all");
+    auto gen_chain_word = (GEN_CHAINS_WORD) GetProcAddress(CoreDll, "gen_chain_word");
+    auto gen_chain_char = (GEN_CHAINS_CHAR) GetProcAddress(CoreDll, "gen_chain_char");
+    if (!gen_chains_all || !gen_chain_word || !gen_chain_char) {
+        cout << "Unable to get function address!" << endl;
+        return 1;
+    }
 
     if (is_all_chain) {
         vector<vector<string>> result;
         gen_chains_all(words, words_size, result);
-        f.output_screen(result);
+        f->output_screen(result);
     } else if (is_word_chain || is_count_chain) {
         vector<string> result;
         if (is_word_chain) {
@@ -73,7 +84,7 @@ int main(int argc, char *argv[]) {
         } else {
             gen_chain_char(words, words_size, result, head, tail, reject, enableLoop);
         }
-        f.output_file(result);
+        f->output_file(result);
     }
     return 0;
 }

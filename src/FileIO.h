@@ -1,13 +1,19 @@
-#ifndef WORDLIST_FILEIO_H
-#define WORDLIST_FILEIO_H
+#pragma once
 
 #include "bits/stdc++.h"
-#include "Node.h"
+
+#ifdef FILEIO_EXPORTS
+#define FILEIO_API __declspec(dllexport)
+#else
+#define FILEIO_API __declspec(dllimport)
+#endif
 
 using namespace std;
 
-class FileIO {
+class FILEIO_API FileIO {
 public:
+    FileIO() = default;
+
     // 读文件，输出文件
     int read_file(const string &filename) {
         ifstream file;
@@ -90,6 +96,3 @@ private:
         }
     }
 };
-
-
-#endif //WORDLIST_FILEIO_H
