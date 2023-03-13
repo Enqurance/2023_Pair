@@ -64,6 +64,12 @@ public:
         return words;
     }
 
+//    void print_words() {
+//        for (int i = 0; i < words_cnt; i++) {
+//            cout << words[i] << endl;
+//        }
+//    }
+
 private:
     // 读入时，单词储存相关
     unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
