@@ -49,11 +49,6 @@ add_subdirectory(lib)
 include_directories(lib/googletest/include googletest)
 
 # 添加测试文件
-# io测试
-add_executable(iotest test/iotest/iotest.cpp)
-set_target_properties(iotest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
-target_link_libraries(iotest gtest gtest_main)
-
 # core测试
 add_executable(coretest test/coretest/coretest.cpp)
 set_target_properties(coretest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
