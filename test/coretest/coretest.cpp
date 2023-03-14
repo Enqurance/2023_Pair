@@ -25,8 +25,7 @@ typedef int (*GEN_CHAINS_CHAR)(const vector<string> &words, int len, vector<stri
 vector<string> input1{"woo", "oom", "moon", "noox"};
 vector<string> input2{"algebra", "apple", "zoo", "elephant", "under", "fox", "dog",
                       "moon", "leaf", "trick", "pseudopseudohypoparathyroidism"};
-vector<string> input3{"algebra", "apple", "zoo", "elephant", "under", "fox", "dog",
-                      "moon", "leaf", "trick", "pseudopseudohypoparathyroidism", "pz", "mm"};
+vector<string> input3{"abc", "cde", "efg", "cddddddddddddddddde", "chh", "hyq", "qps", "szz"};
 vector<string> input4{"element", "heaven", "table", "teach", "talk"};
 vector<string> input5{"a", "aa", "aaa", "aaaa", "b", "c"};
 
@@ -107,6 +106,41 @@ TEST_F(CoreTest, Test_C) {
     ASSERT_EQ(comp_words(ans, result), 1);
 }
 
+// -h -t -c
+TEST_F(CoreTest, Test_H_T_C) {
+    string filename = "../test/Testfiles/input3.txt";
+    vector<string> words;
+    int size;
+    vector<string> ans = {};
+    ASSERT_EQ(read_file(filename), 1);
+    EXPECT_EQ(size = get_words(words), 8);
+    ASSERT_EQ(comp_words(input3, words), 1);
+
+    /* 功能测试 */
+    char c = 0;
+    vector<string> result;
+    ASSERT_EQ(gen_chain_char(words, size, result, 'a', 'z', c, false), 0);
+    ASSERT_EQ(output_file(result), 1);
+    ASSERT_EQ(comp_words(ans, result), 1);
+}
+
+// -h -t -w
+TEST_F(CoreTest, Test_H_T_W) {
+    string filename = "../test/Testfiles/input4.txt";
+    vector<string> words;
+    int size;
+    vector<string> ans = {"abd", "dez"};
+    ASSERT_EQ(read_file(filename), 1);
+    EXPECT_EQ(size = get_words(words), 7);
+    ASSERT_EQ(comp_words(input2, words), 1);
+
+    /* 功能测试 */
+    char c = 0;
+    vector<string> result;
+    ASSERT_EQ(gen_chain_word(words, size, result, 'a', 'z', c, false), 2);
+    ASSERT_EQ(output_file(result), 1);
+    ASSERT_EQ(comp_words(ans, result), 1);
+}
 
 int comp_words(vector<string> &source, vector<string> &target) {
     set<string> s(source.begin(), source.end()), t(target.begin(), target.end());
