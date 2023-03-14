@@ -1,18 +1,16 @@
-#pragma once
+#ifndef WORDLIST_FILEIO_H
+#define WORDLIST_FILEIO_H
 
 #include "bits/stdc++.h"
-
-#ifdef FILEIO_EXPORTS
-#define FILEIO_API __declspec(dllexport)
-#else
-#define FILEIO_API __declspec(dllimport)
-#endif
+#include "Node.h"
 
 using namespace std;
 
-class FILEIO_API FileIO {
+class FileIO {
 public:
-    FileIO() = default;
+    static FileIO& getInstance() {
+        return fileIO;
+    }
 
     // 读文件，输出文件
     int read_file(const string &filename) {
@@ -31,7 +29,7 @@ public:
         return 1;
     }
 
-    int output_screen(vector<vector<string>> all_chains) {
+    int output_screen(const vector<vector<string>> &all_chains) {
         int all_chains_size = (int) all_chains.size();
         cout << all_chains_size << endl;
         for (int i = 0; i < all_chains_size; i++) {
@@ -44,7 +42,7 @@ public:
         return 1;
     }
 
-    int output_file(vector<string> longest_chain) {
+    int output_file(const vector<string> &longest_chain) {
         ofstream file;
         file.open("solution.txt", ios::out);
         if (!file.is_open()) {
@@ -71,10 +69,14 @@ public:
 //    }
 
 private:
+    static FileIO fileIO;
+
     // 读入时，单词储存相关
     unordered_map<string, int> word_map;    //记录单词是否重复，int同时记录单词长度
     vector<string> words;
     int words_cnt = 0;
+
+    FileIO() = default;
 
     void parse_words(const string &context) {   /* 解析单词的函数 */
         int size = int(context.length());
@@ -102,3 +104,31 @@ private:
         }
     }
 };
+
+FileIO FileIO::fileIO;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__declspec(dllexport) int read_file(const string &filename) {
+    return FileIO::getInstance().read_file(filename);
+}
+
+__declspec(dllexport) int output_screen(const vector<vector<string>> &all_chains) {
+    return FileIO::getInstance().output_screen(all_chains);
+}
+
+__declspec(dllexport) int output_file(const vector<string> &longest_chain) {
+    return FileIO::getInstance().output_file(longest_chain);
+}
+
+__declspec(dllexport) vector<string> get_words(int &size) {
+    return FileIO::getInstance().get_words(size);
+}
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

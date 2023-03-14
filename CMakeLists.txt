@@ -24,8 +24,7 @@ set_target_properties(core PROPERTIES
 
 # 生成动态链接库lib.dll
 set(LIB
-        src/FileIO.cpp
-        src/FileIO.h)
+        src/FileIO.cpp)
 add_library(lib SHARED ${LIB})
 set_target_properties(lib PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
@@ -52,10 +51,12 @@ include_directories(lib/googletest/include googletest)
 # 添加测试文件
 # io测试
 add_executable(iotest test/iotest/iotest.cpp)
+set_target_properties(iotest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 target_link_libraries(iotest gtest gtest_main)
 
 # core测试
 add_executable(coretest test/coretest/coretest.cpp)
+set_target_properties(coretest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 target_link_libraries(coretest gtest gtest_main)
 
 # 单元测试代码覆盖率

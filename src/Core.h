@@ -2,7 +2,8 @@
 // Created by Enqurance on 2023/3/10.
 //
 
-#pragma once
+#ifndef WORDLIST_CORE_H
+#define WORDLIST_CORE_H
 
 #include "bits/stdc++.h"
 #include "Node.h"
@@ -262,4 +263,6 @@ __declspec(dllexport) int gen_chain_char(const vector<string> &words, int len, v
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif

@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
-#include "FileIO.h"
 #include "windows.h"
+#include "FileIO.h"
 
 #define MAX 10000
 
@@ -33,7 +33,11 @@ enum args_fault {
 bool fault[10];         // 储存异常信息
 
 // 获取函数地址
-typedef FileIO* (*CreateFileFunc)();
+typedef int (*READ_FILE)(const string &filename);
+typedef int (*OUTPUT_SCREEN)(const vector<vector<string>> &all_chains);
+typedef int (*OUTPUT_FILE)(const vector<string> &longest_chain);
+typedef vector<string> (*GET_WORDS)(int &size);
+
 typedef int (*GEN_CHAINS_ALL)(const vector<string> &words, int len, vector<vector<string>> &result);
 typedef int (*GEN_CHAINS_WORD)(const vector<string> &words, int len, vector<string> &result,
                                char head, char tail, char reject, bool enable_loop);
@@ -45,18 +49,25 @@ int main(int argc, char *argv[]) {
     parse_args(argc, argv);
 
     // 加载lib.dll库
-    HINSTANCE LibDll = LoadLibrary("lib.dll");
+    HMODULE LibDll = LoadLibrary("lib.dll");
     if (!LibDll) {
         cout << "Unable to load DLL!" << endl;
         return 1;
     }
 
-    auto createFile = reinterpret_cast<CreateFileFunc>(GetProcAddress(LibDll, "FileIO"));
-    FileIO* f = createFile();
-    f->read_file(input_file);
+    auto read_file = (READ_FILE) GetProcAddress(LibDll, "read_file");
+    auto output_screen = (OUTPUT_SCREEN) GetProcAddress(LibDll, "output_screen");
+    auto output_file = (OUTPUT_FILE) GetProcAddress(LibDll, "output_file");
+    auto get_words = (GET_WORDS) GetProcAddress(LibDll, "get_words");
+
+    read_file(input_file);
+
+//    f->read_file(input_file);
 
     int words_size = 0;
-    vector<string> words = f->get_words(words_size);
+
+    vector<string> words = get_words(words_size);
+//    vector<string> words = f->get_words(words_size);
 
     // 加载core.dll库
     HINSTANCE CoreDll = LoadLibrary("core.dll");
@@ -76,7 +87,9 @@ int main(int argc, char *argv[]) {
     if (is_all_chain) {
         vector<vector<string>> result;
         gen_chains_all(words, words_size, result);
-        f->output_screen(result);
+
+        output_screen(result);
+//        f->output_screen(result);
     } else if (is_word_chain || is_count_chain) {
         vector<string> result;
         if (is_word_chain) {
@@ -84,7 +97,9 @@ int main(int argc, char *argv[]) {
         } else {
             gen_chain_char(words, words_size, result, head, tail, reject, enableLoop);
         }
-        f->output_file(result);
+
+        output_file(result);
+//        f->output_file(result);
     }
     return 0;
 }

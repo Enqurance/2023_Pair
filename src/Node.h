@@ -2,7 +2,8 @@
 // Created by Enqurance on 2023/3/7.
 //
 
-#pragma once
+#ifndef WORDLIST_NODE_H
+#define WORDLIST_NODE_H
 
 #include "vector"
 #include "string"
@@ -50,3 +51,5 @@ private:
     char s, e;
     int id, value = 1;
 };
+
+#endif
