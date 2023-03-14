@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 #include "windows.h"
+#include "Error.h"
 
 #define MAX 10000
 
@@ -18,17 +19,6 @@ bool is_tail = false;      char tail = 0;      // -t
 bool is_not_head = false;  char reject = 0;  // -j
 bool enableLoop = false;          // -r
 
-// 程序错误处理相关，要换为异常处理
-enum args_fault {
-    file_not_exists,    // 文件不存在
-    file_illegal,       // 文件不合法
-
-    args_conflict,      // 参数类型冲突
-    args_no_basic,      // 没有基本类型参数
-
-    additional_lack_character,  // 附加参数缺少附带字母-h-t-j
-    additional_not_match,        // 字母格式不正确
-};
 bool fault[10];         // 储存异常信息
 
 // 获取函数地址
