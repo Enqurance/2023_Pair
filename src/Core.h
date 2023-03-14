@@ -2,7 +2,7 @@
 // Created by Enqurance on 2023/3/10.
 //
 
-#ifndef WORDLIST_CORE_H
+#ifndef WORDLIST_CORETEST_H
 #define WORDLIST_CORE_H
 
 #include "bits/stdc++.h"
