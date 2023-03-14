@@ -6,22 +6,6 @@
 
 using namespace std;
 
-typedef int (*READ_FILE)(const string &filename);
-
-typedef int (*OUTPUT_SCREEN)(const vector<vector<string>> &all_chains);
-
-typedef int (*OUTPUT_FILE)(const vector<string> &longest_chain);
-
-typedef int (*GET_WORDS)(vector<string> &words);
-
-typedef int (*GEN_CHAINS_ALL)(const vector<string> &words, int len, vector<vector<string>> &result);
-
-typedef int (*GEN_CHAINS_WORD)(const vector<string> &words, int len, vector<string> &result,
-                               char head, char tail, char reject, bool enable_loop);
-
-typedef int (*GEN_CHAINS_CHAR)(const vector<string> &words, int len, vector<string> &result,
-                               char head, char tail, char reject, bool enable_loop);
-
 vector<string> input1{"woo", "oom", "moon", "noox"};
 vector<string> input2{"algebra", "apple", "zoo", "elephant", "under", "fox", "dog",
                       "moon", "leaf", "trick", "pseudopseudohypoparathyroidism"};

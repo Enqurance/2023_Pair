@@ -61,14 +61,11 @@ int main(int argc, char *argv[]) {
 
     read_file(input_file);
 
-//    f->read_file(input_file);
-
     vector<string> words;
     int words_size = get_words(words);
-//    vector<string> words = f->get_words(words_size);
 
     // 加载core.dll库
-    HINSTANCE CoreDll = LoadLibrary("core.dll");
+    HMODULE CoreDll = LoadLibrary("core.dll");
     if (!CoreDll) {
         cout << "Unable to load CORE DLL!" << endl;
         return 1;
@@ -87,7 +84,6 @@ int main(int argc, char *argv[]) {
         gen_chains_all(words, words_size, result);
 
         output_screen(result);
-//        f->output_screen(result);
     } else if (is_word_chain || is_count_chain) {
         vector<string> result;
         if (is_word_chain) {
@@ -97,7 +93,6 @@ int main(int argc, char *argv[]) {
         }
 
         output_file(result);
-//        f->output_file(result);
     }
     return 0;
 }

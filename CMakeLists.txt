@@ -15,7 +15,7 @@ set(CMAKE_LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 
 # 生成动态链接库core.dll
 set(CORE
-        src/coretest.cpp
+        src/Core.cpp
         src/Node.cpp)
 add_library(core SHARED ${CORE})
 set_target_properties(core PROPERTIES
