@@ -1,6 +1,5 @@
 #include "bits/stdc++.h"
 #include "windows.h"
-#include "FileIO.h"
 
 #define MAX 10000
 
@@ -36,7 +35,7 @@ bool fault[10];         // 储存异常信息
 typedef int (*READ_FILE)(const string &filename);
 typedef int (*OUTPUT_SCREEN)(const vector<vector<string>> &all_chains);
 typedef int (*OUTPUT_FILE)(const vector<string> &longest_chain);
-typedef vector<string> (*GET_WORDS)(int &size);
+typedef int (*GET_WORDS)(vector<string> &words);
 
 typedef int (*GEN_CHAINS_ALL)(const vector<string> &words, int len, vector<vector<string>> &result);
 typedef int (*GEN_CHAINS_WORD)(const vector<string> &words, int len, vector<string> &result,
@@ -51,7 +50,7 @@ int main(int argc, char *argv[]) {
     // 加载lib.dll库
     HMODULE LibDll = LoadLibrary("lib.dll");
     if (!LibDll) {
-        cout << "Unable to load DLL!" << endl;
+        cout << "Unable to load LIB DLL!" << endl;
         return 1;
     }
 
@@ -64,15 +63,14 @@ int main(int argc, char *argv[]) {
 
 //    f->read_file(input_file);
 
-    int words_size = 0;
-
-    vector<string> words = get_words(words_size);
+    vector<string> words;
+    int words_size = get_words(words);
 //    vector<string> words = f->get_words(words_size);
 
     // 加载core.dll库
     HINSTANCE CoreDll = LoadLibrary("core.dll");
     if (!CoreDll) {
-        cout << "Unable to load DLL!" << endl;
+        cout << "Unable to load CORE DLL!" << endl;
         return 1;
     }
 

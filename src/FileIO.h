@@ -57,9 +57,9 @@ public:
         return 1;
     }
 
-    vector<string> get_words(int &size) {
-        size = words_cnt;
-        return words;
+    int get_words(vector<string> &req_words) {
+        req_words = words;
+        return words_cnt;
     }
 
 //    void print_words() {
@@ -123,8 +123,8 @@ __declspec(dllexport) int output_file(const vector<string> &longest_chain) {
     return FileIO::getInstance().output_file(longest_chain);
 }
 
-__declspec(dllexport) vector<string> get_words(int &size) {
-    return FileIO::getInstance().get_words(size);
+__declspec(dllexport) int get_words(vector<string> &words) {
+    return FileIO::getInstance().get_words(words);
 }
 
 #ifdef __cplusplus
