@@ -44,7 +44,7 @@ private:
     void create_nodes(bool is_word_chain) {       /* 创建节点，生成图 */
         int cnt = 0;
         for (int i = 0; i < words_size; i++) {
-            Node *n = new Node(words[i], cnt++, (is_word_chain) ? (int )words[i].length() : 1);
+            Node *n = new Node(words[i], cnt++, (is_word_chain) ? (int) words[i].length() : 1);
             nodes.push_back(n);
             nodes_with_diff_head[n->get_s() - 'a'].push_back(n);
         }
@@ -64,7 +64,7 @@ private:
         queue<Node *> q;
         int count = 0;
         int tmp_inDegree[MAX];
-        memcpy(tmp_inDegree, inDegree, sizeof (inDegree));
+        memcpy(tmp_inDegree, inDegree, sizeof(inDegree));
         for (int i = 0; i < nodes_size; i++) {
             if (tmp_inDegree[i] == 0) {
                 count++;
@@ -74,7 +74,7 @@ private:
         while (!q.empty()) {
             Node *tmp = q.front();
             q.pop();
-            int toNode_size = (int )(tmp->toNodes).size();
+            int toNode_size = (int) (tmp->toNodes).size();
             for (int i = 0; i < toNode_size; i++) {
                 int toNode_id = tmp->toNodes[i]->get_id();
                 tmp_inDegree[toNode_id]--;
@@ -94,7 +94,7 @@ private:
             all_chains.push_back(cur_chain);
             all_chains_size++;
         }
-        int toNode_size = (int )(nodes[id]->toNodes).size();
+        int toNode_size = (int) (nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if (!vis[toNode_id]) {
@@ -107,8 +107,8 @@ private:
         // 局部变量初始化
         queue<Node *> q;
         int tmp_inDegree[MAX];
-        memcpy(tmp_inDegree, inDegree, sizeof (inDegree));
-        memset(lastWord, -1, sizeof (lastWord));
+        memcpy(tmp_inDegree, inDegree, sizeof(inDegree));
+        memset(lastWord, -1, sizeof(lastWord));
 
         // 入度为0的，且符合要求开头字母的，先入队
         for (int i = 0; i < nodes_size; i++) {
@@ -127,7 +127,7 @@ private:
         while (!q.empty()) {
             Node *tmp = q.front();
             q.pop();
-            int toNode_size = (int )(tmp->toNodes).size();
+            int toNode_size = (int) (tmp->toNodes).size();
             for (int i = 0; i < toNode_size; i++) {
                 int toNode_id = tmp->toNodes[i]->get_id();
                 if (dp[tmp->get_id()] + tmp->get_v() > dp[toNode_id]) {
@@ -172,7 +172,7 @@ private:
             longest_chain.assign(cur_chain.begin(), cur_chain.end());
             longest_size = cur_v;
         }
-        int toNode_size = (int )(nodes[id]->toNodes).size();
+        int toNode_size = (int) (nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
@@ -209,7 +209,7 @@ public:
     // 不要求和其他参数联合使用
     int genAllWordChain(vector<vector<string>> &result) {
         for (int i = 0; i < 26; i++) {
-            int size = (int )nodes_with_diff_head[i].size();
+            int size = (int) nodes_with_diff_head[i].size();
             for (int j = 0; j < size; j++) {
                 memset(vis, false, nodes_size);
                 dfs_all_chain(nodes_with_diff_head[i][j]->get_id(), *new vector<string>);
@@ -232,6 +232,7 @@ public:
             dp_longest_chain();
         }
         result = longest_chain;
+        longest_size = int(longest_chain.size());
         return longest_size;
     }
 };

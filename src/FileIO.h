@@ -14,6 +14,9 @@ public:
 
     // 读文件，输出文件
     int read_file(const string &filename) {
+        word_map.clear();
+        words.clear();
+        words_cnt = 0;
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
