@@ -27,7 +27,8 @@ set_target_properties(core PROPERTIES
 
 # 生成动态链接库lib.dll
 set(LIB
-        src/FileIO.cpp)
+        src/FileIO.cpp
+        src/Error.cpp)
 add_library(lib SHARED ${LIB})
 set_target_properties(lib PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin

@@ -5,7 +5,8 @@
 #ifndef WORDLIST_ERROR_H
 #define WORDLIST_ERROR_H
 
-#include "bits/stdc++.h"
+#include <string>
+#include "exception"
 
 using namespace std;
 
@@ -29,59 +30,73 @@ enum all_exception_state {
     LOOP_ILLEGAL,           // 不要求环，但是单词成环
 };
 
-class SelfException {
+class SelfException : public exception {
 protected:
     int exception_state;
-    string exception_message;
+    string info;
+    const char* message{};
 
-public:
-    explicit SelfException(const int error_state = -1) {
-        this->exception_state = error_state;
-    }
-
-    virtual ~SelfException() = default;
-
+private:
     void generateMessage() {
         switch (exception_state) {
             case FILE_ILLEGAL:
-                exception_message = "文件不合法";
+                message = "File illegal. Probably it's not a TXT file!";
                 break;
             case FILE_LACK:
+                message = "There is no input TXT included!";
                 break;
             case FILE_MORE_THAN_ONE:
+                message = "There are more than one TXT included!";
                 break;
             case FILE_NOT_EXIST:
+                message = "There is no TXT file in this path!";
                 break;
             case ARGS_UNIDENTIFIED:
+                message = "Unidentified arg, please choose arg from (-n,-c,-w,-h,-t,-j)!";
                 break;
             case ARGS_DUPLICATE:
+                message = "Duplicate arg!";
                 break;
             case VALUE_LACK:
+                message = "Lack value for arg (-h/-j/-t)!";
                 break;
             case VALUE_MORE_THAN_ONE:
+                message = "More than one value for arg (-h/-j/-t)!";
                 break;
             case VALUE_ILLEGAL_ARGS:
+                message = "Illegal value for arg (-h/-j/-t), please enter character!";
                 break;
             case BASIC_ARGS_CONFLICT:
+                message = "Arg conflict (-n/-c/-w)";
                 break;
             case BASIC_ARGS_LACK:
+                message = "缺少基本参数(-n/-c/-w)";
                 break;
             case LOOP_ILLEGAL:
+                message = "参数不存在-r，但是单词存在隐含环";
                 break;
         }
     }
 
-    const string getMessage() const {
-        return exception_message;
+public:
+    SelfException(const SelfException&) noexcept = default;
+
+    explicit SelfException(const int error_state = -1, const string& info = "") {
+        this->exception_state = error_state;
+        this->info = info;
+        generateMessage();
+    }
+
+    ~SelfException() override = default;
+
+    const char* what() const noexcept override {
+        return message;
     }
 };
 
-// 内容错误
-class ContextErrorException: public SelfException{
-public:
-    ContextErrorException(const int error_state){
-        cerr << "文件内容只可包含ascii字符" << endl;
-    }
-};
+extern "C" __declspec(dllexport) void ThrowSelfException(const int error_state = -1, const string& info = "") {
+    auto* e = new SelfException(error_state, info);
+    throw e;
+}
 
 #endif //WORDLIST_ERROR_H

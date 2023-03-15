@@ -6,6 +6,4 @@ cmake-build-debug-coverage/
 .DS_Store
 .idea
 
-.gitignore
-
 bin

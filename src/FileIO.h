@@ -3,6 +3,7 @@
 
 #include "bits/stdc++.h"
 #include "Node.h"
+#include "Error.h"
 
 using namespace std;
 

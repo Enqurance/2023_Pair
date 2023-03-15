@@ -2608,11 +2608,11 @@ Result HandleSehExceptionsInMethodIfSupported(T* object, Result (T::*method)(),
     // We create the exception message on the heap because VC++ prohibits
     // creation of objects with destructors on stack in functions using __try
     // (see error C2712).
-    std::string* exception_message =
+    std::string* message =
         FormatSehExceptionMessage(GetExceptionCode(), location);
     internal::ReportFailureInUnknownLocation(TestPartResult::kFatalFailure,
-                                             *exception_message);
-    delete exception_message;
+                                             *message);
+    delete message;
     return static_cast<Result>(0);
   }
 #else
