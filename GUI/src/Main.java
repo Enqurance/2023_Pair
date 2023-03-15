@@ -87,27 +87,23 @@ class MyFrame extends JFrame {
         JButton executeButton = new JButton("执行程序");
         executeButton.setBounds(150, 260, 100, 30);
         executeButton.addActionListener(e -> {
-            if (!reCompile) {
-                try {
-                    Process process = Runtime.getRuntime().exec("g++ -std=c++14 -o Wordlist main.cpp\n");
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
-                    }
-                    process.waitFor();
-                    reader.close();
-                    System.out.println("Compilation completed successfully.");
-                    reCompile = true;
-                } catch (IOException | InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-            }
             String data = inputArea.getText();
             try {
                 FileWriter writer = new FileWriter("input.txt");
                 writer.write(data);
                 writer.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            String command = "./Wordlist -w input.txt";
+            try {
+                System.out.println("Executing");
+                Process process = Runtime.getRuntime().exec(command);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

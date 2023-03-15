@@ -19,6 +19,7 @@ enum all_exception_state {
 
     additional_lack_character,  // 附加参数缺少附带字母-h-t-j
     additional_not_match,        // 字母格式不正确
+    context_error
 };
 
 class SelfException {
@@ -56,6 +57,14 @@ class FileException: public SelfException {
 public:
     FileException(const int error_state) {
 
+    }
+};
+
+// 内容错误
+class ContextErrorException: public SelfException{
+public:
+    ContextErrorException(const int error_state){
+        cerr << "文件内容只可包含ascii字符" << endl;
     }
 };
 
