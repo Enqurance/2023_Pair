@@ -77,38 +77,11 @@ class MyFrame extends JFrame {
                 // Get the selected file
                 java.io.File selectedFile = fileChooser.getSelectedFile();
                 System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-                String context = readTxtFile(selectedFile.getAbsolutePath());
+                String context = readTxtFile(selectedFile.getAbsolutePath(), false);
                 inputArea.setText(context);
             }
         });
         panel1.add(fileChooseButton);
-
-        /* 文件执行按钮 */
-        JButton executeButton = new JButton("执行程序");
-        executeButton.setBounds(150, 260, 100, 30);
-        executeButton.addActionListener(e -> {
-            String data = inputArea.getText();
-            try {
-                FileWriter writer = new FileWriter("input.txt");
-                writer.write(data);
-                writer.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            String command = "./Wordlist -w input.txt";
-            try {
-                System.out.println("Executing");
-                Process process = Runtime.getRuntime().exec(command);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        panel1.add(executeButton);
 
         /* 将输出框内容保存为文件 */
         JButton saveButton = new JButton("保存文件");
@@ -254,15 +227,94 @@ class MyFrame extends JFrame {
         comboBox_h.setEnabled(false);
         comboBox_t.setEnabled(false);
         comboBox_j.setEnabled(false);
+
+        /* 文件执行按钮 */
+        JButton executeButton = new JButton("执行程序");
+        executeButton.setBounds(150, 260, 100, 30);
+        executeButton.addActionListener(e -> {
+            if (!checkBox_n.isSelected() && !checkBox_w.isSelected() && !checkBox_c.isSelected()) {
+                outputArea.setText("请在右侧选择执行参数");
+                return;
+            }
+            StringBuilder command = new StringBuilder("./Wordlist ");
+            String data = inputArea.getText();
+            if (checkBox_n.isSelected()) {
+                command.append("-n ");
+            } else if (checkBox_w.isSelected()) {
+                command.append("-w ");
+                appendCommand(checkBox_h, checkBox_t, checkBox_j, comboBox_h, comboBox_t, comboBox_j, command);
+            } else if (checkBox_c.isSelected()) {
+                command.append("-c ");
+                appendCommand(checkBox_h, checkBox_t, checkBox_j, comboBox_h, comboBox_t, comboBox_j, command);
+            }
+            command.append("input.txt");
+            System.out.println(command);
+            try {
+                FileWriter writer = new FileWriter("input.txt");
+                writer.write(data);
+                writer.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                System.out.println("Executing");
+                Process p = Runtime.getRuntime().exec(command.toString());
+                int exitCode = p.waitFor();
+                if (exitCode == 0) {
+                    System.out.println("程序执行成功！");
+                } else {
+                    System.out.println("程序执行失败！");
+                    return;
+                }
+                outputArea.setText("");
+                if (checkBox_n.isSelected()) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        outputArea.append(line + "\n");
+                    }
+                } else {
+                    String context = readTxtFile("solution.txt", true);
+                    System.out.println(context);
+                    outputArea.setText(context);
+                }
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        panel1.add(executeButton);
     }
 
-    private String readTxtFile(String filepath) {
+    private void appendCommand(JCheckBox checkBox_h, JCheckBox checkBox_t, JCheckBox checkBox_j, JComboBox<String> comboBox_h, JComboBox<String> comboBox_t, JComboBox<String> comboBox_j, StringBuilder command) {
+        if (checkBox_h.isSelected()) {
+            command.append("-h ").append(comboBox_h.getSelectedItem()).append(" ");
+        }
+        if (checkBox_t.isSelected()) {
+            command.append("-t ").append(comboBox_t.getSelectedItem()).append(" ");
+        }
+        if (checkBox_j.isSelected()) {
+            command.append("-j ").append(comboBox_j.getSelectedItem()).append(" ");
+        }
+    }
+
+    private String readTxtFile(String filepath, boolean changeLine) {
         StringBuilder str = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                str.append(line);
+            if (changeLine) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                    str.append(line);
+                    str.append("\n");
+                }
+            } else {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                    str.append(line);
+                }
             }
         } catch (IOException e) {
             System.err.println("Failed to read file: " + e.getMessage());
