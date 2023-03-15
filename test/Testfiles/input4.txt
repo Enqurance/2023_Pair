@@ -1,6 +1,2 @@
 "abc", "abd", "beg", "ccf
-"cccccf", "grs", "
-
-
-
-dez"
+"cccccf", "grs", "dez"
