@@ -1,5 +1,5 @@
 //
-// Created by Yoga on 2023/3/14.
+// Created by ZYL on 2023/3/14.
 //
 
 #ifndef WORDLIST_ERROR_H
@@ -11,52 +11,68 @@ using namespace std;
 
 // 程序错误处理相关，要换为异常处理
 enum all_exception_state {
-    file_not_exists,    // 文件不存在
-    file_illegal,       // 文件不合法
+    FILE_NOT_EXIST,         // 文件不存在
+    FILE_ILLEGAL,           // 文件不合法
+    FILE_LACK,              // 缺少输入文件
+    FILE_MORE_THAN_ONE,     // 输入文件多于一个
 
-    args_conflict,      // 参数类型冲突
-    args_no_basic,      // 没有基本类型参数
+    ARGS_UNIDENTIFIED,      // 未定义的参数
+    ARGS_DUPLICATE,         // 重复参数
 
-    additional_lack_character,  // 附加参数缺少附带字母-h-t-j
-    additional_not_match,        // 字母格式不正确
-    context_error
+    VALUE_LACK,             // -h-j-t的参数值缺失
+    VALUE_MORE_THAN_ONE,    // -h-j-t的参数多于一个字符
+    VALUE_ILLEGAL_ARGS,     // -h-j-t的参数值不合法(不是字母)
+
+    BASIC_ARGS_CONFLICT,    // 基础参数冲突-c-w-n
+    BASIC_ARGS_LACK,        // 缺少基础参数-c-w-n
+
+    LOOP_ILLEGAL,           // 不要求环，但是单词成环
 };
 
 class SelfException {
 protected:
-    int error_state;
+    int exception_state;
+    string exception_message;
 
 public:
     explicit SelfException(const int error_state = -1) {
-        this->error_state = error_state;
+        this->exception_state = error_state;
     }
 
     virtual ~SelfException() = default;
 
-    virtual string checkMessage() const {
-        return "The exception hasn't been initialized!";
-    }
-};
-
-// 参数相关错误
-class ArgsNotMatchException: public SelfException {
-public:
-    ArgsNotMatchException(const int error_state) {
-
-    }
-
-    string checkMessage() const override {
-        switch (error_state) {
-            case args_no_basic: return "There are no basic args(-n -w -c)!";
+    void generateMessage() {
+        switch (exception_state) {
+            case FILE_ILLEGAL:
+                exception_message = "文件不合法";
+                break;
+            case FILE_LACK:
+                break;
+            case FILE_MORE_THAN_ONE:
+                break;
+            case FILE_NOT_EXIST:
+                break;
+            case ARGS_UNIDENTIFIED:
+                break;
+            case ARGS_DUPLICATE:
+                break;
+            case VALUE_LACK:
+                break;
+            case VALUE_MORE_THAN_ONE:
+                break;
+            case VALUE_ILLEGAL_ARGS:
+                break;
+            case BASIC_ARGS_CONFLICT:
+                break;
+            case BASIC_ARGS_LACK:
+                break;
+            case LOOP_ILLEGAL:
+                break;
         }
     }
-};
 
-// 文件读写相关错误
-class FileException: public SelfException {
-public:
-    FileException(const int error_state) {
-
+    const string getMessage() const {
+        return exception_message;
     }
 };
 
