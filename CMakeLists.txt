@@ -7,6 +7,9 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 # 设置C++14标准
 set(CMAKE_CXX_STANDARD 14)
 
+# 关闭编译器优化
+#set(CMAKE_CXX_FLAGS "-O0")
+
 # 设置可执行文件.exe输出的地址
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
@@ -56,6 +59,11 @@ target_link_libraries(coretest gtest gtest_main)
 
 # 单元测试代码覆盖率
 add_compile_options(-fprofile-arcs -ftest-coverage)
+
+# gcov设置
+add_custom_command(TARGET coretest
+        POST_BUILD
+        COMMAND gcov -k test/coretest/coretest.cpp)
 
 # GUI的main文件
 #add_executable(GUIMain GUI/main.cpp)

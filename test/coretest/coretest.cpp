@@ -3,15 +3,16 @@
 #include "windows.h"
 #include "../../src/Core.h"
 #include "../../src/FileIO.h"
+#include "../../src/Node.h"
 
 using namespace std;
 
 vector<string> input1{"woo", "oom", "moon", "noox"};
 vector<string> input2{"algebra", "apple", "zoo", "elephant", "under", "fox", "dog",
                       "moon", "leaf", "trick", "pseudopseudohypoparathyroidism"};
-vector<string> input3{"abc", "cde", "efg", "cddddddddddddddddde", "chh", "hyq", "qps", "szz"};
-vector<string> input4{"element", "heaven", "table", "teach", "talk"};
-vector<string> input5{"a", "aa", "aaa", "aaaa", "b", "c"};
+vector<string> input3{"abc", "cde", "efg", "cdde", "chh", "hyq", "qps", "szz"};
+vector<string> input4{"abc", "abd", "beg", "ccf", "cccccf", "grs", "dez"};
+vector<string> input5{"element", "heaven", "table", "teach", "talk"};
 
 int comp_words(vector<string> &source, vector<string> &target);
 
@@ -116,7 +117,7 @@ TEST_F(CoreTest, Test_H_T_W) {
     vector<string> ans = {"abd", "dez"};
     ASSERT_EQ(read_file(filename), 1);
     EXPECT_EQ(size = get_words(words), 7);
-    ASSERT_EQ(comp_words(input2, words), 1);
+    ASSERT_EQ(comp_words(input4, words), 1);
 
     /* 功能测试 */
     char c = 0;
@@ -124,6 +125,56 @@ TEST_F(CoreTest, Test_H_T_W) {
     ASSERT_EQ(gen_chain_word(words, size, result, 'a', 'z', c, false), 2);
     ASSERT_EQ(output_file(result), 1);
     ASSERT_EQ(comp_words(ans, result), 1);
+}
+
+// -h -t -w
+TEST_F(CoreTest, Test_J_W) {
+    string filename = "../test/Testfiles/input4.txt";
+    vector<string> words;
+    int size;
+    vector<string> ans = {"beg", "grs"};
+    ASSERT_EQ(read_file(filename), 1);
+    EXPECT_EQ(size = get_words(words), 7);
+    ASSERT_EQ(comp_words(input4, words), 1);
+
+    /* 功能测试 */
+    char c = 0;
+    vector<string> result;
+    ASSERT_EQ(gen_chain_word(words, size, result, c, c, 'a', false), 2);
+    ASSERT_EQ(output_file(result), 1);
+    ASSERT_EQ(comp_words(ans, result), 1);
+}
+
+// -r -w
+TEST_F(CoreTest, Test_R_W) {
+    string filename = "../test/Testfiles/input5.txt";
+    vector<string> words;
+    int size;
+    vector<string> ans = {"table", "element", "teach", "heaven"};
+    ASSERT_EQ(read_file(filename), 1);
+    EXPECT_EQ(size = get_words(words), 5);
+    ASSERT_EQ(comp_words(input5, words), 1);
+
+    /* 功能测试 */
+    char c = 0;
+    vector<string> result;
+    ASSERT_EQ(gen_chain_word(words, size, result, c, c, c, true), 4);
+    ASSERT_EQ(output_file(result), 1);
+    ASSERT_EQ(comp_words(ans, result), 1);
+}
+
+// Fail Opening
+TEST_F(CoreTest, Test_FO) {
+    string filename = "../test/Testfiles/input100.txt";
+    ASSERT_EQ(read_file(filename), -1);
+}
+
+// Test Node
+TEST_F(CoreTest, Test_Node) {
+    Node n("Bonjour", 0, 5);
+    EXPECT_EQ("Bonjour", n.get_context());
+    EXPECT_EQ('B', n.get_s());
+    EXPECT_EQ('r', n.get_e());
 }
 
 int comp_words(vector<string> &source, vector<string> &target) {

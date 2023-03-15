@@ -19,8 +19,6 @@ bool is_tail = false;      char tail = 0;      // -t
 bool is_not_head = false;  char reject = 0;  // -j
 bool enableLoop = false;          // -r
 
-bool fault[10];         // 储存异常信息
-
 // 获取函数地址
 typedef int (*READ_FILE)(const string &filename);
 typedef int (*OUTPUT_SCREEN)(const vector<vector<string>> &all_chains);
@@ -111,16 +109,16 @@ void parse_args(int argc, char *argv[]) {
             // 没有.txt出现 或者.txt不是文件名结尾
             int size = (int )input_file.length();
             if ((input_file.find(".txt") == std::string::npos) || (input_file.find_last_of(".txt") != size - 4)) {
-                fault[file_illegal] = true;
+//                fault[file_illegal] = true;
             }
         }
         i++;
     }
     if ((is_count_chain && is_all_chain) || (is_count_chain && is_word_chain) || (is_all_chain && is_word_chain)) {
-        fault[args_conflict] = true;
+//        fault[args_conflict] = true;
     }
     if (!is_all_chain && !is_count_chain && !is_word_chain) {
-        fault[args_no_basic] = true;
+//        fault[args_no_basic] = true;
     }
 }
 
@@ -128,14 +126,14 @@ void parse_args(int argc, char *argv[]) {
 void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) {
     flag = true;
     if (is_all_chain) {
-        fault[args_conflict] = true;
+//        fault[args_conflict] = true;
     } else if ((i + 1 < size) && (strlen(argv[i+1]) == 1) && isalpha(argv[i+1][0])) {
         ch = argv[++i][0];
     } else if ((i + 1 == size) || (strlen(argv[i+1]) == 0)) {
         // 错误处理，附加参数后缺失字母
-        fault[additional_lack_character] = true;
+//        fault[additional_lack_character] = true;
     } else {
         // 错误处理，附加参数后，格式不匹配
-        fault[additional_not_match] = true;
+//        fault[additional_not_match] = true;
     }
 }

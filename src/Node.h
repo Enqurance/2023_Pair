@@ -46,7 +46,7 @@ public:
         toNodes.push_back(node);
     }
 
-private:
+public:
     string context;
     char s, e;
     int id, value = 1;

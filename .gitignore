@@ -5,3 +5,7 @@ cmake-build-debug-coverage/
 # Ignore .DS_Store files on macOS
 .DS_Store
 .idea
+
+.gitignore
+
+bin

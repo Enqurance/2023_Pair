@@ -12,11 +12,15 @@ public:
         return fileIO;
     }
 
-    // 读文件，输出文件
-    int read_file(const string &filename) {
+    void initialize() {
         word_map.clear();
         words.clear();
         words_cnt = 0;
+    }
+
+    // 读文件，输出文件
+    int read_file(const string &filename) {
+        initialize();
         ifstream file;
         file.open(filename, ios::in);
         if (!file.is_open()) {
@@ -32,7 +36,7 @@ public:
         return 1;
     }
 
-    int output_screen(const vector<vector<string>> &all_chains) {
+    static int output_screen(const vector<vector<string>> &all_chains) {
         int all_chains_size = (int) all_chains.size();
         cout << all_chains_size << endl;
         for (int i = 0; i < all_chains_size; i++) {
@@ -45,7 +49,7 @@ public:
         return 1;
     }
 
-    int output_file(const vector<string> &longest_chain) {
+    static int output_file(const vector<string> &longest_chain) {
         ofstream file;
         file.open("solution.txt", ios::out);
         if (!file.is_open()) {
@@ -64,12 +68,6 @@ public:
         req_words = words;
         return words_cnt;
     }
-
-//    void print_words() {
-//        for (int i = 0; i < words_cnt; i++) {
-//            cout << words[i] << endl;
-//        }
-//    }
 
 private:
     static FileIO fileIO;
@@ -119,11 +117,11 @@ __declspec(dllexport) int read_file(const string &filename) {
 }
 
 __declspec(dllexport) int output_screen(const vector<vector<string>> &all_chains) {
-    return FileIO::getInstance().output_screen(all_chains);
+    return FileIO::output_screen(all_chains);
 }
 
 __declspec(dllexport) int output_file(const vector<string> &longest_chain) {
-    return FileIO::getInstance().output_file(longest_chain);
+    return FileIO::output_file(longest_chain);
 }
 
 __declspec(dllexport) int get_words(vector<string> &words) {
