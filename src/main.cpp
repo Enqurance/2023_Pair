@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 #include "windows.h"
 
-#define MAX 10000
+#define MAX 10005
 
 using namespace std;
 
@@ -77,8 +77,8 @@ enum all_exception_state {
 };
 
 static const regex arg_pattern("^(\\-(n|c|w|h|t|j|r))$");
-// 文件路径匹配有点问题
-static const regex txt_pattern(R"([a-zA-Z0-9]+(\\[a-zA-Z0-9]+)*\\[a-zA-Z0-9]+\.(txt|TXT)$)");
+// 可以匹配C:\, D:\开头的绝对路径，路径中允许包含..和.
+static const regex txt_pattern(R"(^([a-zA-Z]:\\)?(([a-zA-Z0-9]+\\)*((..|.)\\)*)*[a-zA-Z0-9]+.(txt|TXT)$)");
 
 int main(int argc, char *argv[]) {
     // 加载dll失败，直接返回
@@ -103,7 +103,6 @@ int main(int argc, char *argv[]) {
         } else {
             if (gen_chain_char(words, words_size, result, head, tail, reject, enableLoop) == -1) return 0;
         }
-
         output_file(result);
     }
 

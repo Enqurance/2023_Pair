@@ -42,43 +42,43 @@ private:
     void generateMessage() {
         switch (exception_state) {
             case FILE_ILLEGAL:
-                message = "File illegal. Probably it's not a TXT file!";
+                message = "Error: File illegal. Probably it's not a TXT file!";
                 break;
             case FILE_LACK:
-                message = "There is no input TXT included!";
+                message = "Error: There is no input TXT included!";
                 break;
             case FILE_MORE_THAN_ONE:
-                message = "There are more than one TXT included!";
+                message = "Error: There are more than one TXT included!";
                 break;
             case FILE_NOT_EXIST:
-                message = "There is no TXT file in this path!";
+                message = "Error: There is no TXT file in this path! Please make sure the path is correct!";
                 break;
             case ARGS_UNIDENTIFIED:
-                message = "Unidentified arg, please choose arg from (-n,-c,-w,-h,-t,-j)!";
+                message = "Error: Unidentified arg, please choose arg from (-n,-c,-w,-h,-t,-j)!";
                 break;
             case ARGS_DUPLICATE:
-                message = "Duplicate arg!";
+                message = "Error: Duplicate arg!";
                 break;
             case ARG_N_CONFLICT:
-                message = "Arg -n cannot combine with other args!";
+                message = "Error: Arg -n cannot combine with other args!";
                 break;
             case VALUE_LACK:
-                message = "Lack value for arg (-h/-j/-t)!";
+                message = "Error: Lack value for arg (-h/-j/-t)!";
                 break;
             case VALUE_MORE_THAN_ONE:
-                message = "More than one value for arg (-h/-j/-t)!";
+                message = "Error: More than one value for arg (-h/-j/-t)!";
                 break;
             case VALUE_ILLEGAL_ARGS:
-                message = "Illegal value for arg (-h/-j/-t), please enter character!";
+                message = "Error: Illegal value for arg (-h/-j/-t), please enter character!";
                 break;
             case BASIC_ARGS_CONFLICT:
-                message = "Arg conflict (-n/-c/-w)";
+                message = "Error: Arg(-n/-c/-w) conflict!";
                 break;
             case BASIC_ARGS_LACK:
-                message = "缺少基本参数(-n/-c/-w)";
+                message = "Error: Lack of basic arg(-n/-c/-w)!";
                 break;
             case LOOP_ILLEGAL:
-                message = "参数不存在-r，但是单词存在隐含环";
+                message = "Error: There is a words loop included without permission!";
                 break;
         }
     }
