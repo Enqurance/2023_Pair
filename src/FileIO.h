@@ -2,6 +2,7 @@
 #define WORDLIST_FILEIO_H
 
 #include "bits/stdc++.h"
+#include <filesystem>
 #include "Node.h"
 #include "Error.h"
 
@@ -21,13 +22,16 @@ public:
 
     // 读文件，输出文件
     int read_file(const string &filename) {
-        initialize();
-        ifstream file;
-        file.open(filename, ios::in);
-        if (!file.is_open()) {
-            cerr << "cannot open file!" << endl;
+        ifstream file(filename, ios::in);
+        if (!file.good()) {
+            try {
+                throw SelfException(FILE_NOT_EXIST, filename);
+            } catch (const SelfException &e) {
+                cerr << e.what() << endl;
+            }
             return -1;
         }
+        initialize();
         string temp;
         while (getline(file, temp)) {
             parse_words(temp);

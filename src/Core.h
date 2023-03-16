@@ -7,6 +7,7 @@
 
 #include "bits/stdc++.h"
 #include "Node.h"
+#include "Error.h"
 
 using namespace std;
 
@@ -235,6 +236,10 @@ public:
         longest_size = int(longest_chain.size());
         return longest_size;
     }
+
+    bool checkIllegalLoop() {
+        return !enable_loop && loop_exist;
+    }
 };
 
 //指针数组result的长度上限为20000，超出上限时报错并保证返回值正确，此时输出到solution.txt中的单词链可以为空
@@ -253,12 +258,28 @@ __declspec(dllexport) int gen_chains_all(const vector<string> &words, int len, v
 __declspec(dllexport) int gen_chain_word(const vector<string> &words, int len, vector<string> &result,
                                          char head, char tail, char reject, bool enable_loop) {
     Core core = *new Core(words, len, enable_loop, head, tail, reject, false);
+    if (core.checkIllegalLoop()) {
+        try {
+            throw SelfException(LOOP_ILLEGAL, "");
+        } catch (const SelfException &e) {
+            cerr << e.what() << endl;
+            return -1;
+        }
+    }
     return core.genMaxWordCountChain(result);
 }
 
 __declspec(dllexport) int gen_chain_char(const vector<string> &words, int len, vector<string> &result,
                                          char head, char tail, char reject, bool enable_loop) {
     Core core = *new Core(words, len, enable_loop, head, tail, reject, true);
+    if (core.checkIllegalLoop()) {
+        try {
+            throw SelfException(LOOP_ILLEGAL, "");
+        } catch (const SelfException &e) {
+            cerr << e.what() << endl;
+            return -1;
+        }
+    }
     return core.genMaxWordCountChain(result);
 }
 

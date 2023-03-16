@@ -6,11 +6,12 @@
 using namespace std;
 
 int load_dll();
+
 void free_dll();
 
-void parse_args(int argc, char *argv[]);
+int parse_args(int argc, char *argv[]);
 
-void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size);
+int parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size);
 
 // 程序参数相关
 string input_file;
@@ -63,6 +64,7 @@ enum all_exception_state {
 
     ARGS_UNIDENTIFIED,      // 未定义的参数
     ARGS_DUPLICATE,         // 重复参数
+    ARG_N_CONFLICT,
 
     VALUE_LACK,             // -h-j-t的参数值缺失
     VALUE_MORE_THAN_ONE,    // -h-j-t的参数多于一个字符
@@ -74,14 +76,18 @@ enum all_exception_state {
     LOOP_ILLEGAL,           // 不要求环，但是单词成环
 };
 
+static const regex arg_pattern("^(\\-(n|c|w|h|t|j|r))$");
+// 文件路径匹配有点问题
+static const regex txt_pattern(R"([a-zA-Z0-9]+(\\[a-zA-Z0-9]+)*\\[a-zA-Z0-9]+\.(txt|TXT)$)");
+
 int main(int argc, char *argv[]) {
     // 加载dll失败，直接返回
     if (load_dll() == -1) return 0;
 
     /* 读取命令行，获取参数信息，检查冲突 */
-    parse_args(argc, argv);
+    if (parse_args(argc, argv) == -1) return 0;
 
-    read_file(input_file);
+    if (read_file(input_file) == -1) return 0;
 
     vector<string> words;
     int words_size = get_words(words);
@@ -93,9 +99,9 @@ int main(int argc, char *argv[]) {
     } else if (is_word_chain || is_count_chain) {
         vector<string> result;
         if (is_word_chain) {
-            gen_chain_word(words, words_size, result, head, tail, reject, enableLoop);
+            if (gen_chain_word(words, words_size, result, head, tail, reject, enableLoop) == -1) return 0;
         } else {
-            gen_chain_char(words, words_size, result, head, tail, reject, enableLoop);
+            if (gen_chain_char(words, words_size, result, head, tail, reject, enableLoop) == -1) return 0;
         }
 
         output_file(result);
@@ -112,7 +118,7 @@ int load_dll() {
         cerr << "Unable to load LIB DLL!" << endl;
         return -1;
     }
-    throw_self_exception = (THROW_SELF_EXCEPTION) GetProcAddress(LibDll, "ThrowSelfException");
+    throw_self_exception = (THROW_SELF_EXCEPTION) GetProcAddress(LibDll, "throwSelfException");
     if (!throw_self_exception) {
         cerr << "this !" << endl;
     }
@@ -149,53 +155,85 @@ void free_dll() {
 }
 
 // 需要修改：-n参数不与其他参数混合使用
-void parse_args(int argc, char *argv[]) {
-    int i = 0;
-    while (i < argc) {
-        if (strcmp(argv[i], "-n") == 0) {
-            is_all_chain = true;
-        } else if (strcmp(argv[i], "-w") == 0) {
-            is_word_chain = true;
-        } else if (strcmp(argv[i], "-c") == 0) {
-            is_count_chain = true;
-        } else if (strcmp(argv[i], "-h") == 0) {
-            parse_additional_args(is_head, head, argv, i, argc);
-        } else if (strcmp(argv[i], "-t") == 0) {
-            parse_additional_args(is_tail, tail, argv, i, argc);
-        } else if (strcmp(argv[i], "-j") == 0) {
-            parse_additional_args(is_not_head, reject, argv, i, argc);
-        } else if (strcmp(argv[i], "-r") == 0) {
-            enableLoop = true;
-        } else {
-            input_file = argv[i];
-            // 没有.txt出现 或者.txt不是文件名结尾
-            int size = (int) input_file.length();
-            if ((input_file.find(".txt") == std::string::npos) || (input_file.find_last_of(".txt") != size - 4)) {
-//                fault[file_illegal] = true;
+int parse_args(int argc, char *argv[]) {
+    // 可能有问题，第0个参数是exe文件
+    int i = 1;
+    try {
+        while (i < argc) {
+            if (strcmp(argv[i], "-n") == 0) {
+                is_all_chain = true;
+            } else if (strcmp(argv[i], "-w") == 0) {
+                is_word_chain = true;
+            } else if (strcmp(argv[i], "-c") == 0) {
+                is_count_chain = true;
+            } else if (strcmp(argv[i], "-h") == 0) {
+                if (parse_additional_args(is_head, head, argv, ++i, argc) == -1) return -1;
+            } else if (strcmp(argv[i], "-t") == 0) {
+                if (parse_additional_args(is_tail, tail, argv, ++i, argc) == -1) return -1;
+            } else if (strcmp(argv[i], "-j") == 0) {
+                if (parse_additional_args(is_not_head, reject, argv, ++i, argc) == -1) return -1;
+            } else if (strcmp(argv[i], "-r") == 0) {
+                enableLoop = true;
+            } else {
+                // 文件不合法，不是以.txt结尾
+                if (!regex_match(argv[i], txt_pattern)) {
+                    throw_self_exception(FILE_ILLEGAL, "");
+                }
+                // 文件多于一个
+                if (!input_file.empty()) {
+                    throw_self_exception(FILE_MORE_THAN_ONE, "");
+                }
+                input_file = argv[i];
             }
+            i++;
         }
-        i++;
+        if (input_file.empty()) {
+            throw_self_exception(FILE_LACK, "");
+        }
+        if ((is_count_chain && is_all_chain) || (is_count_chain && is_word_chain) || (is_all_chain && is_word_chain)) {
+            throw_self_exception(BASIC_ARGS_CONFLICT, "");
+        }
+        if (!is_all_chain && !is_count_chain && !is_word_chain) {
+            throw_self_exception(BASIC_ARGS_LACK, "");
+        }
+    } catch (const exception &e) {
+        cerr << e.what() << endl;
+        return -1;
     }
-    if ((is_count_chain && is_all_chain) || (is_count_chain && is_word_chain) || (is_all_chain && is_word_chain)) {
-//        fault[args_conflict] = true;
-    }
-    if (!is_all_chain && !is_count_chain && !is_word_chain) {
-//        fault[args_no_basic] = true;
-    }
+    return 0;
 }
 
 /* 处理-h-t-j三个附加参数，主要是异常处理 */
-void parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) {
+int parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) {
     flag = true;
-    if (is_all_chain) {
-//        fault[args_conflict] = true;
-    } else if ((i + 1 < size) && (strlen(argv[i + 1]) == 1) && isalpha(argv[i + 1][0])) {
-        ch = argv[++i][0];
-    } else if ((i + 1 == size) || (strlen(argv[i + 1]) == 0)) {
-        // 错误处理，附加参数后缺失字母
-//        fault[additional_lack_character] = true;
-    } else {
-        // 错误处理，附加参数后，格式不匹配
-//        fault[additional_not_match] = true;
+    try {
+        if (is_all_chain) {
+            throw_self_exception(ARG_N_CONFLICT, "");
+        } else if (i >= size) {                     // 参数后无其他信息，说明没有附加值
+            throw_self_exception(VALUE_LACK, "");
+        } else if (strlen(argv[i]) > 1) {       // 后续值的长度大于1，三种:多个字符---参数过多；参数-(arg)，文件名---参数缺失
+            // 参数或文件名
+            if (regex_match(argv[i], arg_pattern) || regex_match(argv[i], txt_pattern)) {
+                throw_self_exception(VALUE_LACK, "");
+            }
+            // 出现了其他非字母字符
+            int arg_size = (int )strlen(argv[i]);
+            for (int j = 0; j < arg_size; j++) {
+                if (!isalpha(argv[i][j])) {
+                    throw_self_exception(VALUE_ILLEGAL_ARGS, "");
+                }
+            }
+            // 全是字母
+            throw_self_exception(VALUE_MORE_THAN_ONE, "");
+        } else if (isalpha(argv[i][0])) {       // 后续值长度为1，且为字母，符合
+            ch = argv[i][0];
+        } else {                                    // 值的长度为1，但是不是字符，说明非法
+            throw_self_exception(VALUE_ILLEGAL_ARGS, "");
+        }
+    } catch (const exception &e) {
+        cerr << e.what() << endl;
+        i--;
+        return -1;
     }
+    return 0;
 }

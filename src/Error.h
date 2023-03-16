@@ -20,6 +20,8 @@ enum all_exception_state {
     ARGS_UNIDENTIFIED,      // 未定义的参数
     ARGS_DUPLICATE,         // 重复参数
 
+    ARG_N_CONFLICT,         // -n参数冲突
+
     VALUE_LACK,             // -h-j-t的参数值缺失
     VALUE_MORE_THAN_ONE,    // -h-j-t的参数多于一个字符
     VALUE_ILLEGAL_ARGS,     // -h-j-t的参数值不合法(不是字母)
@@ -56,6 +58,9 @@ private:
                 break;
             case ARGS_DUPLICATE:
                 message = "Duplicate arg!";
+                break;
+            case ARG_N_CONFLICT:
+                message = "Arg -n cannot combine with other args!";
                 break;
             case VALUE_LACK:
                 message = "Lack value for arg (-h/-j/-t)!";
@@ -94,9 +99,9 @@ public:
     }
 };
 
-extern "C" __declspec(dllexport) void ThrowSelfException(const int error_state = -1, const string& info = "") {
+extern "C" __declspec(dllexport) void throwSelfException(const int error_state = -1, const string& info = "") {
     auto* e = new SelfException(error_state, info);
-    throw e;
+    throw *e;
 }
 
 #endif //WORDLIST_ERROR_H
