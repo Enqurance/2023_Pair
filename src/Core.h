@@ -27,6 +27,8 @@ private:
     vector<vector<string>> all_chains;
     int all_chains_size = 0;
 
+    bool over_large = false;
+
     // 建图相关
     vector<Node *> nodes;
     int nodes_size = -1;
@@ -90,11 +92,16 @@ private:
     }
 
     void dfs_all_chain(int id, vector<string> cur_chain) {
+        if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
         if (cur_chain.size() >= 2) {
             all_chains.push_back(cur_chain);
             all_chains_size++;
+            if (all_chains_size > 20000) {
+                over_large = true;
+                return;
+            }
         }
         int toNode_size = (int) (nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
@@ -103,14 +110,18 @@ private:
                 dfs_all_chain(toNode_id, cur_chain);
             }
         }
+        vis[id] = false;
     }
 
     void dp_longest_chain() {
         // 局部变量初始化
         queue<Node *> q;
         int tmp_inDegree[MAX];
+        int len_rec[MAX];
         memcpy(tmp_inDegree, inDegree, sizeof(inDegree));
         memset(lastWord, -1, sizeof(lastWord));
+        memset(dp, 0, sizeof(dp));
+        memset(len_rec, 0, sizeof(len_rec));
 
         // 入度为0的，且符合要求开头字母的，先入队
         for (int i = 0; i < nodes_size; i++) {
@@ -121,6 +132,7 @@ private:
                     (reject == 0 || reject != nodes[i]->get_s())) {
                     q.push(nodes[i]);
                     dp[i] = nodes[i]->get_v();
+                    len_rec[i] = 1;
                 }
             }
         }
@@ -135,6 +147,7 @@ private:
                 if (dp[tmp->get_id()] + tmp->get_v() > dp[toNode_id]) {
                     lastWord[toNode_id] = tmp->get_id();
                     dp[toNode_id] = dp[tmp->get_id()] + tmp->get_v();
+                    len_rec[toNode_id] = len_rec[tmp->get_id()] + 1;
                 }
                 tmp_inDegree[toNode_id]--;
                 if (tmp_inDegree[toNode_id] == 0) {
@@ -147,16 +160,13 @@ private:
         }
 
         // 最终遍历结果，找到最长的链
-        int max_length = 0, max_index;
+        int max_length = 0, max_index = -1;
         for (int i = 0; i < nodes_size; i++) {
-            if (dp[i] > max_length && (tail == 0 || tail == nodes[i]->get_e())) {
+            if (dp[i] > max_length && (tail == 0 || tail == nodes[i]->get_e()) && len_rec[i] >= 2) {
                 max_index = i;
                 max_length = dp[i];
             }
         }
-
-        // 没有长度超过2的单词链
-        if (max_length < 2) return;
 
         // 将结果保存并返回
         while (max_index != -1) {
@@ -166,15 +176,18 @@ private:
         reverse(longest_chain.begin(), longest_chain.end());
     }
 
-    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain) {
+    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain, int cur_size) {
+        if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
         cur_v += nodes[id]->get_v();
+        cur_size += 1;
         // 当result结果长度超过20000，输出到solution.txt的可以为空
-        if (cur_chain.size() > 20000) {
-
+        if (cur_size > 20000) {
+            over_large = true;
+            return;
         }
-        if ((cur_v > longest_size) && (tail == 0 || nodes[id]->get_e() == tail) && cur_chain.size() >= 2) {
+        if ((cur_v > longest_size) && (tail == 0 || nodes[id]->get_e() == tail) && cur_size >= 2) {
             longest_chain.assign(cur_chain.begin(), cur_chain.end());
             longest_size = cur_v;
         }
@@ -183,9 +196,10 @@ private:
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
                 (reject == 0 || reject != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
-                dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain);
+                dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain, cur_size);
             }
         }
+        vis[id] = false;
     }
 
 public:
@@ -197,6 +211,7 @@ public:
         this->head = head;
         this->tail = tail;
         this->reject = reject;
+        this->over_large = false;
         create_nodes(graph_mode);
         check_circle();
     }
@@ -208,17 +223,23 @@ public:
         this->head = 0;
         this->tail = 0;
         this->reject = 0;
+        this->over_large = false;
         create_nodes(false);
         check_circle();
     }
 
     // 不要求和其他参数联合使用
     int genAllWordChain(vector<vector<string>> &result) {
-        for (auto & i : nodes_with_diff_head) {
+        for (auto &i: nodes_with_diff_head) {
             int size = (int) i.size();
             for (int j = 0; j < size; j++) {
                 memset(vis, false, nodes_size);
                 dfs_all_chain(i[j]->get_id(), *new vector<string>);
+                if (over_large) {
+                    dealWithOverLarge();
+                    result.clear();
+                    return 0;
+                }
             }
         }
         result = all_chains;
@@ -231,15 +252,33 @@ public:
                 if ((head == 0 || head == nodes[i]->get_s()) &&
                     (reject == 0 || reject != nodes[i]->get_s())) {
                     memset(vis, false, nodes_size);
-                    dfs_longest_chain(i, 0, *new vector<string>);
+                    dfs_longest_chain(i, 0, *new vector<string>, 0);
+                    if (over_large) {
+                        dealWithOverLarge();
+                        result.clear();
+                        return 0;
+                    }
                 }
             }
         } else {
             dp_longest_chain();
+            if (over_large) {
+                dealWithOverLarge();
+                result.clear();
+                return 0;
+            }
         }
         result = longest_chain;
         longest_size = int(longest_chain.size());
         return longest_size;
+    }
+
+    static void dealWithOverLarge() {
+        try {
+            throw SelfException(RESULT_TOO_LARGE, "");
+        } catch (const SelfException &e) {
+            cerr << e.what() << endl;
+        }
     }
 
     bool checkIllegalLoop() const {
@@ -290,12 +329,13 @@ __declspec(dllexport) int gen_chain_char(const vector<string> &words, int len, v
 }
 
 // 提供给GUI界面的接口
-JNIEXPORT jint JNICALL Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult) {
+JNIEXPORT jint JNICALL
+Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult) {
     // Convert Java objects to C++ data types
     vector<string> words;
     for (int i = 0; i < len; i++) {
         jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char* cWord = env->GetStringUTFChars(jWord, 0);
+        const char *cWord = env->GetStringUTFChars(jWord, 0);
         words.emplace_back(cWord);
         env->ReleaseStringUTFChars(jWord, cWord);
     }
@@ -306,9 +346,9 @@ JNIEXPORT jint JNICALL Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobje
     int dllReturnCode = core.genAllWordChain(result);
 
     // Convert the C++ data types to Java objects
-    int result_size = (int )result.size();
+    int result_size = (int) result.size();
     for (int i = 0; i < result_size; i++) {
-        int result_i_size = (int )result[i].size();
+        int result_i_size = (int) result[i].size();
         jobjectArray jRow = env->NewObjectArray(result_i_size, env->FindClass("java/lang/String"), NULL);
         for (int j = 0; j < result_i_size; j++) {
             env->SetObjectArrayElement(jRow, j, env->NewStringUTF(result[i][j].c_str()));
@@ -320,19 +360,21 @@ JNIEXPORT jint JNICALL Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobje
     return (jint) dllReturnCode;
 }
 
-JNIEXPORT jint JNICALL Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head, jchar tail, jchar reject, jboolean enable_loop) {
+JNIEXPORT jint JNICALL
+Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head,
+                          jchar tail, jchar reject, jboolean enable_loop) {
     // Convert Java objects to C++ data types
     std::vector<std::string> words;
     for (int i = 0; i < len; i++) {
         jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char* cWord = env->GetStringUTFChars(jWord, 0);
+        const char *cWord = env->GetStringUTFChars(jWord, 0);
         words.emplace_back(cWord);
         env->ReleaseStringUTFChars(jWord, cWord);
     }
     std::vector<std::string> result;
 
     // Call your DLL function with the converted data types
-    Core core = *new Core(words, len, enable_loop, (char )head, (char )tail, (char )reject, false);
+    Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
     if (core.checkIllegalLoop()) {
         try {
             throw SelfException(LOOP_ILLEGAL, "");
@@ -341,7 +383,7 @@ JNIEXPORT jint JNICALL Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobje
             return -1;
         }
     }
-    int dllReturnCode = gen_chain_word(words, len, result, (char)head, (char)tail, (char)reject, enable_loop);
+    int dllReturnCode = gen_chain_word(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
 
     // Convert the C++ data types to Java objects
     for (int i = 0; i < result.size(); i++) {
@@ -353,19 +395,21 @@ JNIEXPORT jint JNICALL Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobje
     return (jint) dllReturnCode;
 }
 
-JNIEXPORT jint JNICALL Java_CoreAPI_genChainChar(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head, jchar tail, jchar reject, jboolean enable_loop) {
+JNIEXPORT jint JNICALL
+Java_CoreAPI_genChainChar(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head,
+                          jchar tail, jchar reject, jboolean enable_loop) {
     // Convert Java objects to C++ data types
     std::vector<std::string> words;
     for (int i = 0; i < len; i++) {
         jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char* cWord = env->GetStringUTFChars(jWord, 0);
+        const char *cWord = env->GetStringUTFChars(jWord, 0);
         words.emplace_back(cWord);
         env->ReleaseStringUTFChars(jWord, cWord);
     }
     std::vector<std::string> result;
 
     // Call your DLL function with the converted data types
-    Core core = *new Core(words, len, enable_loop, (char)head, (char)tail, (char)reject, false);
+    Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
     if (core.checkIllegalLoop()) {
         try {
             throw SelfException(LOOP_ILLEGAL, "");
@@ -374,7 +418,7 @@ JNIEXPORT jint JNICALL Java_CoreAPI_genChainChar(JNIEnv *env, jobject obj, jobje
             return -1;
         }
     }
-    int dllReturnCode = gen_chain_char(words, len, result, (char)head, (char)tail, (char)reject, enable_loop);
+    int dllReturnCode = gen_chain_char(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
 
     // Convert the C++ data types to Java objects
     for (int i = 0; i < result.size(); i++) {
