@@ -1,2 +1,1 @@
-"abc
-"cde""efg", "cdde", "chh()())((()()()"hyq", "qps", ---"szz"
+{"bbcc", "cdef", "fack", "kill", "cde" ,"eb"};
