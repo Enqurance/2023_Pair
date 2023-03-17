@@ -1,4 +1,4 @@
-algebra
-apple
-elephant
-todzzzzz
+bbcc
+cdef
+fack
+kill
