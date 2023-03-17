@@ -151,10 +151,7 @@ private:
                 }
                 tmp_inDegree[toNode_id]--;
                 if (tmp_inDegree[toNode_id] == 0) {
-                    if ((head == 0 || nodes[i]->get_s() == head) &&
-                        (reject == 0 || reject != nodes[i]->get_s())) {
-                        q.push(nodes[toNode_id]);
-                    }
+                    q.push(nodes[toNode_id]);
                 }
             }
         }
@@ -194,8 +191,7 @@ private:
         int toNode_size = (int) (nodes[id]->toNodes).size();
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
-            if ((head == 0 || head == nodes[toNode_id]->get_s()) &&
-                (reject == 0 || reject != nodes[toNode_id]->get_s()) && !vis[toNode_id]) {
+            if (!vis[toNode_id]) {
                 dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain, cur_size);
             }
         }
