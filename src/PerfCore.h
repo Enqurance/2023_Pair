@@ -7,8 +7,6 @@
 
 #include "bits/stdc++.h"
 #include "Node.h"
-#include "Error.h"
-#include "jni.h"
 
 using namespace std;
 
@@ -275,7 +273,6 @@ public:
                 memset(vis, false, nodes_size);
                 dfs_all_chain(i[j]->get_id(), *new vector<string>);
                 if (over_large) {
-                    dealWithOverLarge();
                     result.clear();
                     return 0;
                 }
@@ -293,7 +290,6 @@ public:
                     memset(vis, false, nodes_size);
                     dfs_longest_chain(i, 0, *new vector<string>, 0);
                     if (over_large) {
-                        dealWithOverLarge();
                         result.clear();
                         return 0;
                     }
@@ -302,7 +298,6 @@ public:
         } else {
             dp_longest_chain();
             if (over_large) {
-                dealWithOverLarge();
                 result.clear();
                 return 0;
             }
@@ -312,165 +307,9 @@ public:
         return longest_size;
     }
 
-    static void dealWithOverLarge() {
-        try {
-            throw SelfException(RESULT_TOO_LARGE, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-        }
-    }
-
     bool checkIllegalLoop() const {
         return !enable_loop && loop_exist;
     }
 };
-
-//指针数组result的长度上限为20000，超出上限时报错并保证返回值正确，此时输出到solution.txt中的单词链可以为空
-//如果采用推荐的API接口，由于各组之间需要互换前后端，且推荐的API接口中返回值已经具有实际意义
-//因此不宜采用直接返回报错码的方式处理，因此各位不要在返回值上承载异常信息，保证返回值正确
-
-// 提供给C++的接口
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-__declspec(dllexport) int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
-    Core core = *new Core(words, len);
-    return core.genAllWordChain(result);
-}
-
-__declspec(dllexport) int gen_chain_word(const vector<string> &words, int len, vector<string> &result,
-                                         char head, char tail, char reject, bool enable_loop) {
-    Core core = *new Core(words, len, enable_loop, head, tail, reject, false);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
-    return core.genMaxWordCountChain(result);
-}
-
-__declspec(dllexport) int gen_chain_char(const vector<string> &words, int len, vector<string> &result,
-                                         char head, char tail, char reject, bool enable_loop) {
-    Core core = *new Core(words, len, enable_loop, head, tail, reject, true);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
-    return core.genMaxWordCountChain(result);
-}
-
-// 提供给GUI界面的接口
-JNIEXPORT jint JNICALL
-Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult) {
-    // Convert Java objects to C++ data types
-    vector<string> words;
-    for (int i = 0; i < len; i++) {
-        jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char *cWord = env->GetStringUTFChars(jWord, 0);
-        words.emplace_back(cWord);
-        env->ReleaseStringUTFChars(jWord, cWord);
-    }
-    vector<vector<string>> result;
-
-    // Call the DLL function with the converted data types
-    Core core = *new Core(words, len);
-    int dllReturnCode = core.genAllWordChain(result);
-
-    // Convert the C++ data types to Java objects
-    int result_size = (int) result.size();
-    for (int i = 0; i < result_size; i++) {
-        int result_i_size = (int) result[i].size();
-        jobjectArray jRow = env->NewObjectArray(result_i_size, env->FindClass("java/lang/String"), NULL);
-        for (int j = 0; j < result_i_size; j++) {
-            env->SetObjectArrayElement(jRow, j, env->NewStringUTF(result[i][j].c_str()));
-        }
-        env->SetObjectArrayElement(jResult, i, jRow);
-    }
-
-    // Return the DLL return code
-    return (jint) dllReturnCode;
-}
-
-JNIEXPORT jint JNICALL
-Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head,
-                          jchar tail, jchar reject, jboolean enable_loop) {
-    // Convert Java objects to C++ data types
-    std::vector<std::string> words;
-    for (int i = 0; i < len; i++) {
-        jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char *cWord = env->GetStringUTFChars(jWord, 0);
-        words.emplace_back(cWord);
-        env->ReleaseStringUTFChars(jWord, cWord);
-    }
-    std::vector<std::string> result;
-
-    // Call your DLL function with the converted data types
-    Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
-    int dllReturnCode = gen_chain_word(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
-
-    // Convert the C++ data types to Java objects
-    for (int i = 0; i < result.size(); i++) {
-        jstring jResultItem = env->NewStringUTF(result[i].c_str());
-        env->SetObjectArrayElement(jResult, i, jResultItem);
-    }
-
-    // Return the DLL return code
-    return (jint) dllReturnCode;
-}
-
-JNIEXPORT jint JNICALL
-Java_CoreAPI_genChainChar(JNIEnv *env, jobject obj, jobjectArray jWords, jint len, jobjectArray jResult, jchar head,
-                          jchar tail, jchar reject, jboolean enable_loop) {
-    // Convert Java objects to C++ data types
-    std::vector<std::string> words;
-    for (int i = 0; i < len; i++) {
-        jstring jWord = (jstring) env->GetObjectArrayElement(jWords, i);
-        const char *cWord = env->GetStringUTFChars(jWord, 0);
-        words.emplace_back(cWord);
-        env->ReleaseStringUTFChars(jWord, cWord);
-    }
-    std::vector<std::string> result;
-
-    // Call your DLL function with the converted data types
-    Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
-    int dllReturnCode = gen_chain_char(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
-
-    // Convert the C++ data types to Java objects
-    for (int i = 0; i < result.size(); i++) {
-        jstring jResultItem = env->NewStringUTF(result[i].c_str());
-        env->SetObjectArrayElement(jResult, i, jResultItem);
-    }
-
-    // Return the DLL return code
-    return (jint) dllReturnCode;
-}
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
