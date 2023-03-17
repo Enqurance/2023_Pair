@@ -121,6 +121,8 @@ private:
             if (!nodes[i]->is_deleted) {
                 words.push_back(nodes[i]->get_context());
                 words_size++;
+            } else {
+                delete nodes[i];
             }
         }
         nodes.clear();

@@ -33,7 +33,7 @@ private:
     vector<Node *> nodes;
     int nodes_size = -1;
     int inDegree[MAX] = {0};
-    bool graph_mode{};
+    bool graph_mode = false;
 
     vector<string> words;
     int words_size;
@@ -129,6 +129,7 @@ private:
         }
         nodes.clear();
         nodes_with_diff_head->clear();
+        memset(inDegree, 0, sizeof (inDegree));
         create_nodes(graph_mode);
     }
 
@@ -155,6 +156,9 @@ private:
     }
 
     void dp_longest_chain() {
+        // 如果head和reject有要求，重构图
+        if (head != 0 || reject != 0) reBuildGraph();
+
         // 局部变量初始化
         queue<Node *> q;
         int tmp_inDegree[MAX];
@@ -163,9 +167,6 @@ private:
         memset(lastWord, -1, sizeof(lastWord));
         memset(dp, 0, sizeof(dp));
         memset(len_rec, 0, sizeof(len_rec));
-
-        // 如果head和reject有要求，重构图
-        if (head != 0 || reject != 0) reBuildGraph();
 
         // 入度为0的，且符合要求开头字母的，先入队
         for (int i = 0; i < nodes_size; i++) {
@@ -327,10 +328,6 @@ public:
     }
 };
 
-//指针数组result的长度上限为20000，超出上限时报错并保证返回值正确，此时输出到solution.txt中的单词链可以为空
-//如果采用推荐的API接口，由于各组之间需要互换前后端，且推荐的API接口中返回值已经具有实际意义
-//因此不宜采用直接返回报错码的方式处理，因此各位不要在返回值上承载异常信息，保证返回值正确
-
 // 提供给C++的接口
 #ifdef __cplusplus
 extern "C" {
@@ -338,6 +335,14 @@ extern "C" {
 
 __declspec(dllexport) int gen_chains_all(const vector<string> &words, int len, vector<vector<string>> &result) {
     Core core = *new Core(words, len);
+    if (core.checkIllegalLoop()) {
+        try {
+            throw SelfException(LOOP_ILLEGAL, "");
+        } catch (const SelfException &e) {
+            cerr << e.what() << endl;
+            return -1;
+        }
+    }
     return core.genAllWordChain(result);
 }
 
@@ -384,6 +389,7 @@ Java_CoreAPI_genChainsAll(JNIEnv *env, jobject obj, jobjectArray jWords, jint le
 
     // Call the DLL function with the converted data types
     Core core = *new Core(words, len);
+    if (core.checkIllegalLoop()) return (jint) -1;
     int dllReturnCode = core.genAllWordChain(result);
 
     // Convert the C++ data types to Java objects
@@ -416,14 +422,7 @@ Java_CoreAPI_genChainWord(JNIEnv *env, jobject obj, jobjectArray jWords, jint le
 
     // Call your DLL function with the converted data types
     Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
+    if (core.checkIllegalLoop()) return (jint) -1;
     int dllReturnCode = gen_chain_word(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
 
     // Convert the C++ data types to Java objects
@@ -451,14 +450,7 @@ Java_CoreAPI_genChainChar(JNIEnv *env, jobject obj, jobjectArray jWords, jint le
 
     // Call your DLL function with the converted data types
     Core core = *new Core(words, len, enable_loop, (char) head, (char) tail, (char) reject, false);
-    if (core.checkIllegalLoop()) {
-        try {
-            throw SelfException(LOOP_ILLEGAL, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-            return -1;
-        }
-    }
+    if (core.checkIllegalLoop()) return (jint) -1;
     int dllReturnCode = gen_chain_char(words, len, result, (char) head, (char) tail, (char) reject, enable_loop);
 
     // Convert the C++ data types to Java objects
