@@ -24,7 +24,7 @@ set(CMAKE_LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 # 生成动态链接库core.dll
 set(CORE
         src/Core.cpp
-        src/Node.cpp)
+        src/Node.cpp src/PerfCore.cpp src/PerfCore.h src/PerfFileIO.cpp src/PerfFileIO.h)
 add_library(core SHARED ${CORE})
 set_target_properties(core PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
@@ -49,8 +49,8 @@ target_link_libraries(Wordlist core)
 target_link_libraries(Wordlist lib)
 set_target_properties(Wordlist PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-add_executable(Test test/Test.cpp)
-set_target_properties(Test PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
+add_executable(PerfTest test/PerfTest/PerfTest.cpp)
+set_target_properties(PerfTest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 
 
 # 添加测试单元库
