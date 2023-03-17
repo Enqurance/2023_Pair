@@ -110,7 +110,8 @@ private:
                 int toNode_id = tmp->toNodes[i]->get_id();
                 tmp_inDegree[toNode_id]--;
                 if (tmp_inDegree[toNode_id] == 0 &&
-                    ((head != 0 && nodes[toNode_id]->get_s() != head) || (reject != 0 && nodes[toNode_id]->get_s() == reject))) {
+                    ((head != 0 && nodes[toNode_id]->get_s() != head) ||
+                    (reject != 0 && nodes[toNode_id]->get_s() == reject))) {
                     q.push(nodes[toNode_id]);
                 }
             }

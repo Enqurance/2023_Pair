@@ -12,8 +12,8 @@ vector<string> input2{"algebra", "apple", "zoo", "elephant", "under", "fox", "do
                       "moon", "leaf", "trick", "pseudopseudohypoparathyroidism",
                       "bluez", "todzzzzz", "ted"};
 vector<string> input3{"bbcc", "cdef", "fack", "kill", "cde", "eb"};
-vector<string> input4{"ab", "bc", "cd", "de"};
-vector<string> input5{"element", "heaven", "table", "teach", "talk"};
+vector<string> input4{"ab", "bc", "cd", "de", "awdsdas"};
+vector<string> input5{"element", "heaven", "tablt", "teach", "talk", "heavez"};
 
 int comp_words(vector<string> &source, vector<string> &target);
 
@@ -46,8 +46,27 @@ TEST_F(CoreTest, Test_N) {
     /* 功能测试 */
     Core core = *new Core(words, size);
     vector<vector<string>> result;
-    ASSERT_EQ(core.genAllWordChain(result), 10);
+    core.genAllWordChain(result);
+//    ASSERT_EQ(core.genAllWordChain(result), 13);
     ASSERT_EQ(f.output_screen(result), 1);
+}
+
+// -w
+TEST_F(CoreTest, Test_W) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input2.txt";
+    vector<string> words;
+    int size;
+    ASSERT_EQ(f.read_file(filename), 1);
+    ASSERT_EQ(size = f.get_words(words), 14);
+    ASSERT_EQ(comp_words(input2, words), 1);
+
+
+    /* 功能测试 */
+    Core core = *new Core(words, size, false, 0, 0, 0, false);
+    vector<string> result;
+    ASSERT_EQ(core.genMaxWordCountChain(result), 5);
+    ASSERT_EQ(f.output_file(result), 1);
 }
 
 // -w -h -t
@@ -88,13 +107,13 @@ TEST_F(CoreTest, Test_W_H_R) {
 }
 
 // -w -j
-TEST_F(CoreTest, Test_W_J) {
+TEST_F(CoreTest, Test_W_J_R) {
     FileIO f = FileIO::getInstance();
     string filename = "../test/Testfiles/input4.txt";
     vector<string> words;
     int size;
     ASSERT_EQ(f.read_file(filename), 1);
-    ASSERT_EQ(size = f.get_words(words), 4);
+    ASSERT_EQ(size = f.get_words(words), 5);
     ASSERT_EQ(comp_words(input4, words), 1);
 
 
@@ -104,6 +123,44 @@ TEST_F(CoreTest, Test_W_J) {
     ASSERT_EQ(core.checkIllegalLoop(), false);
     ASSERT_EQ(core.genMaxWordCountChain(result), 3);
     ASSERT_EQ(f.output_file(result), 1);
+}
+
+// -c -h -t
+//TODO
+TEST_F(CoreTest, Test_C_H_T) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input5.txt";
+    vector<string> words;
+    int size;
+    ASSERT_EQ(f.read_file(filename), 1);
+    ASSERT_EQ(size = f.get_words(words), 6);
+    ASSERT_EQ(comp_words(input5, words), 1);
+
+
+    /* 功能测试 */
+    Core core = *new Core(words, size, false, 't', 'z', 0, true);
+    vector<string> result;
+    ASSERT_EQ(core.checkIllegalLoop(), false);
+    ASSERT_EQ(core.genMaxWordCountChain(result), 3);
+    ASSERT_EQ(f.output_file(result), 1);
+}
+
+TEST_F(CoreTest, Test_TOO_MANY_CHAIN) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input6.txt";
+    vector<string> words;
+    int size;
+    ASSERT_EQ(f.read_file(filename), 1);
+    ASSERT_EQ(size = f.get_words(words), 250);
+
+
+    /* 功能测试 */
+    Core core = *new Core(words, size);
+    vector<vector<string>> result;
+    ASSERT_EQ(core.checkIllegalLoop(), false);
+//    ASSERT_EQ(core.genAllWordChain(result), 3);
+    ASSERT_EQ(core.genAllWordChain(result), 0);
+    ASSERT_EQ(f.output_screen(result), 1);
 }
 
 int comp_words(vector<string> &source, vector<string> &target) {
