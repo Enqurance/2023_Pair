@@ -10,6 +10,11 @@ set(CMAKE_CXX_STANDARD 14)
 # 关闭编译器优化
 #set(CMAKE_CXX_FLAGS "-O0")
 
+# 连接jni库
+find_package(JNI REQUIRED)
+include_directories(${JNI_INCLUDE_DIRS})
+link_libraries(${JNI_LIBRARIES})
+
 # 设置可执行文件.exe输出的地址
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 

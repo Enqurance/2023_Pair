@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 public class Main {
     public static void main(String[] args) {
         new MyFrame().setVisible(true);
@@ -258,15 +257,38 @@ class MyFrame extends JFrame {
             }
             try {
                 System.out.println("Executing");
-                Process p = Runtime.getRuntime().exec(command.toString());
-                int exitCode = p.waitFor();
-                if (exitCode == 0) {
-                    System.out.println("程序执行成功！");
-                } else {
-                    System.out.println("程序执行失败！");
-                    return;
+
+                long startTime = System.currentTimeMillis();
+
+                // 运行函数
+                String[] words = {"woo", "oom", "moon", "noox"};
+                int len = words.length;
+                String[][] result = new String[20000][];
+                int ret = CoreAPI.genChainsAll(words, len, result);
+                System.out.println(ret);
+                for (int i = 0; i < ret; i++) {
+                    int length = result[i].length;
+                    for (int j = 0; j < length; j++) {
+                        System.out.print(result[i][j] + " ");
+                    }
+                    System.out.println();
                 }
+
+//                Process p = Runtime.getRuntime().exec(command.toString());
+//                int exitCode = p.waitFor();
+//                if (exitCode == 0) {
+//                    System.out.println("程序执行成功！");
+//                } else {
+//                    System.out.println("程序执行失败！");
+//                    return;
+//                }
+
+                long endTime = System.currentTimeMillis();
+                double totalTimeInSeconds = (endTime - startTime) / 1000.0;
+                String formattedRunTime = String.format("%.2f", totalTimeInSeconds);
+
                 outputArea.setText("");
+                outputArea.append("程序执行时间为：" + formattedRunTime + "s\n");
                 if (checkBox_n.isSelected()) {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                     String line;
@@ -276,7 +298,7 @@ class MyFrame extends JFrame {
                 } else {
                     String context = readTxtFile("solution.txt", true);
                     System.out.println(context);
-                    outputArea.setText(context);
+                    outputArea.append(context);
                 }
             } catch (IOException e1) {
                 e1.printStackTrace();

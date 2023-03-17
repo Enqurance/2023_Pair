@@ -30,6 +30,8 @@ enum all_exception_state {
     BASIC_ARGS_LACK,        // 缺少基础参数-c-w-n
 
     LOOP_ILLEGAL,           // 不要求环，但是单词成环
+
+    RESULT_TOO_LARGE,       // 结果长度超过20000
 };
 
 class SelfException : public exception {
@@ -79,6 +81,9 @@ private:
                 break;
             case LOOP_ILLEGAL:
                 message = "Error: There is a words loop included without permission!";
+                break;
+            case RESULT_TOO_LARGE:
+                message = "Error: Too large for the results(length over 20000)!";
                 break;
         }
     }
