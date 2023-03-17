@@ -13,6 +13,7 @@ using namespace std;
 class Node {
 public:
     vector<Node *> toNodes;
+    bool is_deleted = false;
 
     explicit Node(string str, int index, int v) {
         context.append(str);
@@ -30,7 +31,7 @@ public:
         return e;
     }
 
-    string get_context() {
+    string get_context() const {
         return context;
     }
 

@@ -33,6 +33,7 @@ private:
     vector<Node *> nodes;
     int nodes_size = -1;
     int inDegree[MAX] = {0};
+    bool graph_mode{};
 
     vector<string> words;
     int words_size;
@@ -91,6 +92,44 @@ private:
         loop_exist = count != nodes_size;
     }
 
+    void reBuildGraph() {
+        // 局部变量初始化
+        queue<Node *> q;
+        int tmp_inDegree[MAX];
+        memcpy(tmp_inDegree, inDegree, sizeof(inDegree));
+        for (int i = 0; i < nodes_size; i++) {
+            if (tmp_inDegree[i] == 0 &&
+                ((head != 0 && nodes[i]->get_s() != head) || (reject != 0 && nodes[i]->get_s() == reject))) {
+                q.push(nodes[i]);
+            }
+        }
+        while (!q.empty()) {
+            Node *tmp = q.front();
+            q.pop();
+            tmp->is_deleted = true;
+            int toNode_size = (int) (tmp->toNodes).size();
+            for (int i = 0; i < toNode_size; i++) {
+                int toNode_id = tmp->toNodes[i]->get_id();
+                tmp_inDegree[toNode_id]--;
+                if (tmp_inDegree[toNode_id] == 0 &&
+                    ((head != 0 && nodes[toNode_id]->get_s() != head) || (reject != 0 && nodes[toNode_id]->get_s() == reject))) {
+                    q.push(nodes[toNode_id]);
+                }
+            }
+        }
+        words.clear();
+        words_size = 0;
+        for (int i = 0; i < nodes_size; i++) {
+            if (!nodes[i]->is_deleted) {
+                words.push_back(nodes[i]->get_context());
+                words_size++;
+            }
+        }
+        nodes.clear();
+        nodes_with_diff_head->clear();
+        create_nodes(graph_mode);
+    }
+
     void dfs_all_chain(int id, vector<string> cur_chain) {
         if (over_large) return;
         vis[id] = true;
@@ -122,6 +161,9 @@ private:
         memset(lastWord, -1, sizeof(lastWord));
         memset(dp, 0, sizeof(dp));
         memset(len_rec, 0, sizeof(len_rec));
+
+        // 如果head和reject有要求，重构图
+        if (head != 0 || reject != 0) reBuildGraph();
 
         // 入度为0的，且符合要求开头字母的，先入队
         for (int i = 0; i < nodes_size; i++) {
@@ -208,6 +250,7 @@ public:
         this->tail = tail;
         this->reject = reject;
         this->over_large = false;
+        this->graph_mode = graph_mode;
         create_nodes(graph_mode);
         check_circle();
     }

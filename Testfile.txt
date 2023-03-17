@@ -1,1 +1,1 @@
-{"bbcc", "cdef", "fack", "kill", "cde" ,"eb"};
+{"ab", "bc", "cd", "de"};
