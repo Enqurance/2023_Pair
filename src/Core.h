@@ -133,7 +133,7 @@ private:
         create_nodes(graph_mode);
     }
 
-    void dfs_all_chain(int id, vector<string> cur_chain, int cur_size) {
+    void dfs_all_chain(int id, vector<string> &cur_chain, int cur_size) {
         if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
@@ -153,6 +153,7 @@ private:
                 dfs_all_chain(toNode_id, cur_chain, cur_size);
             }
         }
+        cur_chain.pop_back();
         vis[id] = false;
     }
 
@@ -219,7 +220,7 @@ private:
         reverse(longest_chain.begin(), longest_chain.end());
     }
 
-    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain, int cur_size) {
+    void dfs_longest_chain(int id, int cur_v, vector<string> &cur_chain, int cur_size) {
         if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
@@ -241,6 +242,7 @@ private:
                 dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain, cur_size);
             }
         }
+        cur_chain.pop_back();
         vis[id] = false;
     }
 
