@@ -1,3 +1,13 @@
-bc
-cd
-de
+ab
+ba
+ae
+ea
+af
+fb
+be
+eb
+bf
+fe
+ef
+fa
+ac

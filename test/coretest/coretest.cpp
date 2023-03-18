@@ -126,7 +126,6 @@ TEST_F(CoreTest, Test_W_J_R) {
 }
 
 // -c -h -t
-//TODO
 TEST_F(CoreTest, Test_C_H_T) {
     FileIO f = FileIO::getInstance();
     string filename = "../test/Testfiles/input5.txt";
@@ -145,6 +144,7 @@ TEST_F(CoreTest, Test_C_H_T) {
     ASSERT_EQ(f.output_file(result), 1);
 }
 
+
 TEST_F(CoreTest, Test_TOO_MANY_CHAIN) {
     FileIO f = FileIO::getInstance();
     string filename = "../test/Testfiles/input6.txt";
@@ -161,6 +161,48 @@ TEST_F(CoreTest, Test_TOO_MANY_CHAIN) {
 //    ASSERT_EQ(core.genAllWordChain(result), 3);
     ASSERT_EQ(core.genAllWordChain(result), 0);
     ASSERT_EQ(f.output_screen(result), 1);
+}
+
+TEST_F(CoreTest, Test_C_R) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input7.txt";
+    vector<string> words;
+    int size;
+    ASSERT_EQ(f.read_file(filename), 1);
+    ASSERT_EQ(size = f.get_words(words), 7);
+
+
+    /* 功能测试 */
+    Core core = *new Core(words, size, true, 0, 0, 0, true);
+    vector<string> result;
+    ASSERT_EQ(core.checkIllegalLoop(), false);
+    ASSERT_EQ(core.genMaxWordCountChain(result), 7);
+    ASSERT_EQ(f.output_file(result), 1);
+}
+
+TEST_F(CoreTest, Test_C_R_COMP) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input8.txt";
+    vector<string> words;
+    int size;
+    ASSERT_EQ(f.read_file(filename), 1);
+    ASSERT_EQ(size = f.get_words(words), 20);
+
+
+    /* 功能测试 */
+    Core core = *new Core(words, size, true, 0, 0, 0, true);
+    vector<string> result;
+    ASSERT_EQ(core.checkIllegalLoop(), false);
+    ASSERT_EQ(core.genMaxWordCountChain(result), 13);
+    ASSERT_EQ(f.output_file(result), 1);
+}
+
+// fail open
+TEST_F(CoreTest, Test_FAIL_OPEN) {
+    FileIO f = FileIO::getInstance();
+    string filename = "../test/Testfiles/input99.txt";
+    vector<string> words;
+    ASSERT_EQ(f.read_file(filename), -1);
 }
 
 int comp_words(vector<string> &source, vector<string> &target) {
