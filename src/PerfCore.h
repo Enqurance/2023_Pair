@@ -7,7 +7,6 @@
 
 #include "bits/stdc++.h"
 #include "Node.h"
-#include "Error.h"
 
 using namespace std;
 
@@ -280,7 +279,7 @@ public:
                 memset(vis, false, nodes_size);
                 dfs_all_chain(i[j]->get_id(), *new vector<string>);
                 if (over_large) {
-                    dealWithOverLarge();
+//                    dealWithOverLarge();
                     result.clear();
                     return 0;
                 }
@@ -298,7 +297,7 @@ public:
                     memset(vis, false, nodes_size);
                     dfs_longest_chain(i, 0, *new vector<string>, 0);
                     if (over_large) {
-                        dealWithOverLarge();
+//                        dealWithOverLarge();
                         result.clear();
                         return 0;
                     }
@@ -307,7 +306,7 @@ public:
         } else {
             dp_longest_chain();
             if (over_large) {
-                dealWithOverLarge();
+//                dealWithOverLarge();
                 result.clear();
                 return 0;
             }
@@ -317,13 +316,13 @@ public:
         return longest_size;
     }
 
-    static void dealWithOverLarge() {
-        try {
-            throw SelfException(RESULT_TOO_LARGE, "");
-        } catch (const SelfException &e) {
-            cerr << e.what() << endl;
-        }
-    }
+//    static void dealWithOverLarge() {
+//        try {
+//            throw SelfException(RESULT_TOO_LARGE, "");
+//        } catch (const SelfException &e) {
+//            cerr << e.what() << endl;
+//        }
+//    }
 
     bool checkIllegalLoop() const {
         return !enable_loop && loop_exist;

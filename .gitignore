@@ -4,6 +4,7 @@ cmake-build-debug-coverage/
 cmake-build-debug_wsl/
 CMakeLists.txt
 Article
+Article.zip
 
 # Ignore .DS_Store files on macOS
 .DS_Store
