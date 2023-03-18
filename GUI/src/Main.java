@@ -247,7 +247,6 @@ class MyFrame extends JFrame {
                 appendCommand(checkBox_h, checkBox_t, checkBox_j, comboBox_h, comboBox_t, comboBox_j, command);
             }
             command.append("input.txt");
-            System.out.println(command);
             try {
                 FileWriter writer = new FileWriter("input.txt");
                 writer.write(data);
@@ -257,52 +256,30 @@ class MyFrame extends JFrame {
             }
             try {
                 System.out.println("Executing");
-
+                outputArea.setText("");
                 long startTime = System.currentTimeMillis();
 
                 // 运行函数
-                String[] words = {"woo", "oom", "moon", "noox"};
+                String[] words =
                 int len = words.length;
                 String[][] result = new String[20000][];
                 int ret = CoreAPI.genChainsAll(words, len, result);
-                System.out.println(ret);
+                outputArea.append(ret + "\n");
                 for (int i = 0; i < ret; i++) {
                     int length = result[i].length;
                     for (int j = 0; j < length; j++) {
-                        System.out.print(result[i][j] + " ");
+                        outputArea.append(result[i][j] + " ");
                     }
-                    System.out.println();
+                    outputArea.append("\n");
                 }
 
-//                Process p = Runtime.getRuntime().exec(command.toString());
-//                int exitCode = p.waitFor();
-//                if (exitCode == 0) {
-//                    System.out.println("程序执行成功！");
-//                } else {
-//                    System.out.println("程序执行失败！");
-//                    return;
-//                }
 
                 long endTime = System.currentTimeMillis();
                 double totalTimeInSeconds = (endTime - startTime) / 1000.0;
                 String formattedRunTime = String.format("%.2f", totalTimeInSeconds);
 
-                outputArea.setText("");
                 outputArea.append("程序执行时间为：" + formattedRunTime + "s\n");
-                if (checkBox_n.isSelected()) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        outputArea.append(line + "\n");
-                    }
-                } else {
-                    String context = readTxtFile("solution.txt", true);
-                    System.out.println(context);
-                    outputArea.append(context);
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            } catch (InterruptedException ex) {
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
