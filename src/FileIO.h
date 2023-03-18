@@ -14,12 +14,6 @@ public:
         return fileIO;
     }
 
-    void initialize() {
-        word_map.clear();
-        words.clear();
-        words_cnt = 0;
-    }
-
     // 读文件，输出文件
     int read_file(const string &filename) {
         ifstream file(filename, ios::in);
@@ -83,6 +77,12 @@ private:
     int words_cnt = 0;
 
     FileIO() = default;
+
+    void initialize() {
+        word_map.clear();
+        words.clear();
+        words_cnt = 0;
+    }
 
     void parse_words(const string &context) {   /* 解析单词的函数 */
         int size = int(context.length());

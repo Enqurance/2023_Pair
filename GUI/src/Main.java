@@ -259,6 +259,7 @@ class MyFrame extends JFrame {
                 outputArea.setText("");
                 long startTime = System.currentTimeMillis();
 
+
                 // 运行函数
                 String[] words =
                 int len = words.length;
