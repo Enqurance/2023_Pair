@@ -12,8 +12,8 @@ void PerfTestTwo();
 void PerfTestThree();
 
 int main() {
-    PerfTestOne();
-    PerfTestTwo();
+//    PerfTestOne();
+//    PerfTestTwo();
     PerfTestThree();
 }
 
@@ -31,7 +31,16 @@ void PerfTestOne() {
 }
 
 void PerfTestTwo() {
-
+    string filename = "../test/Testfiles/PTest3.txt";
+    vector<string> words;
+    char c = 0;
+    vector<string> result;
+    FileIO f = FileIO::getInstance();
+    f.read_file(filename);
+    int len = f.get_words(words);
+    Core core = *new Core(words, len, true, c, c, c, false);
+    core.genMaxWordCountChain(result);
+    FileIO::output_file(result);
 }
 
 // most chars
