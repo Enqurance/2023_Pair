@@ -117,14 +117,14 @@ int load_dll() {
         cerr << "Unable to load LIB DLL!" << endl;
         return -1;
     }
-    throw_self_exception = (THROW_SELF_EXCEPTION) GetProcAddress(LibDll, "throwSelfException");
+    throw_self_exception = reinterpret_cast<THROW_SELF_EXCEPTION>(GetProcAddress(LibDll, "throwSelfException"));
     if (!throw_self_exception) {
         cerr << "this !" << endl;
     }
-    read_file = (READ_FILE) GetProcAddress(LibDll, "read_file");
-    output_screen = (OUTPUT_SCREEN) GetProcAddress(LibDll, "output_screen");
-    output_file = (OUTPUT_FILE) GetProcAddress(LibDll, "output_file");
-    get_words = (GET_WORDS) GetProcAddress(LibDll, "get_words");
+    read_file = reinterpret_cast<READ_FILE>(GetProcAddress(LibDll, "read_file"));
+    output_screen = reinterpret_cast<OUTPUT_SCREEN>(GetProcAddress(LibDll, "output_screen"));
+    output_file = reinterpret_cast<OUTPUT_FILE>(GetProcAddress(LibDll, "output_file"));
+    get_words = reinterpret_cast<GET_WORDS>(GetProcAddress(LibDll, "get_words"));
 
     if (!read_file || !output_screen || !output_file || !get_words || !throw_self_exception) {
         cerr << "Unable to get function address of lib.dll!" << endl;
@@ -138,9 +138,9 @@ int load_dll() {
         return -1;
     }
 
-    gen_chains_all = (GEN_CHAINS_ALL) GetProcAddress(CoreDll, "gen_chains_all");
-    gen_chain_word = (GEN_CHAINS_WORD) GetProcAddress(CoreDll, "gen_chain_word");
-    gen_chain_char = (GEN_CHAINS_CHAR) GetProcAddress(CoreDll, "gen_chain_char");
+    gen_chains_all = reinterpret_cast<GEN_CHAINS_ALL>(GetProcAddress(CoreDll, "gen_chains_all"));
+    gen_chain_word = reinterpret_cast<GEN_CHAINS_WORD>(GetProcAddress(CoreDll, "gen_chain_word"));
+    gen_chain_char = reinterpret_cast<GEN_CHAINS_CHAR>(GetProcAddress(CoreDll, "gen_chain_char"));
     if (!gen_chains_all || !gen_chain_word || !gen_chain_char) {
         cerr << "Unable to get function address of core.dll!" << endl;
         return -1;
