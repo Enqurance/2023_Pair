@@ -260,6 +260,7 @@ class MyFrame extends JFrame {
 
                 long startTime = System.currentTimeMillis();
 
+
                 // 运行函数
                 String[] words = {"woo", "oom", "moon", "noox"};
                 int len = words.length;
