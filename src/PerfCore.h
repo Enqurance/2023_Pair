@@ -7,6 +7,7 @@
 
 #include "bits/stdc++.h"
 #include "Node.h"
+#include "Error.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ private:
     vector<Node *> nodes;
     int nodes_size = -1;
     int inDegree[MAX] = {0};
-    bool graph_mode{};
+    bool graph_mode = false;
 
     vector<string> words;
     int words_size;
@@ -111,7 +112,7 @@ private:
                 tmp_inDegree[toNode_id]--;
                 if (tmp_inDegree[toNode_id] == 0 &&
                     ((head != 0 && nodes[toNode_id]->get_s() != head) ||
-                    (reject != 0 && nodes[toNode_id]->get_s() == reject))) {
+                     (reject != 0 && nodes[toNode_id]->get_s() == reject))) {
                     q.push(nodes[toNode_id]);
                 }
             }
@@ -128,6 +129,7 @@ private:
         }
         nodes.clear();
         nodes_with_diff_head->clear();
+        memset(inDegree, 0, sizeof(inDegree));
         create_nodes(graph_mode);
     }
 
@@ -154,6 +156,11 @@ private:
     }
 
     void dp_longest_chain() {
+        // 如果head和reject有要求，重构图
+        if (head != 0 || reject != 0) {
+            reBuildGraph();
+        }
+
         // 局部变量初始化
         queue<Node *> q;
         int tmp_inDegree[MAX];
@@ -162,9 +169,6 @@ private:
         memset(lastWord, -1, sizeof(lastWord));
         memset(dp, 0, sizeof(dp));
         memset(len_rec, 0, sizeof(len_rec));
-
-        // 如果head和reject有要求，重构图
-        if (head != 0 || reject != 0) reBuildGraph();
 
         // 入度为0的，且符合要求开头字母的，先入队
         for (int i = 0; i < nodes_size; i++) {
@@ -276,6 +280,7 @@ public:
                 memset(vis, false, nodes_size);
                 dfs_all_chain(i[j]->get_id(), *new vector<string>);
                 if (over_large) {
+                    dealWithOverLarge();
                     result.clear();
                     return 0;
                 }
@@ -293,6 +298,7 @@ public:
                     memset(vis, false, nodes_size);
                     dfs_longest_chain(i, 0, *new vector<string>, 0);
                     if (over_large) {
+                        dealWithOverLarge();
                         result.clear();
                         return 0;
                     }
@@ -301,6 +307,7 @@ public:
         } else {
             dp_longest_chain();
             if (over_large) {
+                dealWithOverLarge();
                 result.clear();
                 return 0;
             }
@@ -308,6 +315,14 @@ public:
         result = longest_chain;
         longest_size = int(longest_chain.size());
         return longest_size;
+    }
+
+    static void dealWithOverLarge() {
+        try {
+            throw SelfException(RESULT_TOO_LARGE, "");
+        } catch (const SelfException &e) {
+            cerr << e.what() << endl;
+        }
     }
 
     bool checkIllegalLoop() const {

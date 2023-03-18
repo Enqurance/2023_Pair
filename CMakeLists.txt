@@ -72,6 +72,3 @@ add_compile_options(-fprofile-arcs -ftest-coverage)
 add_custom_command(TARGET coretest
         POST_BUILD
         COMMAND gcov -k test/coretest/coretest.cpp)
-
-# GUI的main文件
-#add_executable(GUIMain GUI/main.cpp)

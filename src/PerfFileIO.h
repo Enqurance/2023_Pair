@@ -8,7 +8,7 @@ using namespace std;
 
 class FileIO {
 public:
-    static FileIO& getInstance() {
+    static FileIO &getInstance() {
         return fileIO;
     }
 
@@ -21,6 +21,9 @@ public:
     // 读文件，输出文件
     int read_file(const string &filename) {
         ifstream file(filename, ios::in);
+        if (!file.is_open()) {
+            return -1;
+        }
         initialize();
         string temp;
         while (getline(file, temp)) {
