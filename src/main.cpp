@@ -159,20 +159,25 @@ int parse_args(int argc, char *argv[]) {
     int i = 1;
     try {
         while (i < argc) {
-            if (strcmp(argv[i], "-n") == 0) {
-                is_all_chain = true;
-            } else if (strcmp(argv[i], "-w") == 0) {
-                is_word_chain = true;
-            } else if (strcmp(argv[i], "-c") == 0) {
-                is_count_chain = true;
-            } else if (strcmp(argv[i], "-h") == 0) {
-                if (parse_additional_args(is_head, head, argv, ++i, argc) == -1) return -1;
-            } else if (strcmp(argv[i], "-t") == 0) {
-                if (parse_additional_args(is_tail, tail, argv, ++i, argc) == -1) return -1;
-            } else if (strcmp(argv[i], "-j") == 0) {
-                if (parse_additional_args(is_not_head, reject, argv, ++i, argc) == -1) return -1;
-            } else if (strcmp(argv[i], "-r") == 0) {
-                enableLoop = true;
+            if (argv[i][0] == '-') {
+                if (!regex_match(argv[i], arg_pattern)) {
+                    throw_self_exception(ARGS_UNIDENTIFIED, "");
+                }
+                if (strcmp(argv[i], "-n") == 0) {
+                    is_all_chain = true;
+                } else if (strcmp(argv[i], "-w") == 0) {
+                    is_word_chain = true;
+                } else if (strcmp(argv[i], "-c") == 0) {
+                    is_count_chain = true;
+                } else if (strcmp(argv[i], "-h") == 0) {
+                    if (parse_additional_args(is_head, head, argv, ++i, argc) == -1) return -1;
+                } else if (strcmp(argv[i], "-t") == 0) {
+                    if (parse_additional_args(is_tail, tail, argv, ++i, argc) == -1) return -1;
+                } else if (strcmp(argv[i], "-j") == 0) {
+                    if (parse_additional_args(is_not_head, reject, argv, ++i, argc) == -1) return -1;
+                } else if (strcmp(argv[i], "-r") == 0) {
+                    enableLoop = true;
+                }
             } else {
                 // 文件不合法，不是以.txt结尾
                 if (!regex_match(argv[i], txt_pattern)) {
@@ -225,7 +230,7 @@ int parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) 
             // 全是字母
             throw_self_exception(VALUE_MORE_THAN_ONE, "");
         } else if (isalpha(argv[i][0])) {       // 后续值长度为1，且为字母，符合
-            ch = argv[i][0];
+            ch = (char )tolower(argv[i][0]);
         } else {                                    // 值的长度为1，但是不是字符，说明非法
             throw_self_exception(VALUE_ILLEGAL_ARGS, "");
         }

@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include "string"
 #include "windows.h"
-#include "../../src/PerfCore.h"
-#include "../../src/PerfFileIO.h"
+#include "../PerfCore.h"
+#include "../PerfFileIO.h"
 #include "../../src/Core.h"
 #include "../../src/Node.h"
 

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "string"
-#include "../../src/PerfFileIO.h"
-#include "../../src/PerfCore.h"
+#include "../PerfFileIO.h"
+#include "../PerfCore.h"
 
 using namespace std;
 
