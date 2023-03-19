@@ -43,4 +43,9 @@ public class FileIO {
         new_words = words.toArray(new_words);
         return new_words;
     }
+
+    static public void clear() {
+        new_words.clear();
+        words.clear();
+    }
 }
