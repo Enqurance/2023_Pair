@@ -47,7 +47,7 @@ TEST_F(CoreTest, Test_NO_FILE) {
     ASSERT_EQ(f.read_file(filename), -1);
 }
 
-// no file
+// illegal file
 TEST_F(CoreTest, Test_ILLEGAL_FILE) {
     FileIO f = FileIO::getInstance();
     string filename = "../test/Testfiles/MDFile.md";
@@ -86,4 +86,8 @@ TEST_F(CoreTest, Test_PARAMETER_ERROR) {
     ASSERT_EQ(ret7, 5);
     int ret8 = std::system("../../bin/Wordlist.exe -n -h a -h a ../Testfiles/input1.txt");
     ASSERT_EQ(ret8, 6);
+    int ret9 = std::system("../../bin/Wordlist.exe -n -h a");
+    ASSERT_EQ(ret9, 3);
+    int ret10 = std::system("../../bin/Wordlist.exe -n -h a input.txt input1.txt");
+    ASSERT_EQ(ret10, 4);
 }
