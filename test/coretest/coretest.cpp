@@ -88,7 +88,7 @@ TEST_F(CoreTest, Test_W_H_T) {
     ASSERT_EQ(f.output_file(result), 1);
 }
 
-// -w -h -t -r
+// -w -h -r
 TEST_F(CoreTest, Test_W_H_R) {
     FileIO f = FileIO::getInstance();
     string filename = "../test/Testfiles/input3.txt";

@@ -8,22 +8,10 @@ import java.util.HashSet;
 import static java.lang.Character.isLetter;
 
 public class FileIO {
-    static private HashSet<String> word_map;
-    static private ArrayList<String> words;
-    static private int words_cnt = 0;
+    static private final HashSet<String> word_map = new HashSet<>();
+    static private final ArrayList<String> words = new ArrayList<>();
 
-    static private void read_file(String filepath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                parse_words(line);
-            }
-        } catch (IOException e) {
-            System.err.println("Failed to read file: " + e.getMessage());
-        }
-    }
-
-    static private void parse_words(String context) {   /* 解析单词的函数 */
+    static public void parse_words(String context) {   /* 解析单词的函数 */
         int size = context.length();
         int i = 0;
         String word = "";

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.io.BufferedReader;
 import java.io.File;
@@ -110,6 +111,12 @@ class MyFrame extends JFrame {
         });
         saveButton.setBounds(50, 230, 100, 30);
         panel2.add(saveButton);
+
+        /* 执行时间Label */
+        JLabel timeLabel = new JLabel("程序执行时间");
+        timeLabel.setBackground(Color.BLACK);
+        timeLabel.setBounds(170, 230, 150, 30);
+        panel2.add(timeLabel);
 
 
         /* 添加多选框 */
@@ -235,19 +242,7 @@ class MyFrame extends JFrame {
                 outputArea.setText("请在右侧选择执行参数");
                 return;
             }
-            StringBuilder command = new StringBuilder("./Wordlist ");
             String data = inputArea.getText();
-            if (checkBox_n.isSelected()) {
-                command.append("-n ");
-            } else if (checkBox_w.isSelected()) {
-                command.append("-w ");
-                appendCommand(checkBox_h, checkBox_t, checkBox_j, comboBox_h, comboBox_t, comboBox_j, command);
-            } else if (checkBox_c.isSelected()) {
-                command.append("-c ");
-                appendCommand(checkBox_h, checkBox_t, checkBox_j, comboBox_h, comboBox_t, comboBox_j, command);
-            }
-            command.append("input.txt");
-            System.out.println(command);
             try {
                 FileWriter writer = new FileWriter("input.txt");
                 writer.write(data);
@@ -256,86 +251,82 @@ class MyFrame extends JFrame {
                 e1.printStackTrace();
             }
             try {
-                System.out.println("Executing");
-
+                timeLabel.setText("程序正在执行...");
+                outputArea.setText("");
                 long startTime = System.currentTimeMillis();
-
-
-                // 运行函数
-                String[] words = {"woo", "oom", "moon", "noox"};
+                FileIO.parse_words(inputArea.getText());
+                String[] words = FileIO.get_words();
                 int len = words.length;
-                String[][] result = new String[20000][];
-                int ret = CoreAPI.genChainsAll(words, len, result);
-                System.out.println(ret);
-                for (int i = 0; i < ret; i++) {
-                    int length = result[i].length;
-                    for (int j = 0; j < length; j++) {
-                        System.out.print(result[i][j] + " ");
+                // 运行函数
+                if (checkBox_n.isSelected()) {
+                    String[][] result = new String[20000][];
+                    int ret = CoreAPI.genChainsAll(words, len, result);
+                    if (ret == -1) {
+                        outputArea.setText("输入存在非法环");
+                        return;
                     }
-                    System.out.println();
+                    outputArea.append(ret + "\n");
+                    for (int i = 0; i < ret; i++) {
+                        int length = result[i].length;
+                        for (int j = 0; j < length; j++) {
+                            outputArea.append(result[i][j] + " ");
+                        }
+                        outputArea.append("\n");
+                    }
+                } else {
+                    char h = 0, t = 0, j = 0;
+                    if (checkBox_h.isSelected()) {
+                        if (comboBox_h.getSelectedItem() != null) {
+                            h = comboBox_h.getSelectedItem().toString().charAt(0);
+                        }
+                    }
+                    if (checkBox_t.isSelected()) {
+                        if (comboBox_t.getSelectedItem() != null) {
+                            t = comboBox_t.getSelectedItem().toString().charAt(0);
+                        }
+                    }
+                    if (checkBox_j.isSelected()) {
+                        if (comboBox_j.getSelectedItem() != null) {
+                            j = comboBox_j.getSelectedItem().toString().charAt(0);
+                        }
+                    }
+                    String[] result = new String[10005];
+                    int ret;
+                    if (checkBox_w.isSelected()) {
+                        ret = CoreAPI.genChainWord(words, len, result, h, t, j, checkBox_r.isSelected());
+                    } else {
+                        ret = CoreAPI.genChainChar(words, len, result, h, t, j, checkBox_r.isSelected());
+                    }
+                    if (ret == -1) {
+                        outputArea.setText("输入存在非法环");
+                        return;
+                    }
+                    for (int i = 0; i < ret; i++) {
+                        outputArea.append(result[i] + "\n");
+                    }
                 }
-
-//                Process p = Runtime.getRuntime().exec(command.toString());
-//                int exitCode = p.waitFor();
-//                if (exitCode == 0) {
-//                    System.out.println("程序执行成功！");
-//                } else {
-//                    System.out.println("程序执行失败！");
-//                    return;
-//                }
-
                 long endTime = System.currentTimeMillis();
                 double totalTimeInSeconds = (endTime - startTime) / 1000.0;
                 String formattedRunTime = String.format("%.2f", totalTimeInSeconds);
-
-                outputArea.setText("");
-                outputArea.append("程序执行时间为：" + formattedRunTime + "s\n");
-                if (checkBox_n.isSelected()) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        outputArea.append(line + "\n");
-                    }
-                } else {
-                    String context = readTxtFile("solution.txt", true);
-                    System.out.println(context);
-                    outputArea.append(context);
-                }
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            } catch (InterruptedException ex) {
+                timeLabel.setText("程序执行时间为：" + formattedRunTime + "s\n");
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
         panel1.add(executeButton);
     }
-
-    private void appendCommand(JCheckBox checkBox_h, JCheckBox checkBox_t, JCheckBox checkBox_j, JComboBox<String> comboBox_h, JComboBox<String> comboBox_t, JComboBox<String> comboBox_j, StringBuilder command) {
-        if (checkBox_h.isSelected()) {
-            command.append("-h ").append(comboBox_h.getSelectedItem()).append(" ");
-        }
-        if (checkBox_t.isSelected()) {
-            command.append("-t ").append(comboBox_t.getSelectedItem()).append(" ");
-        }
-        if (checkBox_j.isSelected()) {
-            command.append("-j ").append(comboBox_j.getSelectedItem()).append(" ");
-        }
-    }
-
     private String readTxtFile(String filepath, boolean changeLine) {
         StringBuilder str = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             if (changeLine) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    System.out.println(line);
                     str.append(line);
                     str.append("\n");
                 }
             } else {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    System.out.println(line);
                     str.append(line);
                 }
             }

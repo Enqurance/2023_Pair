@@ -1,5 +1,5 @@
 //
-// Created by Enqurance on 2023/3/10.
+// Created by ZYL on 2023/3/10.
 //
 
 #ifndef WORDLIST_CORE_H
@@ -132,11 +132,12 @@ private:
         create_nodes(graph_mode);
     }
 
-    void dfs_all_chain(int id, vector<string> cur_chain) {
+    void dfs_all_chain(int id, vector<string> &cur_chain, int cur_size) {
         if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
-        if (cur_chain.size() >= 2) {
+        cur_size++;
+        if (cur_size >= 2) {
             all_chains.push_back(cur_chain);
             all_chains_size++;
             if (all_chains_size > 20000) {
@@ -148,17 +149,16 @@ private:
         for (int i = 0; i < toNode_size; i++) {
             int toNode_id = nodes[id]->toNodes[i]->get_id();
             if (!vis[toNode_id]) {
-                dfs_all_chain(toNode_id, cur_chain);
+                dfs_all_chain(toNode_id, cur_chain, cur_size);
             }
         }
+        cur_chain.pop_back();
         vis[id] = false;
     }
 
     void dp_longest_chain() {
         // 如果head和reject有要求，重构图
-        if (head != 0 || reject != 0) {
-            reBuildGraph();
-        }
+        if (head != 0 || reject != 0) reBuildGraph();
 
         // 局部变量初始化
         queue<Node *> q;
@@ -219,7 +219,7 @@ private:
         reverse(longest_chain.begin(), longest_chain.end());
     }
 
-    void dfs_longest_chain(int id, int cur_v, vector<string> cur_chain, int cur_size) {
+    void dfs_longest_chain(int id, int cur_v, vector<string> &cur_chain, int cur_size) {
         if (over_large) return;
         vis[id] = true;
         cur_chain.push_back(nodes[id]->get_context());
@@ -241,6 +241,7 @@ private:
                 dfs_longest_chain(toNode_id, cur_v + nodes[toNode_id]->get_v(), cur_chain, cur_size);
             }
         }
+        cur_chain.pop_back();
         vis[id] = false;
     }
 
@@ -277,7 +278,7 @@ public:
             int size = (int) i.size();
             for (int j = 0; j < size; j++) {
                 memset(vis, false, nodes_size);
-                dfs_all_chain(i[j]->get_id(), *new vector<string>);
+                dfs_all_chain(i[j]->get_id(), *new vector<string>, 0);
                 if (over_large) {
 //                    dealWithOverLarge();
                     result.clear();
@@ -315,14 +316,6 @@ public:
         longest_size = int(longest_chain.size());
         return longest_size;
     }
-
-//    static void dealWithOverLarge() {
-//        try {
-//            throw SelfException(RESULT_TOO_LARGE, "");
-//        } catch (const SelfException &e) {
-//            cerr << e.what() << endl;
-//        }
-//    }
 
     bool checkIllegalLoop() const {
         return !enable_loop && loop_exist;
