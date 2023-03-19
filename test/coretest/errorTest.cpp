@@ -70,6 +70,7 @@ TEST_F(CoreTest, Test_ILLEGAL_LOOP) {
 
 // parameter error
 TEST_F(CoreTest, Test_PARAMETER_ERROR) {
+
     int ret1 = std::system("../../bin/Wordlist.exe -c -w ../Testfiles/input1.txt");
     ASSERT_EQ(ret1, 11);
     int ret2 = std::system("../../bin/Wordlist.exe ../Testfiles/input1.txt");
