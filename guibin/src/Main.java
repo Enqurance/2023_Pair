@@ -253,6 +253,7 @@ class MyFrame extends JFrame {
             try {
                 timeLabel.setText("程序正在执行...");
                 outputArea.setText("");
+                FileIO.clear();
                 long startTime = System.currentTimeMillis();
                 FileIO.parse_words(inputArea.getText());
                 String[] words = FileIO.get_words();

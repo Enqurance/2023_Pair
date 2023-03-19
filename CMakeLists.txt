@@ -70,6 +70,8 @@ include_directories(lib/googletest/include googletest)
 # 添加测试文件
 # core测试
 add_executable(coretest test/coretest/coretest.cpp)
+link_directories(${CMAKE_SOURCE_DIR}/guibin/)
+target_link_libraries(coretest ${CMAKE_SOURCE_DIR}/guibin/libword_list.dll)
 set_target_properties(coretest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 target_link_libraries(coretest gtest gtest_main)
 

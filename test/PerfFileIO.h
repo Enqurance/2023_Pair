@@ -2,7 +2,7 @@
 #define WORDLIST_FILEIO_H
 
 #include "bits/stdc++.h"
-#include "Node.h"
+#include "../src/Node.h"
 
 using namespace std;
 

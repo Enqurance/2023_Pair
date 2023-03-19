@@ -2,7 +2,7 @@ import java.io.File;
 
 public class CoreAPI {
     static {
-        System.load(System.getProperty("user.dir") + File.separator + ".." + File.separator + "libword_list.dll"); // 加载 DLL 文件
+        System.load(System.getProperty("user.dir") + File.separator + "libword_list.dll"); // 加载 DLL 文件
     }
 
     public static native int genChainsAll(String[] words, int len, String[][] result);

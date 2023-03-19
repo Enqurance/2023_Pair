@@ -1,12 +1,53 @@
 #include <gtest/gtest.h>
 #include "string"
 #include "windows.h"
-#include "../PerfCore.h"
 #include "../PerfFileIO.h"
-#include "../../src/Core.h"
-#include "../../src/Node.h"
 
 using namespace std;
+
+typedef int (*GEN_CHAINS_ALL)(char **words, int len, vector<vector<string>> &result);
+
+typedef int (*GEN_CHAINS_WORD)(char **words, int len, vector<string> &result,
+                               char head, char tail, char reject, bool enable_loop);
+
+typedef int (*GEN_CHAINS_CHAR)(char **words, int len, vector<string> &result,
+                               char head, char tail, char reject, bool enable_loop);
+
+HMODULE CoreDll;
+GEN_CHAINS_ALL gen_chains_all;
+GEN_CHAINS_WORD gen_chain_word;
+GEN_CHAINS_CHAR gen_chain_char;
+
+char** vectorToCharArray(vector<std::string>& vec) {
+    char** result = new char*[vec.size() + 1];
+    for (size_t i = 0; i < vec.size(); i++) {
+        result[i] = new char[vec[i].size() + 1];
+        strcpy(result[i], vec[i].c_str());
+    }
+    result[vec.size()] = nullptr;
+    return result;
+}
+
+int load_dll() {
+    // 加载core.dll库
+    CoreDll = LoadLibrary("D:\\BUAA_Files\\Learning_Files\\Senior_Three_2\\BUAA_SE\\Pair_Project\\2023_Pair\\guibin\\libword_list.dll");
+    if (!CoreDll) {
+        cerr << "Unable to load CORE DLL!" << endl;
+        return -1;
+    }
+
+    gen_chains_all = reinterpret_cast<GEN_CHAINS_ALL>(GetProcAddress(CoreDll, "gen_chains_all"));
+    gen_chain_word = reinterpret_cast<GEN_CHAINS_WORD>(GetProcAddress(CoreDll, "gen_chain_word"));
+    gen_chain_char = reinterpret_cast<GEN_CHAINS_CHAR>(GetProcAddress(CoreDll, "gen_chain_char"));
+    if (!gen_chains_all) cerr << "1";
+    if (!gen_chain_word) cerr << "2";
+    if (!gen_chain_char) cerr << "3";
+    if (!gen_chains_all || !gen_chain_word || !gen_chain_char) {
+        cerr << "Unable to get function address of core.dll!" << endl;
+        return -1;
+    }
+    return 0;
+}
 
 vector<string> input1{"woo", "oom", "moon", "noox", "blue", "nijun"};
 vector<string> input2{"algebra", "apple", "zoo", "elephant", "under", "fox", "dog",
@@ -22,6 +63,7 @@ int comp_words(vector<string> &source, vector<string> &target);
 class CoreTest : public ::testing::Test {
 protected:
     void SetUp() override {
+        load_dll();
     }
 
     void TearDown() override {
@@ -45,9 +87,9 @@ TEST_F(CoreTest, Test_N) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size);
+    char **new_words = vectorToCharArray(words);
     vector<vector<string>> result;
-    core.genAllWordChain(result);
+    gen_chains_all(new_words, size, result);
 //    ASSERT_EQ(core.genAllWordChain(result), 13);
     ASSERT_EQ(f.output_screen(result), 1);
 }
@@ -64,9 +106,9 @@ TEST_F(CoreTest, Test_W) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, false, 0, 0, 0, false);
+    char **new_words = vectorToCharArray(words);
     vector<string> result;
-    ASSERT_EQ(core.genMaxWordCountChain(result), 5);
+    ASSERT_EQ(gen_chain_word(new_words, size, result, 0, 0, 0, false), 5);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -82,9 +124,9 @@ TEST_F(CoreTest, Test_W_H_T) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, false, 'a', 'z', 0, false);
+    char **new_words = vectorToCharArray(words);
     vector<string> result;
-    ASSERT_EQ(core.genMaxWordCountChain(result), 4);
+    ASSERT_EQ(gen_chain_word(new_words, size, result, 'a', 'z', 0, false), 4);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -100,10 +142,9 @@ TEST_F(CoreTest, Test_W_H_R) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, true, 'b', 0, 0, false);
+    char **new_words = vectorToCharArray(words);
     vector<string> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
-    ASSERT_EQ(core.genMaxWordCountChain(result), 4);
+    ASSERT_EQ(gen_chain_word(new_words, size, result, 'b', 0, 0, false), 4);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -119,10 +160,9 @@ TEST_F(CoreTest, Test_W_J_R) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, false, 0, 0, 'a', false);
     vector<string> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
-    ASSERT_EQ(core.genMaxWordCountChain(result), 3);
+    char **new_words = vectorToCharArray(words);
+    ASSERT_EQ(gen_chain_word(new_words, size, result, 0, 0, 'a', false), 3);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -138,10 +178,9 @@ TEST_F(CoreTest, Test_C_H_T) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, false, 't', 'z', 0, true);
     vector<string> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
-    ASSERT_EQ(core.genMaxWordCountChain(result), 3);
+    char **new_words = vectorToCharArray(words);
+    ASSERT_EQ(gen_chain_char(new_words, size, result, 't', 'z', 0, true), 3);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -156,11 +195,10 @@ TEST_F(CoreTest, Test_TOO_MANY_CHAIN) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size);
     vector<vector<string>> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
+    char **new_words = vectorToCharArray(words);
 //    ASSERT_EQ(core.genAllWordChain(result), 3);
-    ASSERT_EQ(core.genAllWordChain(result), 0);
+    ASSERT_EQ(gen_chains_all(new_words, size, result), 0);
     ASSERT_EQ(f.output_screen(result), 1);
 }
 
@@ -174,10 +212,9 @@ TEST_F(CoreTest, Test_C_R) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, true, 0, 0, 0, true);
     vector<string> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
-    ASSERT_EQ(core.genMaxWordCountChain(result), 7);
+    char **new_words = vectorToCharArray(words);
+    ASSERT_EQ(gen_chain_char(new_words, size, result, 0, 0, 0, true), 7);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
@@ -191,10 +228,9 @@ TEST_F(CoreTest, Test_C_R_COMP) {
 
 
     /* 功能测试 */
-    Core core = *new Core(words, size, true, 0, 0, 0, true);
     vector<string> result;
-    ASSERT_EQ(core.checkIllegalLoop(), false);
-    ASSERT_EQ(core.genMaxWordCountChain(result), 13);
+    char **new_words = vectorToCharArray(words);
+    ASSERT_EQ(gen_chain_char(new_words, size, result, 0, 0, 0, true), 13);
     ASSERT_EQ(f.output_file(result), 1);
 }
 
