@@ -33,7 +33,6 @@ TEST_F(CoreTest, Test_TOO_MANY_CHAIN) {
     ASSERT_EQ(f.read_file(filename), 1);
     ASSERT_EQ(size = f.get_words(words), 250);
 
-
     /* 功能测试 */
     Core core = *new Core(words, size);
     vector<vector<string>> result;
