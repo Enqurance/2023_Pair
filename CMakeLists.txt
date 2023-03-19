@@ -65,7 +65,7 @@ add_executable(coretest test/coretest/coretest.cpp)
 set_target_properties(coretest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 target_link_libraries(coretest gtest gtest_main)
 
-# core测试
+# error测试
 add_executable(errorTest test/coretest/errorTest.cpp)
 set_target_properties(errorTest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 target_link_libraries(errorTest gtest gtest_main)
