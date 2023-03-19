@@ -164,10 +164,13 @@ int parse_args(int argc, char *argv[]) {
                     throw_self_exception(ARGS_UNIDENTIFIED, "");
                 }
                 if (strcmp(argv[i], "-n") == 0) {
+                    if (is_all_chain) throw_self_exception(ARGS_DUPLICATE, "");
                     is_all_chain = true;
                 } else if (strcmp(argv[i], "-w") == 0) {
+                    if (is_word_chain) throw_self_exception(ARGS_DUPLICATE, "");
                     is_word_chain = true;
                 } else if (strcmp(argv[i], "-c") == 0) {
+                    if (is_count_chain) throw_self_exception(ARGS_DUPLICATE, "");
                     is_count_chain = true;
                 } else if (strcmp(argv[i], "-h") == 0) {
                     if (parse_additional_args(is_head, head, argv, ++i, argc) == -1) return -1;
@@ -176,6 +179,7 @@ int parse_args(int argc, char *argv[]) {
                 } else if (strcmp(argv[i], "-j") == 0) {
                     if (parse_additional_args(is_not_head, reject, argv, ++i, argc) == -1) return -1;
                 } else if (strcmp(argv[i], "-r") == 0) {
+                    if (enableLoop) throw_self_exception(ARGS_DUPLICATE, "");
                     enableLoop = true;
                 }
             } else {
@@ -209,8 +213,9 @@ int parse_args(int argc, char *argv[]) {
 
 /* 处理-h-t-j三个附加参数，主要是异常处理 */
 int parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) {
-    flag = true;
     try {
+        if (flag) throw_self_exception(ARGS_DUPLICATE, "");
+        flag = true;
         if (is_all_chain) {
             throw_self_exception(ARG_N_CONFLICT, "");
         } else if (i >= size) {                     // 参数后无其他信息，说明没有附加值
