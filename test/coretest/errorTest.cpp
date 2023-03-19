@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 #include "string"
 #include "windows.h"
-#include "../../src/PerfFileIO.h"
+#include "../PerfFileIO.h"
 #include "../../src/Core.h"
 
 // 测试套件示例

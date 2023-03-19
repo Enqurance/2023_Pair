@@ -13,9 +13,9 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 #set(CMAKE_CXX_FLAGS "-O0")
 
 # 连接jni库
-#find_package(JNI REQUIRED)
-#include_directories(${JNI_INCLUDE_DIRS})
-#link_libraries(${JNI_LIBRARIES})
+find_package(JNI REQUIRED)
+include_directories(${JNI_INCLUDE_DIRS})
+link_libraries(${JNI_LIBRARIES})
 
 # 设置可执行文件.exe输出的地址
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -26,11 +26,19 @@ set(CMAKE_LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 # 生成动态链接库core.dll
 set(CORE
         src/Core.cpp
-        src/Node.cpp src/PerfCore.cpp src/PerfCore.h src/PerfFileIO.cpp src/PerfFileIO.h)
+        src/Node.cpp)
 add_library(core SHARED ${CORE})
 set_target_properties(core PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
         OUTPUT_NAME "core")
+
+#set(COTESTCORE
+#        src/Node.cpp
+#        src/api_cpy.cpp)
+#add_library(coTestCore SHARED ${COTESTCORE})
+#set_target_properties(coTestCore PROPERTIES
+#        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
+#        OUTPUT_NAME "coTestCore")
 
 # 生成动态链接库lib.dll
 set(LIB

@@ -225,7 +225,7 @@ int parse_additional_args(bool &flag, char &ch, char *argv[], int &i, int size) 
             // 全是字母
             throw_self_exception(VALUE_MORE_THAN_ONE, "");
         } else if (isalpha(argv[i][0])) {       // 后续值长度为1，且为字母，符合
-            ch = argv[i][0];
+            ch = (char )tolower(argv[i][0]);
         } else {                                    // 值的长度为1，但是不是字符，说明非法
             throw_self_exception(VALUE_ILLEGAL_ARGS, "");
         }
