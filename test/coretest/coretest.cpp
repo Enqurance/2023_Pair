@@ -3,6 +3,7 @@
 #include "windows.h"
 #include "../../src/PerfCore.h"
 #include "../../src/PerfFileIO.h"
+#include "../../src/Core.h"
 #include "../../src/Node.h"
 
 using namespace std;
