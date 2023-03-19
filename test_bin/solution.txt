@@ -1,4 +1,13 @@
-bbcc
-cdef
-fack
-kill
+ab
+ba
+ae
+ea
+af
+fb
+be
+eb
+bf
+fe
+ef
+fa
+ac
