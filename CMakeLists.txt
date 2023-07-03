@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required (VERSION 3.8)
 project(Wordlist)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -7,7 +7,7 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 # 设置C++14标准
 set(CMAKE_CXX_STANDARD 14)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 # 关闭编译器优化
 #set(CMAKE_CXX_FLAGS "-O0")
@@ -57,11 +57,14 @@ target_include_directories(lib PUBLIC ${CMAKE_SOURCE_DIR}/src)
 add_executable(Wordlist src/main.cpp)
 target_link_libraries(Wordlist core)
 target_link_libraries(Wordlist lib)
-set_target_properties(Wordlist PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set_target_properties(Wordlist PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin LINK_FLAGS "-static-libstdc++")
 
 add_executable(PerfTest test/PerfTest/PerfTest.cpp)
 set_target_properties(PerfTest PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/test_bin)
 
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+    set_property(TARGET Wordlist PROPERTY CXX_STANDARD 20)
+endif()
 
 # 添加测试单元库
 add_subdirectory(lib)
